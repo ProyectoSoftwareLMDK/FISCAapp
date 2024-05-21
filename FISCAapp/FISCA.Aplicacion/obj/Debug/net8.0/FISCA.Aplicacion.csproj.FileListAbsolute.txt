@@ -1,0 +1,12 @@
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\bin\Debug\net8.0\FISCA.Aplicacion.deps.json
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\bin\Debug\net8.0\FISCA.Aplicacion.dll
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\bin\Debug\net8.0\FISCA.Aplicacion.pdb
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.AssemblyInfoInputs.cache
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.AssemblyInfo.cs
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.sourcelink.json
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.dll
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\refint\FISCA.Aplicacion.dll
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\FISCA.Aplicacion.pdb
+C:\Users\QUINN\Documents\Github\Proyecto-Construccion\FISCAapp\FISCA.Aplicacion\obj\Debug\net8.0\ref\FISCA.Aplicacion.dll
