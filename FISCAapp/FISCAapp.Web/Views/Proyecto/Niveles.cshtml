@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Niveles>
+<h2>Lista Niveles</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdNivel</th>
+            <th>NombreNivel</th>
+        
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var niveles in Model)
+        {
+            <tr>
+                <td>@niveles.IdNivel</td>
+                <td>@niveles.NombreNivel</td>
+                
+
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>

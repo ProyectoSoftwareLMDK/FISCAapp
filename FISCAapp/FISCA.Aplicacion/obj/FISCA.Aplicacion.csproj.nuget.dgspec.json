@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {}
+    "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {
+    "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
         "projectName": "FISCA.Aplicacion",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\obj\\",
+        "projectPath": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

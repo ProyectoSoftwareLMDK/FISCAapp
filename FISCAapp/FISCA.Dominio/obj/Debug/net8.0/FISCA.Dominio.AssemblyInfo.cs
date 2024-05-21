@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FISCA.Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b17919ed47dc9ebe64ccc8b3cde4d776185e6f68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e464a8bd4895a58cf3a254ea557775dfeb143f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("FISCA.Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FISCA.Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

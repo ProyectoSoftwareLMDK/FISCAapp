@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+.bg-custom {
+    background-color: #951f2b; /* Código de color para rojo */
+}
+.navbar-nav .nav-link {
+    color: white !important;
+}
+navbar-brand {
+    color: white !important;
+}
