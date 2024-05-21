@@ -97,7 +97,7 @@ namespace FISCA.Infraestructura.Migrations
                 values: new object[,]
                 {
                     { 1, new DateTime(2024, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, "JAJAJAJA" },
-                    { 2, new DateTime(2025, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, 2, "JEJEJEJE" }
+                    { 2, new DateTime(2025, 2, 1, 0, 0, 0, 02, DateTimeKind.Unspecified), 2, 2, "JEJEJEJE" }
                 });
 
             migrationBuilder.InsertData(
