@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {}
+    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {
+    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
         "projectName": "FISCA.Aplicacion",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
         "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Aplicacion\\obj\\",
+        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",

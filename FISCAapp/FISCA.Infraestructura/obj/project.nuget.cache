@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nQ4BMKvOs1I=",
+  "dgSpecHash": "eEuzA+aeTzA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
+  "projectFilePath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\QUINN\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\QUINN\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
