@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Numeros_Asignaciones>
+<h2>Lista Numeros Asignaturas</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdNumerosAsignaciones</th>
+            <th>NumeroAsignado</th>
+            <th>IdDocente</th>
+          
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var numeros_Asignaciones in Model)
+        {
+            <tr>
+                <td>@numeros_Asignaciones.IdNumerosAsignaciones</td>
+                <td>@numeros_Asignaciones.NumeroAsignado</td>
+                <td>@numeros_Asignaciones.IdDocente</td>
+           
+
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
