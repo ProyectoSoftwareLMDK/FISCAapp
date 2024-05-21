@@ -4122,19 +4122,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\QUINN\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
+      "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
       "projectName": "FISCA.Infraestructura",
-      "projectPath": "D:\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\obj\\",
+      "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
+      "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Infraestructura\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4149,8 +4149,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
-              "projectPath": "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj"
+            "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
+              "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj"
             }
           }
         }
