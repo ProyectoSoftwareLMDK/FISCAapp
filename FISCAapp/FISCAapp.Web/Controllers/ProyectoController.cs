@@ -17,25 +17,25 @@ namespace FISCAapp.WEB.Controllers
             var listaIncripciones = _aplicacionDb.inscripcionesAsignaturas.ToList();
             return View(listaIncripciones);
         }
-        public IActionResult IndexMaterialDidactico()
+        public IActionResult MaterialDidactico()
         {
             var listaMaterialDidactico = _aplicacionDb.materialDidacticos.ToList();
             return View(listaMaterialDidactico);
         }
-        public IActionResult IndexMensajes()
+        public IActionResult Mensajes()
         {
             var listaMensajes = _aplicacionDb.mensajes.ToList();
             return View(listaMensajes);
         }
-        public IActionResult IndexNiveles()
+        public IActionResult Niveles()
         {
             var listaNiveles = _aplicacionDb.niveles.ToList();
             return View(listaNiveles);
         }
-        public IActionResult IndexNumerosAsignaturas()
+        public IActionResult NumerosAsignaturas()
         {
-            var listaNumerosAsig = _aplicacionDb.numeros_Asignaciones.ToList();
-            return View(listaNumerosAsig);
+            var listaNumerosAsignaciones = _aplicacionDb.numeros_Asignaciones.ToList();
+            return View(listaNumerosAsignaciones);
         }
     }
 }

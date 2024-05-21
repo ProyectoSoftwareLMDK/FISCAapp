@@ -1,0 +1,48 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Mensajes>
+<h2>Lista Mensajes</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdMensaje</th>
+            <th>Remitente</th>
+            <th>Correo</th>
+            <th>Remitio</th>
+            <th>Mensaje</th>
+            <th>FechaEnvio</th>
+          
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mensajes in Model)
+        {
+            <tr>
+                <td>@mensajes.IdMensaje</td>
+                <td>@mensajes.Remitente</td>
+                <td>@mensajes.Correo</td>
+                <td>@mensajes.Remitio</td>
+                <td>@mensajes.Mensaje</td>
+                <td>@mensajes.FechaEnvio</td>
+            
+
+            </tr>
+        }
+    </tbody>
+</table>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
