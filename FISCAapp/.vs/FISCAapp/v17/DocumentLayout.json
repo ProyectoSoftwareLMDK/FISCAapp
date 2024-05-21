@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\FISCAapp\\FISCAapp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|d:\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\proyecto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\proyecto\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|d:\\fiscaapp\\fiscaapp\\fiscaapp.web\\controllers\\proyectocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\controllers\\proyectocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Proyecto\\Index.cshtml",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\Proyecto\\Index.cshtml",
+              "ToolTip": "D:\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Proyecto\\Index.cshtml",
+              "RelativeToolTip": "FISCAapp.Web\\Views\\Proyecto\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T20:20:14.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProyectoController.cs",
+              "DocumentMoniker": "D:\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "ToolTip": "D:\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "RelativeToolTip": "FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T20:19:54.533Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
