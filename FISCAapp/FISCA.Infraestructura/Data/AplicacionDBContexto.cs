@@ -13,11 +13,19 @@ namespace FISCA.Infraestructura.Data
     {
         public AplicacionDbContexto(DbContextOptions<AplicacionDbContexto> options) : base(options) { }
 
+        //DIEGO
         public DbSet<Material_Didactico> materialDidacticos { get; set; }
         public DbSet<Inscripciones_Asignaturas> inscripcionesAsignaturas { get; set; }
         public DbSet<Mensajes> mensajes { get; set; }
         public DbSet<Niveles> niveles { get; set; }
         public DbSet<Numeros_Asignaciones> numeros_Asignaciones { get; set; }
+        
+        //KENYI
+        public DbSet<Asignacion> asignaciones { get; set; }
+        public DbSet<Asignatura> asignaturas { get; set; }
+        public DbSet<Carrera> carreras { get; set; }
+        public DbSet<Cuatrimestre> cuatrimestres { get; set; }
+        public DbSet<Docente> docentes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,18 +42,18 @@ namespace FISCA.Infraestructura.Data
                     FechaInscripcion = DateTime.ParseExact("01/02/2024", "dd/MM/yyyy", null),
                     Observaciones = "JAJAJAJA"
                 },
-                    new Inscripciones_Asignaturas
+                new Inscripciones_Asignaturas
                     {
                         IdInscripcion = 2,
                         IdAsignatura = 2,
                         IdEstudiante = 2,
                         FechaInscripcion = DateTime.ParseExact("01/02/2025", "dd/MM/yyyy", null),
                         Observaciones = "JEJEJEJE"
-                    }
+                }
 
             );
-            //Material_Didactico
 
+            //Material_Didactico
             modelBuilder.Entity<Material_Didactico>().HasData(
                 new Material_Didactico
                 {
@@ -68,6 +76,7 @@ namespace FISCA.Infraestructura.Data
                     IdDocente = 2
                 }
             );
+
             //Mensaje
             modelBuilder.Entity<Mensajes>().HasData(
                 new Mensajes
@@ -89,9 +98,9 @@ namespace FISCA.Infraestructura.Data
                      Mensaje = "Anuela AA",
                      FechaEnvio = DateTime.ParseExact("01/02/2027", "dd/MM/yyyy", null),
                  }
-                );
-            //Niveles
+            );
 
+            //Niveles
             modelBuilder.Entity<Niveles>().HasData(
                 new Niveles
                 {
@@ -103,7 +112,7 @@ namespace FISCA.Infraestructura.Data
                      IdNivel = 2,
                      NombreNivel = "Gumball",
                  }
-                );
+            );
 
             //Numeros_Asignaciones
             modelBuilder.Entity<Numeros_Asignaciones>().HasData(
@@ -111,12 +120,73 @@ namespace FISCA.Infraestructura.Data
                 {
                     IdNumerosAsignaciones = 1,
                     NumeroAsignado = 1,
-                    IdDocente = 1,
+                    IdDocente = 1
                 }
-                );
+            );
 
+            //KENYI
+            //Asignacion
+            modelBuilder.Entity<Asignacion>().HasData(
+                new Asignacion 
+                { 
+                    IdAsignacion = 1,
+                    Descripcion = "Waos",
+                    IdDocente = 1,
+                    IdAsignatura = 1,
+                    IdGrupo = 1,
+                    IdTurno = 1,
+                    IdHorario = 1,
+                    Estado = "Activo",
+                    NumeroAsignacion = 1
+                }
+            );
 
+            //Asignatura
+            modelBuilder.Entity<Asignatura>().HasData(
+                new Asignatura
+                {
+                    IdAsignatura = 1,
+                    NombreAsignatura = "Analisis Matematico",
+                    IdCarrera = 1,
+                    IdGrupo = 1,
+                    IdCuatrimestre = 1
+                }
+            );
 
+            //Carrera
+            modelBuilder.Entity<Carrera>().HasData(
+                new Carrera
+                {
+                    IdCarrera = 1,
+                    NombreCarrera = "Waza"
+                }
+            );
+
+            //Cuatrimestre
+            modelBuilder.Entity<Cuatrimestre>().HasData(
+                new Cuatrimestre
+                {
+                    IdCuatrimestre = 1,
+                    NombreCuatrimestre = "Pruebita"
+                }
+            );
+
+            //Docente
+            modelBuilder.Entity<Docente>().HasData(
+                new Docente
+                {
+                   IdDocente = 1,
+                   NombresDocente = "Pedro",
+                   ApellidosDocente = "Gimenez Garcilazo",
+                   CedulaDocente = "72546978",
+                   CorreoDocente = "pedro@upla.edu.pe",
+                   CelularDocente = "978456123",
+                   TelefonoDocente = "064526",
+                   DireccionDocente = "Psje. Chifuentes",
+                   Estado = 1,
+                   Foto = ""
+                }
+            );
         }
     }
 }

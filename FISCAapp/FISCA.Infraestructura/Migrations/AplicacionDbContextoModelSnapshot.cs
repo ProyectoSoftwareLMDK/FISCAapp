@@ -22,6 +22,193 @@ namespace FISCA.Infraestructura.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("FISCA.Dominio.Entidades.Asignacion", b =>
+                {
+                    b.Property<int>("IdAsignacion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAsignacion"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdAsignatura")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdDocente")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGrupo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdHorario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTurno")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumeroAsignacion")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdAsignacion");
+
+                    b.ToTable("asignaciones");
+
+                    b.HasData(
+                        new
+                        {
+                            IdAsignacion = 1,
+                            Descripcion = "Waos",
+                            Estado = "Activo",
+                            IdAsignatura = 1,
+                            IdDocente = 1,
+                            IdGrupo = 1,
+                            IdHorario = 1,
+                            IdTurno = 1,
+                            NumeroAsignacion = 1
+                        });
+                });
+
+            modelBuilder.Entity("FISCA.Dominio.Entidades.Asignatura", b =>
+                {
+                    b.Property<int>("IdAsignatura")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAsignatura"));
+
+                    b.Property<int>("IdCarrera")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCuatrimestre")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGrupo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NombreAsignatura")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdAsignatura");
+
+                    b.ToTable("asignaturas");
+
+                    b.HasData(
+                        new
+                        {
+                            IdAsignatura = 1,
+                            IdCarrera = 1,
+                            IdCuatrimestre = 1,
+                            IdGrupo = 1,
+                            NombreAsignatura = "Analisis Matematico"
+                        });
+                });
+
+            modelBuilder.Entity("FISCA.Dominio.Entidades.Carrera", b =>
+                {
+                    b.Property<int>("IdCarrera")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCarrera"));
+
+                    b.Property<string>("NombreCarrera")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdCarrera");
+
+                    b.ToTable("carreras");
+
+                    b.HasData(
+                        new
+                        {
+                            IdCarrera = 1,
+                            NombreCarrera = "Waza"
+                        });
+                });
+
+            modelBuilder.Entity("FISCA.Dominio.Entidades.Cuatrimestre", b =>
+                {
+                    b.Property<int>("IdCuatrimestre")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCuatrimestre"));
+
+                    b.Property<string>("NombreCuatrimestre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdCuatrimestre");
+
+                    b.ToTable("cuatrimestres");
+
+                    b.HasData(
+                        new
+                        {
+                            IdCuatrimestre = 1,
+                            NombreCuatrimestre = "Pruebita"
+                        });
+                });
+
+            modelBuilder.Entity("FISCA.Dominio.Entidades.Docente", b =>
+                {
+                    b.Property<int>("IdDocente")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDocente"));
+
+                    b.Property<string>("ApellidosDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CedulaDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CelularDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CorreoDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DireccionDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Estado")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombresDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TelefonoDocente")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdDocente");
+
+                    b.ToTable("docentes");
+
+                    b.HasData(
+                        new
+                        {
+                            IdDocente = 1,
+                            ApellidosDocente = "Gimenez Garcilazo",
+                            CedulaDocente = "72546978",
+                            CelularDocente = "978456123",
+                            CorreoDocente = "pedro@upla.edu.pe",
+                            DireccionDocente = "Psje. Chifuentes",
+                            Estado = 1,
+                            Foto = "",
+                            NombresDocente = "Pedro",
+                            TelefonoDocente = "064526"
+                        });
+                });
+
             modelBuilder.Entity("FISCA.Dominio.Entidades.Inscripciones_Asignaturas", b =>
                 {
                     b.Property<int>("IdInscripcion")

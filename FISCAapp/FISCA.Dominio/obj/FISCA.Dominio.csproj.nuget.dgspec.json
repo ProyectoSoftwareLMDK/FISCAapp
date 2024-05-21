@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {}
+    "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
+    "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
+        "projectUniqueName": "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
         "projectName": "FISCA.Dominio",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
-        "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\Proyecto-Construccion\\FISCAapp\\FISCA.Dominio\\obj\\",
+        "projectPath": "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\FISCAapp\\FISCAapp\\FISCA.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
