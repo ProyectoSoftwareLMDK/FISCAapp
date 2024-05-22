@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Estudiante>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdEstudiante</th>
+            <th>CarnetEstudiante</th>
+            <th>NombresEstudiante</th>
+            <th>ApellidosEstudiante</th>
+            <th>CedulaEstudiante</th>
+            <th>CorreoEstudiante</th>
+            <th>CelularEstudiante</th>
+            <th>TelefonoEstudiante</th>
+            <th>DireccionEstudiante</th>
+            <th>Estado</th>
+            <th>IdGrupo</th>
+            <th>Foto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudiante in Model)
+        {
+            <tr>
+                <td>@estudiante.IdEstudiante</td>
+                <td>@estudiante.CarnetEstudiante</td>
+                <td>@estudiante.NombresEstudiante</td>
+                <td>@estudiante.ApellidosEstudiante</td>
+                <td>@estudiante.CedulaEstudiante</td>
+                <td>@estudiante.CorreoEstudiante</td>
+                <td>@estudiante.CelularEstudiante</td>
+                <td>@estudiante.TelefonoEstudiante</td>
+                <td>@estudiante.DireccionEstudiante</td>
+                <td>@estudiante.Estado</td>
+                <td>@estudiante.IdGrupo</td>
+                <td>@estudiante.Foto</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+

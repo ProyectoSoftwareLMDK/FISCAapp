@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Usuario>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdUsuario</th>
+            <th>NombreUsuario</th>
+            <th>PassUsuario</th>
+            <th>NivelUsuario</th>
+            <th>Codigo</th>
+            <th>Foto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.IdUsuario</td>
+                <td>@usuario.NombreUsuario</td>
+                <td>@usuario.PassUsuario</td>
+                <td>@usuario.NivelUsuario</td>
+                <td>@usuario.Codigo</td>
+                <td>@usuario.Foto</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>

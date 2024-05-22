@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Cuatrimestre>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdCuatrimestre</th>
+            <th>NombreCuatrimestre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuatrimestre in Model)
+        {
+            <tr>
+                <td>@cuatrimestre.IdCuatrimestre</td>
+                <td>@cuatrimestre.NombreCuatrimestre</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
