@@ -9,8 +9,9 @@ namespace FISCA.Dominio.Entidades
 {
     public class Mensajes
     {
+        [Key]
 
-        [Key] public int IdMensaje { get; set; }
+        public int IdMensaje { get; set; }
         public string? Remitente { get; set; }
         public string? Correo { get; set; }
         public string? Remitio { get; set; }

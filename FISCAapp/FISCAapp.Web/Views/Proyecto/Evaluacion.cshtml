@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Evaluacion>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdEvaluacion</th>
+            <th>Descripcion</th>
+            <th>IdEstudiante</th>
+            <th>IdAsignatura</th>
+            <th>Unidad</th>
+            <th>Tarea</th>
+            <th>IdDocente</th>
+            <th>Puntaje</th>
+            <th>FechaEvaluacion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evaluacion in Model)
+        {
+            <tr>
+                <td>@evaluacion.IdEvaluacion</td>
+                <td>@evaluacion.Descripcion</td>
+                <td>@evaluacion.IdEstudiante</td>
+                <td>@evaluacion.IdAsignatura</td>
+                <td>@evaluacion.Unidad</td>
+                <td>@evaluacion.Tarea</td>
+                <td>@evaluacion.IdDocente</td>
+                <td>@evaluacion.Puntaje</td>
+                <td>@evaluacion.FechaEvaluacion.ToString("yyyy-MM-dd")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>

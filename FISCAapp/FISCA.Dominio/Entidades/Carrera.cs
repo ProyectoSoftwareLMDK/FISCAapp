@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace FISCA.Dominio.Entidades
 {
-    public class Niveles
-    {
-    
-        [Key] public int IdNivel { get; set; }
-        public string? NombreNivel { get; set; }
 
+    public class Carrera
+    {
+        [Key]
+        public int IdCarrera { get; set; }
+        public string NombreCarrera { get; set; }
     }
 }
