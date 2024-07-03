@@ -346,53 +346,53 @@ namespace FISCA.Infraestructura.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEstudiante"));
 
-                    b.Property<string>("ApellidosEstudiante")
+                    b.Property<int?>("IdGrupo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ape_Estudiante")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("CarnetEstudiante")
+                    b.Property<string>("car_Estudiante")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("CedulaEstudiante")
+                    b.Property<string>("ced_Estudiante")
                         .IsRequired()
                         .HasMaxLength(16)
                         .HasColumnType("nvarchar(16)");
 
-                    b.Property<string>("CelularEstudiante")
+                    b.Property<string>("cel_Estudiante")
                         .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
 
-                    b.Property<string>("CorreoEstudiante")
+                    b.Property<string>("cor_Estududiante")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("DireccionEstudiante")
+                    b.Property<string>("dir_Estudiante")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<int>("Estado")
+                    b.Property<int>("est_Estudiante")
                         .HasColumnType("int");
 
-                    b.Property<string>("Foto")
+                    b.Property<string>("fot_Estudiante")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("IdGrupo")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NombresEstudiante")
+                    b.Property<string>("nom_Estudiante")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("TelefonoEstudiante")
+                    b.Property<string>("tel_Estudiante")
                         .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
@@ -405,32 +405,32 @@ namespace FISCA.Infraestructura.Migrations
                         new
                         {
                             IdEstudiante = 1,
-                            ApellidosEstudiante = "Pérez",
-                            CarnetEstudiante = "C123456",
-                            CedulaEstudiante = "1234567890123456",
-                            CelularEstudiante = "12345678",
-                            CorreoEstudiante = "juan.perez@example.com",
-                            DireccionEstudiante = "Calle Falsa 123",
-                            Estado = 1,
-                            Foto = "juan.jpg",
                             IdGrupo = 1,
-                            NombresEstudiante = "Juan",
-                            TelefonoEstudiante = "87654321"
+                            ape_Estudiante = "Pérez",
+                            car_Estudiante = "C123456",
+                            ced_Estudiante = "1234567890123456",
+                            cel_Estudiante = "12345678",
+                            cor_Estududiante = "juan.perez@example.com",
+                            dir_Estudiante = "Calle Falsa 123",
+                            est_Estudiante = 1,
+                            fot_Estudiante = "juan.jpg",
+                            nom_Estudiante = "Juan",
+                            tel_Estudiante = "87654321"
                         },
                         new
                         {
                             IdEstudiante = 2,
-                            ApellidosEstudiante = "García",
-                            CarnetEstudiante = "C654321",
-                            CedulaEstudiante = "6543210987654321",
-                            CelularEstudiante = "87654321",
-                            CorreoEstudiante = "ana.garcia@example.com",
-                            DireccionEstudiante = "Avenida Siempre Viva 742",
-                            Estado = 1,
-                            Foto = "ana.jpg",
                             IdGrupo = 2,
-                            NombresEstudiante = "Ana",
-                            TelefonoEstudiante = "12345678"
+                            ape_Estudiante = "García",
+                            car_Estudiante = "C654321",
+                            ced_Estudiante = "6543210987654321",
+                            cel_Estudiante = "87654321",
+                            cor_Estududiante = "ana.garcia@example.com",
+                            dir_Estudiante = "Avenida Siempre Viva 742",
+                            est_Estudiante = 1,
+                            fot_Estudiante = "ana.jpg",
+                            nom_Estudiante = "Ana",
+                            tel_Estudiante = "12345678"
                         });
                 });
 

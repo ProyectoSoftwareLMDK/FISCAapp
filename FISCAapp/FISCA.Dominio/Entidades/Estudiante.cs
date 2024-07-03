@@ -15,43 +15,43 @@ namespace FISCA.Dominio.Entidades
 
         [Required]
         [StringLength(10)]
-        public string CarnetEstudiante { get; set; }
+        public string car_Estudiante { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string NombresEstudiante { get; set; }
+        public string nom_Estudiante { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string ApellidosEstudiante { get; set; }
+        public string ape_Estudiante { get; set; }
 
         [Required]
         [StringLength(16)]
-        public string CedulaEstudiante { get; set; }
+        public string ced_Estudiante { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string CorreoEstudiante { get; set; }
+        public string cor_Estududiante { get; set; }
 
         [Required]
         [StringLength(8)]
-        public string CelularEstudiante { get; set; }
+        public string cel_Estudiante { get; set; }
 
         [Required]
         [StringLength(8)]
-        public string TelefonoEstudiante { get; set; }
+        public string tel_Estudiante { get; set; }
 
         [Required]
         [StringLength(250)]
-        public string DireccionEstudiante { get; set; }
+        public string dir_Estudiante { get; set; }
 
         [Required]
-        public int Estado { get; set; }
+        public int est_Estudiante { get; set; }
 
         public int? IdGrupo { get; set; }
 
         [StringLength(100)]
-        public string Foto { get; set; }
+        public string fot_Estudiante { get; set; }
 
     }
 }
