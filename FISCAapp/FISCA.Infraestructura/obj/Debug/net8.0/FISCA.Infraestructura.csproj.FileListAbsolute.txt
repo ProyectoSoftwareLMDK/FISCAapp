@@ -34,3 +34,21 @@ C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCA.Infraest
 C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.pdb
 C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.genruntimeconfig.cache
 C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\ref\FISCA.Infraestructura.dll
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\bin\Debug\net8.0\FISCA.Infraestructura.deps.json
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\bin\Debug\net8.0\FISCA.Infraestructura.runtimeconfig.json
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\bin\Debug\net8.0\FISCA.Infraestructura.dll
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\bin\Debug\net8.0\FISCA.Infraestructura.pdb
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\bin\Debug\net8.0\FISCA.Dominio.dll
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\bin\Debug\net8.0\FISCA.Dominio.pdb
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.csproj.AssemblyReference.cache
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.AssemblyInfoInputs.cache
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.AssemblyInfo.cs
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.csproj.CoreCompileInputs.cache
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.sourcelink.json
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.csproj.CopyComplete
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.dll
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\refint\FISCA.Infraestructura.dll
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.pdb
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\FISCA.Infraestructura.genruntimeconfig.cache
+C:\Users\USER 17\Desktop\fisca\FISCAapp\FISCAapp\FISCA.Infraestructura\obj\Debug\net8.0\ref\FISCA.Infraestructura.dll
