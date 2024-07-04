@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.PlanificacionTarea>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdPlanificacion</th>
+            <th>IdDocente</th>
+            <th>IdNumeroAsignacion</th>
+            <th>IdAsignatura</th>
+            <th>Unidad</th>
+            <th>DescripcionUnidad</th>
+            <th>Tarea</th>
+            <th>DescripcionTarea</th>
+            <th>FechaPublicacion</th>
+            <th>FechaPresentacion</th>
+            <th>CodigoTarea</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var planificacionTarea in Model)
+        {
+            <tr>
+                <td>@planificacionTarea.IdPlanificacion</td>
+                <td>@planificacionTarea.IdDocente</td>
+                <td>@planificacionTarea.IdNumeroAsignacion</td>
+                <td>@planificacionTarea.IdAsignatura</td>
+                <td>@planificacionTarea.Unidad</td>
+                <td>@planificacionTarea.DescripcionUnidad</td>
+                <td>@planificacionTarea.Tarea</td>
+                <td>@planificacionTarea.DescripcionTarea</td>
+                <td>@planificacionTarea.FechaPublicacion.ToString("yyyy-MM-dd")</td>
+                <td>@planificacionTarea.FechaPresentacion.ToString("yyyy-MM-dd")</td>
+                <td>@planificacionTarea.CodigoTarea</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>

@@ -9,8 +9,9 @@ namespace FISCA.Dominio.Entidades
 {
     public class Material_Didactico
     {
-   
-        [Key] public int IdMaterialDidactico { get; set; }
+        [Key]
+
+        public int IdMaterialDidactico { get; set; }
         public string? Descripcion { get; set; }
         public string? Archivo { get; set;}
         public required int CodigoMaterial { get; set; }

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Turno>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdTurno</th>
+            <th>NombreTurno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var turno in Model)
+        {
+            <tr>
+                <td>@turno.IdTurno</td>
+                <td>@turno.NombreTurno</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
