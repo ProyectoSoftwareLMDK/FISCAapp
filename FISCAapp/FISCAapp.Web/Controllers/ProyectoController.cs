@@ -17,10 +17,6 @@ namespace FISCAapp.WEB.Controllers
             var listaIncripciones = _aplicacionDb.InscripcionesAsignaturas.ToList();
             return View(listaIncripciones);
         }
-        public IActionResult YearAcademico() {
-            var listaYearAcademico = _aplicacionDb.YearAcademicos.ToList();
-            return View(listaYearAcademico);
-        }
         public IActionResult Cuatrimestre()
         {
             var listaCuatrimestre = _aplicacionDb.Cuatrimestres.ToList();
@@ -56,16 +52,6 @@ namespace FISCAapp.WEB.Controllers
             var listaDocente = _aplicacionDb.Docentes.ToList();
             return View(listaDocente);
         }
-        public IActionResult MaterialDidactico()
-        {
-            var listaMaterialDidactico = _aplicacionDb.MaterialDidacticos.ToList();
-            return View(listaMaterialDidactico);
-        }
-        public IActionResult Mensajes()
-        {
-            var listaMensajes = _aplicacionDb.Mensajes.ToList();
-            return View(listaMensajes);
-        }
         public IActionResult Niveles()
         {
             var listaNiveles = _aplicacionDb.Niveles.ToList();
@@ -85,21 +71,6 @@ namespace FISCAapp.WEB.Controllers
         {
             var listaAsignatura = _aplicacionDb.Asignaturas.ToList();
             return View(listaAsignatura);
-        }
-        public IActionResult EntregaTarea()
-        {
-            var listaEntregaTarea = _aplicacionDb.EntregaTareas.ToList();
-            return View(listaEntregaTarea);
-        }
-        public IActionResult PlanificacionTarea()
-        {
-            var listaPlanificacionTarea = _aplicacionDb.PlanificacionTareas.ToList();
-            return View(listaPlanificacionTarea);
-        }
-        public IActionResult Evaluacion()
-        {
-            var listaEvaluaciones = _aplicacionDb.Evaluaciones.ToList();
-            return View(listaEvaluaciones);
         }
         public IActionResult Asignacion()
         {
