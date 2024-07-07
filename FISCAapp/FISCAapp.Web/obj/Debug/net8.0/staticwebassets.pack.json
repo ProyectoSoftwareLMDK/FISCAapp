@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\img\\logo_upla_ingenieria_1_20240528_1234932174.jpg",
+      "PackagePath": "staticwebassets\\img\\logo_upla_ingenieria_1_20240528_1234932174.jpg"
+    },
+    {
       "Id": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

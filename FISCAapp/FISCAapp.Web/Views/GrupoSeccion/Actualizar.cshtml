@@ -1,0 +1,25 @@
+﻿@model FISCA.Dominio.Entidades.Grupo
+
+<h2>Actualizar Grupo</h2>
+
+<form method="post">
+    <input asp-for="IdGrupo" type="hidden" />
+
+    <div class="form-floating py-2">
+        <input asp-for="NumeroGrupo" class="form-control" />
+        <label asp-for="NumeroGrupo">Número de Grupo</label>
+        <span asp-validation-for="NumeroGrupo" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating py-2">
+        <input asp-for="NombreGrupo" class="form-control" />
+        <label asp-for="NombreGrupo">Nombre de Grupo</label>
+        <span asp-validation-for="NombreGrupo" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <a asp-controller="GrupoSeccion" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

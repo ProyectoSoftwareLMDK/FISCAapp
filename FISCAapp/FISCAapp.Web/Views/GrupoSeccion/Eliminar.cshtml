@@ -1,0 +1,20 @@
+﻿@model FISCA.Dominio.Entidades.Grupo
+
+<h2>Eliminar Grupo</h2>
+
+<form method="post">
+    <input asp-for="IdGrupo" type="hidden" />
+
+    <div class="form-floating py-2">
+        <input asp-for="NumeroGrupo" class="form-control" readonly />
+        <label asp-for="NumeroGrupo">Número de Grupo</label>
+    </div>
+
+    <div class="form-floating py-2">
+        <input asp-for="NombreGrupo" class="form-control" readonly />
+        <label asp-for="NombreGrupo">Nombre de Grupo</label>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-controller="GrupoSeccion" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -4,8 +4,15 @@
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
 <div class="container text-center">
-    <h1 class="display-4">Login</h1>
-    <form method="post" action="/Account/Login">
+    <h1 class="display-6">Gestión de Asistencias</h1>
+    <img src="~/img/logo_upla_ingenieria_1_20240528_1234932174.jpg" alt="Login Image" class="mb-4" style="max-width: 200px;">
+
+    @if (TempData["error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["error"]</div>
+    }
+
+    <form method="post" asp-controller="Home" asp-action="Login">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" required>
@@ -14,6 +21,6 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary" asp-controller="Home" asp-action="Menu">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>

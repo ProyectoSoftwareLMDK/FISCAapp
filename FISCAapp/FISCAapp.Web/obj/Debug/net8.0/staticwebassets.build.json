@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D/BrHDYYi0CfL/iVPMWJ7M0/EYaBcq1479zX53kBeWE=",
+  "Hash": "ohwMGwzJAgNsy0M6pwheakH0+3bBlLvt8vdLUEhlcnQ=",
   "Source": "FISCAapp.Web",
   "BasePath": "_content/FISCAapp.Web",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\img\\logo_upla_ingenieria_1_20240528_1234932174.jpg",
+      "SourceId": "FISCAapp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\",
+      "BasePath": "_content/FISCAapp.Web",
+      "RelativePath": "img/logo_upla_ingenieria_1_20240528_1234932174.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo_upla_ingenieria_1_20240528_1234932174.jpg"
     },
     {
       "Identity": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\js\\site.js",

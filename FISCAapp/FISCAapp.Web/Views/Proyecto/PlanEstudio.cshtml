@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.PlanEstudio>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>IdPlan</th>
+            <th>Descripcion</th>
+            <th>IdCarrera</th>
+            <th>CantidadAsignaturas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var planEstudio in Model)
+        {
+            <tr>
+                <td>@planEstudio.IdPlan</td>
+                <td>@planEstudio.Descripcion</td>
+                <td>@planEstudio.IdCarrera</td>
+                <td>@planEstudio.CantidadAsignaturas</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 4px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
