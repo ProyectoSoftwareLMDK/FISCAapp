@@ -1,0 +1,23 @@
+﻿@model FISCA.Dominio.Entidades.Horario
+
+<h2>Actualizar Horario</h2>
+
+<form method="post">
+    <input asp-for="IdHorario" hidden />
+
+    <div class="form-floating py-2 col-12">
+        <input asp-for="@Model.NombreHorario" class="form-control border shadow" />
+        <label asp-for="NombreHorario" class="ms-2">Nombre</label>
+        <span asp-validation-for="NombreHorario" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        <i class="bi bi-check-circle"></i> Actualizar
+    </button>
+    <a asp-controller="Horario" asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-x-circle"></i> Cancelar
+    </a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

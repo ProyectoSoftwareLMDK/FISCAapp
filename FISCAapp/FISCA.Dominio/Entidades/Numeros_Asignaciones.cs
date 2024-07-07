@@ -9,7 +9,8 @@ namespace FISCA.Dominio.Entidades
 {
     public class Numeros_Asignaciones
     {
-        [Key] public int IdNumerosAsignaciones { get; set; }
+        [Key]
+        public int IdNumerosAsignaciones { get; set; }
         public int NumeroAsignado { get; set; }
         public int IdDocente { get; set; }
     }
