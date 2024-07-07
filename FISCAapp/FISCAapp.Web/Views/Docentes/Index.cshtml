@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Docente>
+
+<h2>Lista de Docentes</h2>
+<div class="w-5 btn-group" role="group">
+    <a asp-controller="Docente" asp-action="agregar" class="btn btn-success mx-2">
+        Agregar
+    </a>
+</div>
+<table class="table table-light table-bordered table-striped" border="1">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Cédula</th>
+            <th>Correo</th>
+            <th>Celular</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Estado</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var docente in Model)
+        {
+            <tr>
+                <td>@docente.NombresDocente</td>
+                <td>@docente.ApellidosDocente</td>
+                <td>@docente.CedulaDocente</td>
+                <td>@docente.CorreoDocente</td>
+                <td>@docente.CelularDocente</td>
+                <td>@docente.TelefonoDocente</td>
+                <td>@docente.DireccionDocente</td>
+                <td>@docente.Estado</td>
+                <td>@docente.Foto</td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Docente" asp-action="actualizar" asp-route-IdDocente="@docente.IdDocente" class="btn btn-success mx-2">
+                            Actualizar
+                        </a>
+                        <a asp-controller="Docente" asp-action="eliminar" asp-route-IdDocente="@docente.IdDocente" class="btn btn-danger mx-2">
+                            Eliminar
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

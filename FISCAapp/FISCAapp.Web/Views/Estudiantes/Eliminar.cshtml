@@ -1,0 +1,78 @@
+﻿@model FISCA.Dominio.Entidades.Estudiante
+
+<div class="w-100 card border-0 p-4">
+    <div class="card-header bg-danger bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Eliminar Estudiante</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body border p-4">
+        <form method="post" class="row">
+            <input asp-for="IdEstudiante" hidden />
+            <div class="p-3">
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="car_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="car_Estudiante" class="ms-2">Carnet</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="nom_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="nom_Estudiante" class="ms-2">Nombres</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ape_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="ape_Estudiante" class="ms-2">Apellidos</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ced_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="ced_Estudiante" class="ms-2">Cédula</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="cor_Estududiante" class="form-control border shadow" readonly />
+                    <label asp-for="cor_Estududiante" class="ms-2">Correo Electrónico</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="cel_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="cel_Estudiante" class="ms-2">Celular</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="tel_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="tel_Estudiante" class="ms-2">Teléfono</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="dir_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="dir_Estudiante" class="ms-2">Dirección</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="est_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="est_Estudiante" class="ms-2">Estado</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="IdGrupo" class="form-control border shadow" readonly />
+                    <label asp-for="IdGrupo" class="ms-2">ID del Grupo</label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="fot_Estudiante" class="form-control border shadow" readonly />
+                    <label asp-for="fot_Estudiante" class="ms-2">URL de la Foto</label>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Estudiantes" asp-action="Index" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
