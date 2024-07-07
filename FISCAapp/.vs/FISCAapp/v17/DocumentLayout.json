@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8FD2A6A6-4E93-4B24-B824-E84D3EAF2A77}|FISCA.Infraestructura\\FISCA.Infraestructura.csproj|c:\\users\\quinn\\documents\\github\\fiscaapp\\fiscaapp\\fisca.infraestructura\\data\\aplicaciondbcontexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8FD2A6A6-4E93-4B24-B824-E84D3EAF2A77}|FISCA.Infraestructura\\FISCA.Infraestructura.csproj|solutionrelative:fisca.infraestructura\\data\\aplicaciondbcontexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\quinn\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\home\\menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\home\\menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8FD2A6A6-4E93-4B24-B824-E84D3EAF2A77}|FISCA.Infraestructura\\FISCA.Infraestructura.csproj|c:\\users\\quinn\\documents\\github\\fiscaapp\\fiscaapp\\fisca.infraestructura\\data\\aplicaciondbcontexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FD2A6A6-4E93-4B24-B824-E84D3EAF2A77}|FISCA.Infraestructura\\FISCA.Infraestructura.csproj|solutionrelative:fisca.infraestructura\\data\\aplicaciondbcontexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\quinn\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\controllers\\proyectocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,11 +26,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AplicacionDBContexto.cs",
               "DocumentMoniker": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\Data\\AplicacionDBContexto.cs",
               "RelativeDocumentMoniker": "FISCA.Infraestructura\\Data\\AplicacionDBContexto.cs",
@@ -42,10 +46,6 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ProyectoController.cs",
@@ -53,14 +53,14 @@
               "RelativeDocumentMoniker": "FISCAapp.Web\\Controllers\\ProyectoController.cs",
               "ToolTip": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\ProyectoController.cs",
               "RelativeToolTip": "FISCAapp.Web\\Controllers\\ProyectoController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAUwB4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwB4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T03:26:12.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Menu.cshtml",
               "DocumentMoniker": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Home\\Menu.cshtml",
               "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\Home\\Menu.cshtml",
