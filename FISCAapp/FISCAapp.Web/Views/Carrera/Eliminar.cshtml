@@ -1,0 +1,20 @@
+﻿@model FISCA.Dominio.Entidades.Carrera
+
+<h2>Eliminar Carrera</h2>
+
+<form method="post">
+    <input asp-for="IdCarrera" hidden />
+
+    <div class="form-floating py-2 col-12">
+        <input asp-for="NombreCarrera" class="form-control border shadow" readonly />
+        <label asp-for="NombreCarrera" class="ms-2">Nombre</label>
+        <span asp-validation-for="NombreCarrera" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-danger">
+        <i class="bi bi-trash"></i> Eliminar
+    </button>
+    <a asp-controller="Carrera" asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-x-circle"></i> Cancelar
+    </a>
+</form>

@@ -1,0 +1,22 @@
+﻿@model FISCA.Dominio.Entidades.Carrera
+
+<h2>Agregar Nueva Carrera</h2>
+
+<form method="post">
+    <div class="form-floating py-2 col-12">
+        <input asp-for="@Model.NombreCarrera" class="form-control border shadow" />
+        <label asp-for="NombreCarrera" class="ms-2">Nombre</label>
+        <span asp-validation-for="NombreCarrera" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        <i class="bi bi-check-circle"></i> Agregar
+    </button>
+    <a asp-controller="Carrera" asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-x-circle"></i> Cancelar
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
