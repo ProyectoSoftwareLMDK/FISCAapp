@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Cuatrimestre>
+
+<h2>Lista de Cuatrimestres</h2>
+
+<div class="btn-group" role="group">
+    <a asp-controller="Cuatrimestre" asp-action="Agregar" class="btn btn-success">Agregar</a>
+</div>
+
+<table class="table table-light table-bordered table-striped mt-2">
+    <thead>
+        <tr>
+            <th>Id Cuatrimestre</th>
+            <th>Nombre del Cuatrimestre</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuatrimestre in Model)
+        {
+            <tr>
+                    <td>@cuatrimestre.IdCuatrimestre</td>
+                <td>@cuatrimestre.NombreCuatrimestre</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-controller="Cuatrimestre" asp-action="Actualizar" asp-route-id="@cuatrimestre.IdCuatrimestre" class="btn btn-warning">Actualizar</a>
+                        <a asp-controller="Cuatrimestre" asp-action="Eliminar" asp-route-id="@cuatrimestre.IdCuatrimestre" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

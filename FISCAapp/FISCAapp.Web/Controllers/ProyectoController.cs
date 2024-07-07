@@ -22,11 +22,11 @@ namespace FISCAapp.WEB.Controllers
             var listaCuatrimestre = _aplicacionDb.Cuatrimestres.ToList();
             return View(listaCuatrimestre);
         }
-        public IActionResult Carrera()
-        {
-            var listaCarrera = _aplicacionDb.Carreras.ToList();
-            return View(listaCarrera);
-        }
+          public IActionResult Carrera()
+            {
+          var listaCarrera = _aplicacionDb.Carreras.ToList();
+               return View(listaCarrera);
+         } 
         public IActionResult Grupo()
         {
             var listaGrupo = _aplicacionDb.Grupos.ToList();
