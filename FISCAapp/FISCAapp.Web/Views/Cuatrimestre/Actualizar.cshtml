@@ -1,0 +1,19 @@
+﻿@model FISCA.Dominio.Entidades.Cuatrimestre
+
+<h2>Actualizar Cuatrimestre</h2>
+
+<form method="post">
+    <input asp-for="IdCuatrimestre" type="hidden" />
+
+    <div class="form-floating py-2">
+        <input asp-for="NombreCuatrimestre" class="form-control" />
+        <label asp-for="NombreCuatrimestre">Nombre del Cuatrimestre</label>
+        <span asp-validation-for="NombreCuatrimestre" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <a asp-controller="Cuatrimestre" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,15 @@
+﻿@model FISCA.Dominio.Entidades.Cuatrimestre
+
+<h2>Eliminar Cuatrimestre</h2>
+
+<form method="post">
+    <input asp-for="IdCuatrimestre" type="hidden" />
+
+    <div class="form-floating py-2">
+        <input asp-for="NombreCuatrimestre" class="form-control" readonly />
+        <label asp-for="NombreCuatrimestre">Nombre del Cuatrimestre</label>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-controller="Cuatrimestre" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
