@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace FISCA.Dominio.Entidades
 {
+    [Table("plan_estudio")]
     public class PlanEstudio
     {
         [Key]
