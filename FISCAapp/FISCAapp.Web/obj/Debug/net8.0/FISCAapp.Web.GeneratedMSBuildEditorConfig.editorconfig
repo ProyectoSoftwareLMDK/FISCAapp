@@ -9,135 +9,199 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FISCAapp.Web
 build_property.RootNamespace = FISCAapp.Web
-build_property.ProjectDir = C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCAapp.Web\
+build_property.ProjectDir = C:\Users\QUINN\Documents\Github\FISCAapp\FISCAapp\FISCAapp.Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCAapp.Web
+build_property.MSBuildProjectDirectory = C:\Users\QUINN\Documents\Github\FISCAapp\FISCAapp\FISCAapp.Web
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Crear.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpZ25hY2lvblxDcmVhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Editar.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpZ25hY2lvblxFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Eliminar.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpZ25hY2lvblxFbGltaW5hci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Index.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Asignacion/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpZ25hY2lvblxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Home/Index.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Carrera/Actualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVyYVxBY3R1YWxpemFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Carrera/Agregar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVyYVxBZ3JlZ2FyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Carrera/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVyYVxFbGltaW5hci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Carrera/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVyYVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Cuatrimestre/Actualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhdHJpbWVzdHJlXEFjdHVhbGl6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Cuatrimestre/Agregar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhdHJpbWVzdHJlXEFncmVnYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Cuatrimestre/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhdHJpbWVzdHJlXEVsaW1pbmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Cuatrimestre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VhdHJpbWVzdHJlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/GrupoSeccion/Actualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3J1cG9TZWNjaW9uXEFjdHVhbGl6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/GrupoSeccion/Agregar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3J1cG9TZWNjaW9uXEFncmVnYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/GrupoSeccion/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3J1cG9TZWNjaW9uXEVsaW1pbmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/GrupoSeccion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3J1cG9TZWNjaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Home/Menu.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Home/Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Home/Privacy.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Crear.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Horario/Actualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb1xBY3R1YWxpemFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Horario/Agregar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb1xBZ3JlZ2FyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Horario/Eliminar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb1xFbGltaW5hci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Horario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9yYXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbkVzdHVkaW9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Editar.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbkVzdHVkaW9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Eliminar.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbkVzdHVkaW9cRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Index.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/PlanEstudio/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbkVzdHVkaW9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Asignacion.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Asignacion.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cQXNpZ25hY2lvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Asignatura.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Asignatura.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cQXNpZ25hdHVyYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Carrera.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Carrera.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cQ2FycmVyYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Cuatrimestre.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Cuatrimestre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cQ3VhdHJpbWVzdHJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Docente.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Docente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cRG9jZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Estudiante.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Estudiante.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cRXN0dWRpYW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Grupo.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Grupo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cR3J1cG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Horario.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Horario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cSG9yYXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Index.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Niveles.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Niveles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cTml2ZWxlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/NumerosAsignaturas.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/NumerosAsignaturas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cTnVtZXJvc0FzaWduYXR1cmFzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/PlanEstudio.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/PlanEstudio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cUGxhbkVzdHVkaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Turno.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Turno.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cVHVybm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Usuario.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Proyecto/Usuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/Error.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/Notificaciones.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/Notificaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdGlmaWNhY2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/_ViewImports.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/_ViewStart.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/_Layout.cshtml]
+[C:/Users/QUINN/Documents/Github/FISCAapp/FISCAapp/FISCAapp.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bfm6tvdnz2
