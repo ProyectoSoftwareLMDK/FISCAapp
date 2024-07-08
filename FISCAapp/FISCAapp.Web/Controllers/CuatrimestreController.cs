@@ -1,9 +1,11 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class CuatrimestreController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
@@ -12,10 +14,27 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            var listaCuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
-            return View(listaCuatrimestres);
+            try
+            {
+                var cuatrimestres = from c in _aplicacionDb.Cuatrimestres
+                                    select c;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    cuatrimestres = cuatrimestres.Where(c => c.NombreCuatrimestre.Contains(searchString));
+                }
+
+                var listaCuatrimestres = cuatrimestres.ToList();
+                ViewData["CurrentFilter"] = searchString;
+                return View(listaCuatrimestres);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar la lista de cuatrimestres: " + ex.Message;
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         public IActionResult Agregar()
@@ -33,22 +52,37 @@ namespace FISCAapp.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                _aplicacionDb.Cuatrimestres.Add(cuatrimestre);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "El cuatrimestre fue agregado con éxito";
-                return RedirectToAction("Index");
+                try
+                {
+                    _aplicacionDb.Cuatrimestres.Add(cuatrimestre);
+                    _aplicacionDb.SaveChanges();
+                    TempData["success"] = "El cuatrimestre fue agregado con éxito";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    TempData["error"] = "Error al agregar el cuatrimestre: " + ex.Message;
+                }
             }
             return View(cuatrimestre);
         }
 
         public IActionResult Actualizar(int id)
         {
-            var cuatrimestre = _aplicacionDb.Cuatrimestres.FirstOrDefault(c => c.IdCuatrimestre == id);
-            if (cuatrimestre == null)
+            try
             {
+                var cuatrimestre = _aplicacionDb.Cuatrimestres.FirstOrDefault(c => c.IdCuatrimestre == id);
+                if (cuatrimestre == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                return View(cuatrimestre);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar el cuatrimestre: " + ex.Message;
                 return RedirectToAction("Error", "Home");
             }
-            return View(cuatrimestre);
         }
 
         [HttpPost]
@@ -56,22 +90,37 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && cuatrimestre.IdCuatrimestre > 0)
             {
-                _aplicacionDb.Cuatrimestres.Update(cuatrimestre);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "El cuatrimestre fue actualizado con éxito";
-                return RedirectToAction("Index");
+                try
+                {
+                    _aplicacionDb.Cuatrimestres.Update(cuatrimestre);
+                    _aplicacionDb.SaveChanges();
+                    TempData["success"] = "El cuatrimestre fue actualizado con éxito";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    TempData["error"] = "Error al actualizar el cuatrimestre: " + ex.Message;
+                }
             }
             return View(cuatrimestre);
         }
 
         public IActionResult Eliminar(int id)
         {
-            var cuatrimestre = _aplicacionDb.Cuatrimestres.FirstOrDefault(c => c.IdCuatrimestre == id);
-            if (cuatrimestre == null)
+            try
             {
+                var cuatrimestre = _aplicacionDb.Cuatrimestres.FirstOrDefault(c => c.IdCuatrimestre == id);
+                if (cuatrimestre == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                return View(cuatrimestre);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar el cuatrimestre: " + ex.Message;
                 return RedirectToAction("Error", "Home");
             }
-            return View(cuatrimestre);
         }
 
         [HttpPost]
@@ -79,10 +128,24 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && cuatrimestre.IdCuatrimestre > 0)
             {
-                _aplicacionDb.Cuatrimestres.Remove(cuatrimestre);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "El cuatrimestre fue eliminado con éxito";
-                return RedirectToAction("Index");
+                try
+                {
+                    var cuatrimestreDb = _aplicacionDb.Cuatrimestres.FirstOrDefault(c => c.IdCuatrimestre == cuatrimestre.IdCuatrimestre);
+                    if (cuatrimestreDb != null)
+                    {
+                        _aplicacionDb.Cuatrimestres.Remove(cuatrimestreDb);
+                        _aplicacionDb.SaveChanges();
+                        TempData["success"] = "El cuatrimestre fue eliminado con éxito";
+                        return RedirectToAction("Index");
+                    }
+                    TempData["error"] = "Error al eliminar el cuatrimestre";
+                    return View(cuatrimestre);
+                }
+                catch (Exception ex)
+                {
+                    TempData["error"] = "Error al eliminar el cuatrimestre: " + ex.Message;
+                    return View(cuatrimestre);
+                }
             }
             TempData["error"] = "Error al eliminar el cuatrimestre";
             return View(cuatrimestre);
