@@ -1,11 +1,13 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class AsistenciaEstudiantesController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;

@@ -1,11 +1,13 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class AsignacionController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
