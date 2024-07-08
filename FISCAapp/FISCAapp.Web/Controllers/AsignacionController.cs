@@ -1,46 +1,47 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace FISCAapp.Web.Views.Home
+namespace FISCAapp.Web.Controllers
 {
     public class AsignacionController : Controller
     {
-        private readonly AplicacionDbContexto _aplicacionDb;
+        private readonly AplicacionDbContexto _contexto;
 
-        public AsignacionController(AplicacionDbContexto aplicacionDb)
+        public AsignacionController(AplicacionDbContexto contexto)
         {
-            _aplicacionDb = aplicacionDb;
+            _contexto = contexto;
         }
 
         public IActionResult Index()
         {
-            var listaAsignaciones = _aplicacionDb.Asignaciones.ToList();
-            return View(listaAsignaciones);
+            var asignaciones = _contexto.Asignaciones.ToList();
+            return View(asignaciones);
         }
 
-        public IActionResult Crear()
+        public IActionResult Agregar()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Crear(Asignacion asignacion)
+        public IActionResult Agregar(Asignacion asignacion)
         {
             if (ModelState.IsValid)
             {
-                _aplicacionDb.Asignaciones.Add(asignacion);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "Asignación creada con éxito";
+                _contexto.Asignaciones.Add(asignacion);
+                _contexto.SaveChanges();
+                TempData["success"] = "La asignación fue agregada con éxito";
                 return RedirectToAction("Index");
             }
             return View(asignacion);
         }
 
-        public IActionResult Editar(int id)
+        public IActionResult Actualizar(int id)
         {
-            var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
+            var asignacion = _contexto.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
             if (asignacion == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -49,13 +50,13 @@ namespace FISCAapp.Web.Views.Home
         }
 
         [HttpPost]
-        public IActionResult Editar(Asignacion asignacion)
+        public IActionResult Actualizar(Asignacion asignacion)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && asignacion.IdAsignacion > 0)
             {
-                _aplicacionDb.Asignaciones.Update(asignacion);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "Asignación actualizada con éxito";
+                _contexto.Asignaciones.Update(asignacion);
+                _contexto.SaveChanges();
+                TempData["success"] = "La asignación fue actualizada con éxito";
                 return RedirectToAction("Index");
             }
             return View(asignacion);
@@ -63,7 +64,7 @@ namespace FISCAapp.Web.Views.Home
 
         public IActionResult Eliminar(int id)
         {
-            var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
+            var asignacion = _contexto.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
             if (asignacion == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -74,12 +75,11 @@ namespace FISCAapp.Web.Views.Home
         [HttpPost]
         public IActionResult Eliminar(Asignacion asignacion)
         {
-            var asignacionDb = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == asignacion.IdAsignacion);
-            if (asignacionDb != null)
+            if (ModelState.IsValid && asignacion.IdAsignacion > 0)
             {
-                _aplicacionDb.Asignaciones.Remove(asignacionDb);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "Asignación eliminada con éxito";
+                _contexto.Asignaciones.Remove(asignacion);
+                _contexto.SaveChanges();
+                TempData["success"] = "La asignación fue eliminada con éxito";
                 return RedirectToAction("Index");
             }
             TempData["error"] = "Error al eliminar la asignación";

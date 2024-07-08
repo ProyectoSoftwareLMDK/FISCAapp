@@ -3,24 +3,26 @@
 }
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
-<div class="container text-center">
-    <h1 class="display-6">Gestión de Asistencias</h1>
-    <img src="~/img/logo_upla_ingenieria_1_20240528_1234932174.jpg" alt="Login Image" class="mb-4" style="max-width: 200px;">
+<div class="container d-flex align-items-center justify-content-center min-vh-80">
+    <div class="card shadow-sm p-4" style="max-width: 400px;">
+        <h1 class="h4 mb-4 text-center">Gestión de Asistencias</h1>
+        <img src="~/img/logo_upla_ingenieria_1_20240528_1234932174.jpg" alt="Login Image" class="mb-4 mx-auto d-block" style="max-width: 200px;">
 
-    @if (TempData["error"] != null)
-    {
-        <div class="alert alert-danger">@TempData["error"]</div>
-    }
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["error"]</div>
+        }
 
-    <form method="post" asp-controller="Home" asp-action="Login">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+        <form method="post" asp-controller="Home" asp-action="Login">
+            <div class="form-group mb-3">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group mb-4">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+    </div>
 </div>
