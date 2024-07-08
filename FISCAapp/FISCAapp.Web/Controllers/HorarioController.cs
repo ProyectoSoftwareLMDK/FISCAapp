@@ -1,9 +1,11 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class HorarioController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
@@ -13,11 +15,20 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             try
             {
-                var listaHorarios = _aplicacionDb.Horarios.ToList();
+                var horarios = from h in _aplicacionDb.Horarios
+                               select h;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    horarios = horarios.Where(h => h.NombreHorario.Contains(searchString));
+                }
+
+                var listaHorarios = horarios.ToList();
+                ViewData["CurrentFilter"] = searchString;
                 return View(listaHorarios);
             }
             catch (Exception ex)
