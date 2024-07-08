@@ -66,7 +66,7 @@ namespace FISCAapp.Web.Controllers
             if (asignacion == null)
                 try
                 {
-
+                    
                     if (asignacion == null)
                     {
                         return RedirectToAction("Error", "Home");
@@ -111,7 +111,7 @@ namespace FISCAapp.Web.Controllers
             if (asignacion == null)
                 try
                 {
-
+                  
                     if (asignacion == null)
                     {
                         return RedirectToAction("Error", "Home");
@@ -153,9 +153,9 @@ namespace FISCAapp.Web.Controllers
                     TempData["error"] = "Error al eliminar la asignación: " + ex.Message;
                     return View(asignacion);
                 }
-
-            }
-            return View(asignacion);
+                
+            }return View(asignacion);
         }
     }
 }
+
