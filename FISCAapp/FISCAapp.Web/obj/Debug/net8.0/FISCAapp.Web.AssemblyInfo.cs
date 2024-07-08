@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FISCAapp.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5cdb838020c437b1ed28bf5678e34d52279d77f")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca2246c44b553fb3b78f9890cddc11bf9e097b5e")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("FISCAapp.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FISCAapp.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

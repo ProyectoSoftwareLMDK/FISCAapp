@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\",
+  "WorkspaceRootPath": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\quinn\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\horario\\actualizar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\horario\\actualizar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -17,6 +18,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\quinn\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\carrera\\actualizar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\carrera\\actualizar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+=======
+      "AbsoluteMoniker": "D:0:0:{8FD2A6A6-4E93-4B24-B824-E84D3EAF2A77}|FISCA.Infraestructura\\FISCA.Infraestructura.csproj|c:\\users\\lucas\\onedrive\\documentos\\github\\fisca\\fiscaapp\\fiscaapp\\fisca.infraestructura\\data\\aplicaciondbcontexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8FD2A6A6-4E93-4B24-B824-E84D3EAF2A77}|FISCA.Infraestructura\\FISCA.Infraestructura.csproj|solutionrelative:fisca.infraestructura\\data\\aplicaciondbcontexto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\lucas\\onedrive\\documentos\\github\\fisca\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\home\\menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\home\\menu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\lucas\\onedrive\\documentos\\github\\fisca\\fiscaapp\\fiscaapp\\fiscaapp.web\\controllers\\proyectocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\controllers\\proyectocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\lucas\\onedrive\\documentos\\github\\fisca\\fiscaapp\\fiscaapp\\fiscaapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -35,6 +52,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< Updated upstream
               "Title": "Actualizar.cshtml",
               "DocumentMoniker": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Horario\\Actualizar.cshtml",
               "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\Horario\\Actualizar.cshtml",
@@ -44,10 +62,34 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-08T03:33:21.804Z",
               "EditorCaption": ""
+=======
+              "Title": "AplicacionDBContexto.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\Data\\AplicacionDBContexto.cs",
+              "RelativeDocumentMoniker": "FISCA.Infraestructura\\Data\\AplicacionDBContexto.cs",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\Data\\AplicacionDBContexto.cs",
+              "RelativeToolTip": "FISCA.Infraestructura\\Data\\AplicacionDBContexto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T03:37:24.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProyectoController.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "RelativeToolTip": "FISCAapp.Web\\Controllers\\ProyectoController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T03:26:12.742Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< Updated upstream
               "Title": "Actualizar.cshtml",
               "DocumentMoniker": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\GrupoSeccion\\Actualizar.cshtml",
               "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\GrupoSeccion\\Actualizar.cshtml",
@@ -70,10 +112,21 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-08T03:29:49.274Z",
               "EditorCaption": ""
+=======
+              "Title": "Menu.cshtml",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Home\\Menu.cshtml",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\Home\\Menu.cshtml",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Home\\Menu.cshtml",
+              "RelativeToolTip": "FISCAapp.Web\\Views\\Home\\Menu.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-07T03:24:26.849Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+<<<<<<< Updated upstream
               "Title": "Actualizar.cshtml",
               "DocumentMoniker": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\Carrera\\Actualizar.cshtml",
               "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\Carrera\\Actualizar.cshtml",
@@ -83,6 +136,16 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-08T03:29:06.637Z",
               "EditorCaption": ""
+=======
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "FISCAapp.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T03:23:35.689Z"
+>>>>>>> Stashed changes
             }
           ]
         }

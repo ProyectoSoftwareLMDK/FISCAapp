@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FISCA.Infraestructura")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbd2b8c42240b15f1921a783cd2345e7ae458594")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca2246c44b553fb3b78f9890cddc11bf9e097b5e")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("FISCA.Infraestructura")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FISCA.Infraestructura")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
