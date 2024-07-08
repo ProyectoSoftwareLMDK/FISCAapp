@@ -1,5 +1,6 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,14 @@ builder.Services.AddDbContext<AplicacionDbContexto>(options =>
     // Deshabilitar las migraciones automáticas
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
+
+// Configuración de autenticación basada en cookies
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Home/Login";
+        options.LogoutPath = "/Home/Logout";
+    });
 
 var app = builder.Build();
 
@@ -26,6 +35,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Agregar autenticación al pipeline
 app.UseAuthorization();
 
 app.MapControllerRoute(
