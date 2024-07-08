@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj": {}
+    "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
+    "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
         "projectName": "FISCA.Dominio",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
-        "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\obj\\",
+        "projectPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
+        "packagesPath": "C:\\Users\\USER 17\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER 17\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -35,11 +39,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -61,21 +60,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23455.8/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj": {
+    "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
+        "projectUniqueName": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
         "projectName": "FISCA.Infraestructura",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
-        "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\obj\\",
+        "projectPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj",
+        "packagesPath": "C:\\Users\\USER 17\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER 17\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,8 +93,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
-                "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj"
+              "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
+                "projectPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj"
               }
             }
           }
@@ -100,11 +103,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -144,21 +142,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23455.8/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj": {
+    "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj",
+        "projectUniqueName": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj",
         "projectName": "FISCAapp.Web",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj",
-        "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\obj\\",
+        "projectPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCAapp.Web\\FISCAapp.Web.csproj",
+        "packagesPath": "C:\\Users\\USER 17\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCAapp.Web\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER 17\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -173,11 +175,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
-                "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj"
+              "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj": {
+                "projectPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj"
               },
-              "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj": {
-                "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj"
+              "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj": {
+                "projectPath": "C:\\Users\\USER 17\\Desktop\\FISCAapp\\FISCAapp\\FISCA.Infraestructura\\FISCA.Infraestructura.csproj"
               }
             }
           }
@@ -186,11 +188,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -227,7 +224,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23455.8/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
