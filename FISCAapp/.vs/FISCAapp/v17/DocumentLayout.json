@@ -42,9 +42,9 @@
               "Title": "AsignacionController.cs",
               "DocumentMoniker": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\AsignacionController.cs",
               "RelativeDocumentMoniker": "FISCAapp.Web\\Controllers\\AsignacionController.cs",
-              "ToolTip": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\AsignacionController.cs*",
-              "RelativeToolTip": "FISCAapp.Web\\Controllers\\AsignacionController.cs*",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAABkAAAAvAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\AsignacionController.cs",
+              "RelativeToolTip": "FISCAapp.Web\\Controllers\\AsignacionController.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAQwBkAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T03:54:38.259Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "FISCAapp.Web\\Views\\Horario\\Agregar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T03:53:56.662Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T03:53:56.662Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "FISCAapp.Web\\Views\\GrupoSeccion\\Agregar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T03:53:36.662Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T03:53:36.662Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "FISCAapp.Web\\Views\\Cuatrimestre\\Agregar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T03:53:27.935Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T03:53:27.935Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "FISCAapp.Web\\Views\\Carrera\\Agregar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-08T03:53:21.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-08T03:53:21.04Z"
             }
           ]
         }
