@@ -2,14 +2,14 @@
 
 <h2>Lista de Grupos</h2>
 
-<div class="btn-group" role="group">
+<div class="w-5 btn-group" role="group">
     <a asp-controller="GrupoSeccion" asp-action="Agregar" class="btn btn-success">Agregar</a>
 </div>
 
 <table class="table table-light table-bordered table-striped mt-2">
     <thead>
         <tr>
-            <th>Id Grupo</th>
+           
             <th>Número de Grupo</th>
             <th>Nombre de Grupo</th>
             <th></th>
@@ -19,14 +19,14 @@
         @foreach (var grupo in Model)
         {
             <tr>
-                <td>@grupo.IdGrupo</td>
+                
                 <td>@grupo.NumeroGrupo</td>
                 <td>@grupo.NombreGrupo</td>
                
                 <td>
                     <div class="btn-group" role="group">
-                        <a asp-controller="GrupoSeccion" asp-action="Actualizar" asp-route-id="@grupo.IdGrupo" class="btn btn-warning">Actualizar</a>
-                        <a asp-controller="GrupoSeccion" asp-action="Eliminar" asp-route-id="@grupo.IdGrupo" class="btn btn-danger">Eliminar</a>
+                        <a asp-controller="GrupoSeccion" asp-action="Actualizar" asp-route-id="@grupo.IdGrupo" class="btn btn-success mx-2">Actualizar</a>
+                        <a asp-controller="GrupoSeccion" asp-action="Eliminar" asp-route-id="@grupo.IdGrupo" class="btn btn-danger mx-2">Eliminar</a>
                     </div>
                 </td>
             </tr>
