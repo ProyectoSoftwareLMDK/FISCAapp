@@ -1,10 +1,12 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class PlanEstudioController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
