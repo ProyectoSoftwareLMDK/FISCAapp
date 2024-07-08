@@ -9,64 +9,71 @@
         </div>
     </div>
     <div class="card-body border p-4">
-        <form method="post" class="row">
-            <input asp-for="IdEstudiante" hidden />
+        <form asp-action="Actualizar" method="post" class="row">
+            <input asp-for="IdEstudiante" type="hidden" />
             <div class="p-3">
+                <div asp-validation-summary="All"></div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="car_Estudiante" class="form-control border shadow" />
-                    <label asp-for="car_Estudiante" class="ms-2">Carnet</label>
-                    <span asp-validation-for="car_Estudiante" class="text-danger"></span>
+                    <input asp-for="CarnetEstudiante" class="form-control border shadow" />
+                    <label asp-for="CarnetEstudiante" class="ms-2">Carnet</label>
+                    <span asp-validation-for="CarnetEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="nom_Estudiante" class="form-control border shadow" />
-                    <label asp-for="nom_Estudiante" class="ms-2">Nombres</label>
-                    <span asp-validation-for="nom_Estudiante" class="text-danger"></span>
+                    <input asp-for="NombresEstudiante" class="form-control border shadow" />
+                    <label asp-for="NombresEstudiante" class="ms-2">Nombres</label>
+                    <span asp-validation-for="NombresEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="ape_Estudiante" class="form-control border shadow" />
-                    <label asp-for="ape_Estudiante" class="ms-2">Apellidos</label>
-                    <span asp-validation-for="ape_Estudiante" class="text-danger"></span>
+                    <input asp-for="ApellidosEstudiante" class="form-control border shadow" />
+                    <label asp-for="ApellidosEstudiante" class="ms-2">Apellidos</label>
+                    <span asp-validation-for="ApellidosEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="ced_Estudiante" class="form-control border shadow" />
-                    <label asp-for="ced_Estudiante" class="ms-2">Cédula</label>
-                    <span asp-validation-for="ced_Estudiante" class="text-danger"></span>
+                    <input asp-for="CedulaEstudiante" class="form-control border shadow" />
+                    <label asp-for="CedulaEstudiante" class="ms-2">Cédula</label>
+                    <span asp-validation-for="CedulaEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="cor_Estududiante" class="form-control border shadow" />
-                    <label asp-for="cor_Estududiante" class="ms-2">Correo</label>
-                    <span asp-validation-for="cor_Estududiante" class="text-danger"></span>
+                    <input asp-for="CorreoEstudiante" class="form-control border shadow" />
+                    <label asp-for="CorreoEstudiante" class="ms-2">Correo</label>
+                    <span asp-validation-for="CorreoEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="cel_Estudiante" class="form-control border shadow" />
-                    <label asp-for="cel_Estudiante" class="ms-2">Celular</label>
-                    <span asp-validation-for="cel_Estudiante" class="text-danger"></span>
+                    <input asp-for="CelularEstudiante" class="form-control border shadow" />
+                    <label asp-for="CelularEstudiante" class="ms-2">Celular</label>
+                    <span asp-validation-for="CelularEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="tel_Estudiante" class="form-control border shadow" />
-                    <label asp-for="tel_Estudiante" class="ms-2">Teléfono</label>
-                    <span asp-validation-for="tel_Estudiante" class="text-danger"></span>
+                    <input asp-for="TelefonoEstudiante" class="form-control border shadow" />
+                    <label asp-for="TelefonoEstudiante" class="ms-2">Teléfono</label>
+                    <span asp-validation-for="TelefonoEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="dir_Estudiante" class="form-control border shadow" />
-                    <label asp-for="dir_Estudiante" class="ms-2">Dirección</label>
-                    <span asp-validation-for="dir_Estudiante" class="text-danger"></span>
+                    <input asp-for="DireccionEstudiante" class="form-control border shadow" />
+                    <label asp-for="DireccionEstudiante" class="ms-2">Dirección</label>
+                    <span asp-validation-for="DireccionEstudiante" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="est_Estudiante" class="form-control border shadow" />
-                    <label asp-for="est_Estudiante" class="ms-2">Estado</label>
-                    <span asp-validation-for="est_Estudiante" class="text-danger"></span>
+                    <input asp-for="Estado" class="form-control border shadow" />
+                    <label asp-for="Estado" class="ms-2">Estado</label>
+                    <span asp-validation-for="Estado" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="IdGrupo" class="form-control border shadow" />
-                    <label asp-for="IdGrupo" class="ms-2">ID del Grupo</label>
-                    <span asp-validation-for="IdGrupo" class="text-danger"></span>
+                    <input asp-for="Foto" class="form-control border shadow" />
+                    <label asp-for="Foto" class="ms-2">Foto</label>
+                    <span asp-validation-for="Foto" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
-                    <input asp-for="fot_Estudiante" class="form-control border shadow" />
-                    <label asp-for="fot_Estudiante" class="ms-2">Foto (URL)</label>
-                    <span asp-validation-for="fot_Estudiante" class="text-danger"></span>
-                </div>
+
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
                         <button type="submit" class="btn btn-success w-100">
@@ -74,7 +81,7 @@
                         </button>
                     </div>
                     <div class="col-6 col-md-3">
-                        <a asp-controller="Estudiante" asp-action="Index" class="btn btn-secondary w-100">
+                        <a asp-controller="Estudiantes" asp-action="Index" class="btn btn-secondary w-100">
                             <i class="bi bi-x-circle"></i> Cancelar
                         </a>
                     </div>
@@ -85,5 +92,7 @@
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

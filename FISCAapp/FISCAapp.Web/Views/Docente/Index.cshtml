@@ -17,7 +17,6 @@
             <th>Teléfono</th>
             <th>Dirección</th>
             <th>Estado</th>
-            <th>Foto</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -32,14 +31,13 @@
                 <td>@docente.CelularDocente</td>
                 <td>@docente.TelefonoDocente</td>
                 <td>@docente.DireccionDocente</td>
-                <td>@docente.Estado</td>
-                <td>@docente.Foto</td>
+                <td>@docente.Estado == 1 ? "Activo" : "Inactivo"</td>
                 <td>
                     <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Docente" asp-action="actualizar" asp-route-IdDocente="@docente.IdDocente" class="btn btn-success mx-2">
+                        <a asp-controller="Docente" asp-action="Actualizar" asp-route-Id="@docente.IdDocente" class="btn btn-success mx-2">
                             Actualizar
                         </a>
-                        <a asp-controller="Docente" asp-action="eliminar" asp-route-IdDocente="@docente.IdDocente" class="btn btn-danger mx-2">
+                        <a asp-controller="Docente" asp-action="Eliminar" asp-route-Id="@docente.IdDocente" class="btn btn-danger mx-2">
                             Eliminar
                         </a>
                     </div>
@@ -48,4 +46,3 @@
         }
     </tbody>
 </table>
-

@@ -3,12 +3,12 @@ using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace FISCA.WEB.Controllers
+namespace FISCAapp.Web.Controllers
 {
-    public class DocentesController : Controller
+    public class DocenteController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public DocentesController(AplicacionDbContexto aplicacionDb)
+        public DocenteController(AplicacionDbContexto aplicacionDb)
         {
             _aplicacionDb = aplicacionDb;
         }

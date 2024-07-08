@@ -3,7 +3,7 @@ using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace FISCAapp.Web.Views.Home
+namespace FISCAapp.Web.Controllers
 {
     public class AsignacionController : Controller
     {

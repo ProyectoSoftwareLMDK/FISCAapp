@@ -9,29 +9,36 @@
         </div>
     </div>
     <div class="card-body border p-4">
-        <form asp-action="Delete" method="post" class="row">
+        <form asp-action="Eliminar" method="post" class="row">
             <input asp-for="IdUsuario" type="hidden" />
             <div class="p-3">
+                <div asp-validation-summary="All"></div>
+
                 <div class="form-floating py-2 col-12">
                     <input asp-for="NombreUsuario" class="form-control border shadow" readonly />
                     <label asp-for="NombreUsuario" class="ms-2">Nombre de Usuario</label>
                 </div>
+
                 <div class="form-floating py-2 col-12">
                     <input asp-for="PassUsuario" class="form-control border shadow" readonly />
                     <label asp-for="PassUsuario" class="ms-2">Contraseña</label>
                 </div>
+
                 <div class="form-floating py-2 col-12">
                     <input asp-for="NivelUsuario" class="form-control border shadow" readonly />
                     <label asp-for="NivelUsuario" class="ms-2">Nivel de Usuario</label>
                 </div>
+
                 <div class="form-floating py-2 col-12">
                     <input asp-for="Codigo" class="form-control border shadow" readonly />
                     <label asp-for="Codigo" class="ms-2">Código</label>
                 </div>
+
                 <div class="form-floating py-2 col-12">
                     <input asp-for="Foto" class="form-control border shadow" readonly />
-                    <label asp-for="Foto" class="ms-2">URL de la Foto</label>
+                    <label asp-for="Foto" class="ms-2">Foto</label>
                 </div>
+
                 <div class="row pt-2">
                     <div class="col-6 col-md-3">
                         <button type="submit" class="btn btn-danger w-100">
@@ -49,8 +56,3 @@
     </div>
 </div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

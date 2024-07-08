@@ -2,14 +2,14 @@
 
 <h2>Lista de Estudiantes</h2>
 <div class="w-5 btn-group" role="group">
-    <a asp-controller="Estudiante" asp-action="agregar" class="btn btn-success mx-2">
+    <a asp-controller="Estudiantes" asp-action="Agregar" class="btn btn-success mx-2">
         Agregar
     </a>
 </div>
 <table class="table table-light table-bordered table-striped" border="1">
     <thead>
         <tr>
-            <th>Carnet</th>
+            <th>Carne</th>
             <th>Nombres</th>
             <th>Apellidos</th>
             <th>Cédula</th>
@@ -18,8 +18,6 @@
             <th>Teléfono</th>
             <th>Dirección</th>
             <th>Estado</th>
-            <th>Grupo</th>
-            <th>Foto</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -27,23 +25,21 @@
         @foreach (var estudiante in Model)
         {
             <tr>
-                <td>@estudiante.car_Estudiante</td>
-                <td>@estudiante.nom_Estudiante</td>
-                <td>@estudiante.ape_Estudiante</td>
-                <td>@estudiante.ced_Estudiante</td>
-                <td>@estudiante.cor_Estududiante</td>
-                <td>@estudiante.cel_Estudiante</td>
-                <td>@estudiante.tel_Estudiante</td>
-                <td>@estudiante.dir_Estudiante</td>
-                <td>@estudiante.est_Estudiante</td>
-                <td>@estudiante.IdGrupo</td>
-                <td>@estudiante.fot_Estudiante</td>
+                <td>@estudiante.CarnetEstudiante</td>
+                <td>@estudiante.NombresEstudiante</td>
+                <td>@estudiante.ApellidosEstudiante</td>
+                <td>@estudiante.CedulaEstudiante</td>
+                <td>@estudiante.CorreoEstudiante</td>
+                <td>@estudiante.CelularEstudiante</td>
+                <td>@estudiante.TelefonoEstudiante</td>
+                <td>@estudiante.DireccionEstudiante</td>
+                <td>@estudiante.Estado == 1 ? "Activo" : "Inactivo"</td>
                 <td>
                     <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Estudiante" asp-action="actualizar" asp-route-IdEstudiante="@estudiante.IdEstudiante" class="btn btn-success mx-2">
+                        <a asp-controller="Estudiantes" asp-action="Actualizar" asp-route-Id="@estudiante.IdEstudiante" class="btn btn-success mx-2">
                             Actualizar
                         </a>
-                        <a asp-controller="Estudiante" asp-action="eliminar" asp-route-IdEstudiante="@estudiante.IdEstudiante" class="btn btn-danger mx-2">
+                        <a asp-controller="Estudiantes" asp-action="Eliminar" asp-route-Id="@estudiante.IdEstudiante" class="btn btn-danger mx-2">
                             Eliminar
                         </a>
                     </div>

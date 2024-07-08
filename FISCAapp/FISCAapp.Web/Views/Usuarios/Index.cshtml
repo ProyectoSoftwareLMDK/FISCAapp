@@ -2,7 +2,7 @@
 
 <h2>Lista de Usuarios</h2>
 <div class="w-5 btn-group" role="group">
-    <a asp-controller="Usuario" asp-action="agregar" class="btn btn-success mx-2">
+    <a asp-controller="Usuarios" asp-action="Agregar" class="btn btn-success mx-2">
         Agregar
     </a>
 </div>
@@ -10,10 +10,8 @@
     <thead>
         <tr>
             <th>Nombre de Usuario</th>
-            <th>Password</th>
-            <th>Nivel de Usuario</th>
+            <th>Nivel</th>
             <th>Código</th>
-            <th>Foto</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -22,16 +20,14 @@
         {
             <tr>
                 <td>@usuario.NombreUsuario</td>
-                <td>@usuario.PassUsuario</td>
                 <td>@usuario.NivelUsuario</td>
                 <td>@usuario.Codigo</td>
-                <td>@usuario.Foto</td>
                 <td>
                     <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Usuario" asp-action="actualizar" asp-route-IdUsuario="@usuario.IdUsuario" class="btn btn-success mx-2">
+                        <a asp-controller="Usuarios" asp-action="Actualizar" asp-route-Id="@usuario.IdUsuario" class="btn btn-success mx-2">
                             Actualizar
                         </a>
-                        <a asp-controller="Usuario" asp-action="eliminar" asp-route-IdUsuario="@usuario.IdUsuario" class="btn btn-danger mx-2">
+                        <a asp-controller="Usuarios" asp-action="Eliminar" asp-route-Id="@usuario.IdUsuario" class="btn btn-danger mx-2">
                             Eliminar
                         </a>
                     </div>

@@ -3,7 +3,7 @@ using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace FISCA.WEB.Controllers
+namespace FISCAapp.Web.Controllers
 {
     public class TurnosController : Controller
     {

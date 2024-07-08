@@ -2,7 +2,7 @@
 
 <h2>Lista de Turnos</h2>
 <div class="w-5 btn-group" role="group">
-    <a asp-controller="Turno" asp-action="agregar" class="btn btn-success mx-2">
+    <a asp-controller="Turnos" asp-action="Agregar" class="btn btn-success mx-2">
         Agregar
     </a>
 </div>
@@ -20,10 +20,10 @@
                 <td>@turno.NombreTurno</td>
                 <td>
                     <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Turno" asp-action="actualizar" asp-route-IdTurno="@turno.IdTurno" class="btn btn-success mx-2">
+                        <a asp-controller="Turnos" asp-action="Actualizar" asp-route-id="@turno.IdTurno" class="btn btn-success mx-2">
                             Actualizar
                         </a>
-                        <a asp-controller="Turno" asp-action="eliminar" asp-route-IdTurno="@turno.IdTurno" class="btn btn-danger mx-2">
+                        <a asp-controller="Turnos" asp-action="Eliminar" asp-route-id="@turno.IdTurno" class="btn btn-danger mx-2">
                             Eliminar
                         </a>
                     </div>

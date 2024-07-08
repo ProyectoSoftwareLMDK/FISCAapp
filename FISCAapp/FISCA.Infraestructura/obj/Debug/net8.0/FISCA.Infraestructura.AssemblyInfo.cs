@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FISCA.Infraestructura")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2fb29054f99197d3afba711126d93d62a7ff08e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b60600c1f4a53d150b36857203cce69baf85198")]
 [assembly: System.Reflection.AssemblyProductAttribute("FISCA.Infraestructura")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FISCA.Infraestructura")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

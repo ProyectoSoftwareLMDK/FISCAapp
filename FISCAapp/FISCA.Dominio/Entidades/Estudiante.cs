@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FISCA.Dominio.Entidades
 {
@@ -15,43 +11,53 @@ namespace FISCA.Dominio.Entidades
 
         [Required]
         [StringLength(10)]
-        public string car_Estudiante { get; set; }
+        [Column("CarnetEstudiante")]
+        public string CarnetEstudiante { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string nom_Estudiante { get; set; }
+        [Column("NombresEstudiante")]
+        public string NombresEstudiante { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string ape_Estudiante { get; set; }
+        [Column("ApellidosEstudiante")]
+        public string ApellidosEstudiante { get; set; }
 
         [Required]
         [StringLength(16)]
-        public string ced_Estudiante { get; set; }
+        [Column("CedulaEstudiante")]
+        public string CedulaEstudiante { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string cor_Estududiante { get; set; }
+        [Column("CorreoEstudiante")]
+        public string CorreoEstudiante { get; set; }
 
         [Required]
         [StringLength(8)]
-        public string cel_Estudiante { get; set; }
+        [Column("CelularEstudiante")]
+        public string CelularEstudiante { get; set; }
 
         [Required]
         [StringLength(8)]
-        public string tel_Estudiante { get; set; }
+        [Column("TelefonoEstudiante")]
+        public string TelefonoEstudiante { get; set; }
 
         [Required]
         [StringLength(250)]
-        public string dir_Estudiante { get; set; }
+        [Column("DireccionEstudiante")]
+        public string DireccionEstudiante { get; set; }
 
         [Required]
-        public int est_Estudiante { get; set; }
+        [Column("Estado")]
+        public int Estado { get; set; }
 
         public int? IdGrupo { get; set; }
 
         [StringLength(100)]
-        public string fot_Estudiante { get; set; }
+        [Column("Foto")]
+        public string Foto { get; set; }
 
     }
 }
