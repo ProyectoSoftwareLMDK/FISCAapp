@@ -9,11 +9,15 @@
 <form method="post">
     <input asp-for="IdCuatrimestre" type="hidden" />
 
-    <div class="form-floating py-2">
-        <input asp-for="NombreCuatrimestre" class="form-control" readonly />
-        <label asp-for="NombreCuatrimestre">Nombre del Cuatrimestre</label>
+    <div class="form-floating py-2 col-12">
+        <input asp-for="NombreCuatrimestre" class="form-control border shadow" readonly />
+        <label asp-for="NombreCuatrimestre" class="ms-2">Nombre del Cuatrimestre</label>
     </div>
 
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a asp-controller="Cuatrimestre" asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-danger">
+        <i class="bi bi-trash"></i> Eliminar
+    </button>
+    <a asp-controller="Cuatrimestre" asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-x-circle"></i> Cancelar
+    </a>
 </form>

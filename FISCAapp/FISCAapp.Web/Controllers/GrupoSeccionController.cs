@@ -1,9 +1,11 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class GrupoSeccionController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
@@ -13,11 +15,20 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             try
             {
-                var listaGrupos = _aplicacionDb.Grupos.ToList();
+                var grupos = from g in _aplicacionDb.Grupos
+                             select g;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    grupos = grupos.Where(g => g.NombreGrupo.Contains(searchString));
+                }
+
+                var listaGrupos = grupos.ToList();
+                ViewData["CurrentFilter"] = searchString;
                 return View(listaGrupos);
             }
             catch (Exception ex)
