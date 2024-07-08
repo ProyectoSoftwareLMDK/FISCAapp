@@ -12,11 +12,20 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             try
             {
-                var listaCuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
+                var cuatrimestres = from c in _aplicacionDb.Cuatrimestres
+                                    select c;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    cuatrimestres = cuatrimestres.Where(c => c.NombreCuatrimestre.Contains(searchString));
+                }
+
+                var listaCuatrimestres = cuatrimestres.ToList();
+                ViewData["CurrentFilter"] = searchString;
                 return View(listaCuatrimestres);
             }
             catch (Exception ex)
