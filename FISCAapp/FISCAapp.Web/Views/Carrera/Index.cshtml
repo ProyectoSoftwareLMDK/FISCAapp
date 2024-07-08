@@ -6,14 +6,17 @@
 
 <h2>Lista de Carreras</h2>
 
-<div class="w-20 btn-group" role="group">
-    <a asp-controller="Carrera" asp-action="Agregar" class="btn btn-success mx-2">Agregar<i class="bi bi-floppy-fill"></i></a>
-</div>
+<form method="get" asp-controller="Carrera" asp-action="Index" class="d-flex justify-content-between mb-3">
+    <div class="input-group w-50">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar carrera..." aria-label="Buscar carrera" value="@ViewData["CurrentFilter"]">
+        <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+    </div>
+    <a asp-controller="Carrera" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
+</form>
 
 <table class="table table-light table-bordered table-striped">
     <thead>
         <tr>
-           
             <th>Nombre</th>
             <th></th>
         </tr>
@@ -22,12 +25,11 @@
         @foreach (var carrera in Model)
         {
             <tr>
-             
                 <td>@carrera.NombreCarrera</td>
                 <td>
                     <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Carrera" asp-action="Actualizar" asp-route-id="@carrera.IdCarrera" class="btn btn-success mx-2">Actualizar<i class="bi bi-airplane-engines"></i></a>
-                        <a asp-controller="Carrera" asp-action="Eliminar" asp-route-id="@carrera.IdCarrera" class="btn btn-danger mx-2">Eliminar<i class="bi bi-trash"></i></a>
+                        <a asp-controller="Carrera" asp-action="Actualizar" asp-route-id="@carrera.IdCarrera" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
+                        <a asp-controller="Carrera" asp-action="Eliminar" asp-route-id="@carrera.IdCarrera" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
                     </div>
                 </td>
             </tr>

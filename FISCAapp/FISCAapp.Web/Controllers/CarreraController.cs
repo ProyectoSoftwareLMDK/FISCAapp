@@ -2,6 +2,7 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace FISCAapp.Web.Controllers
 {
     public class CarreraController : Controller
@@ -12,11 +13,20 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             try
             {
-                var listaCarrera = _aplicacionDb.Carreras.ToList();
+                var carreras = from c in _aplicacionDb.Carreras
+                               select c;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    carreras = carreras.Where(c => c.NombreCarrera.Contains(searchString));
+                }
+
+                var listaCarrera = carreras.ToList();
+                ViewData["CurrentFilter"] = searchString;
                 return View(listaCarrera);
             }
             catch (Exception ex)
