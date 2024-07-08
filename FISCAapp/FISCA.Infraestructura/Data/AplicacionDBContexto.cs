@@ -21,11 +21,8 @@ namespace FISCA.Infraestructura.Data
         public DbSet<Asignatura> Asignaturas { get; set; }
         public DbSet<Asignacion> Asignaciones { get; set; }
         public DbSet<PlanEstudio> PlanEstudios { get; set; }
+        public DbSet<AsistenciaEstudiantes> AsistenciaEstudiantes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-            // Configuración adicional de la base de datos si es necesario
-        }
+        
     }
 }

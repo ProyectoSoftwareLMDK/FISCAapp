@@ -1,0 +1,38 @@
+﻿@model FISCA.Dominio.Entidades.AsistenciaEstudiantes
+
+<h2>Eliminar Asistencia</h2>
+
+<form method="post">
+    <input asp-for="IdAsistencia" hidden />
+
+    <div class="form-floating py-2 col-12">
+        <input asp-for="IdEstudiante" class="form-control border shadow" readonly />
+        <label asp-for="IdEstudiante" class="ms-2">ID Estudiante</label>
+        <span asp-validation-for="IdEstudiante" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating py-2 col-12">
+        <input asp-for="IdAsignacion" class="form-control border shadow" readonly />
+        <label asp-for="IdAsignacion" class="ms-2">ID Asignación</label>
+        <span asp-validation-for="IdAsignacion" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating py-2 col-12">
+        <input asp-for="Fecha" class="form-control border shadow" readonly />
+        <label asp-for="Fecha" class="ms-2">Fecha</label>
+        <span asp-validation-for="Fecha" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating py-2 col-12">
+        <input asp-for="Estado" class="form-control border shadow" readonly />
+        <label asp-for="Estado" class="ms-2">Estado</label>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-danger">
+        <i class="bi bi-trash"></i> Eliminar
+    </button>
+    <a asp-controller="AsistenciaEstudiantes" asp-action="Index" class="btn btn-secondary">
+        <i class="bi bi-x-circle"></i> Cancelar
+    </a>
+</form>
