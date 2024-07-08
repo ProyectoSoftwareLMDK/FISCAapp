@@ -54,4 +54,4 @@ jobs:
           app-name: 'construccionveganivelpollo'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E383C9FCCBF4DEEA79EBB6A080E2365 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9AD6CBFB6FC645D780583583F47AE184 }}
