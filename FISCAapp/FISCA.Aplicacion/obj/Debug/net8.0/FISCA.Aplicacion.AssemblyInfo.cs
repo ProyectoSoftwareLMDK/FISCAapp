@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FISCA.Aplicacion")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65afcff3f2e92cca3054d7667219e62bdcfb1854")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da0e65688ba65ff59d837ba590c96a4a2fd48ddb")]
->>>>>>> origin/Main
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbd2b8c42240b15f1921a783cd2345e7ae458594")]
 [assembly: System.Reflection.AssemblyProductAttribute("FISCA.Aplicacion")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FISCA.Aplicacion")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
