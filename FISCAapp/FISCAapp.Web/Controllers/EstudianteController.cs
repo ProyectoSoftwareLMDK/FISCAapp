@@ -22,8 +22,7 @@ namespace FISCAapp.Web.Controllers
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    estudiantes = estudiantes.Where(e => e.NombresEstudiante.Contains(searchString));
-                    estudiantes = estudiantes.Where(e => e.CedulaEstudiante.Contains(searchString));                 
+                    estudiantes = estudiantes.Where(e => e.NombresEstudiante.Contains(searchString) || e.CedulaEstudiante.Contains(searchString));                 
                 }
 
                 var listaEstudiantes = estudiantes.ToList();
