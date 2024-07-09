@@ -44,7 +44,6 @@ namespace FISCA.Dominio.Entidades
         [Required]
         public int Estado { get; set; }
 
-        [StringLength(100)]
-        public string Foto { get; set; }
+        
     }
 }

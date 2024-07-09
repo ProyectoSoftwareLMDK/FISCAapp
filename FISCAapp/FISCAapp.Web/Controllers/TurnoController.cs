@@ -13,10 +13,27 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            var listaTurnos = _aplicacionDb.Turnos.ToList();
-            return View(listaTurnos);
+            try
+            {
+                var turnos = from t in _aplicacionDb.Turnos
+                             select t;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    turnos = turnos.Where(t => t.NombreTurno.Contains(searchString) || t.IdTurno.ToString().Contains(searchString));
+                }
+
+                var listaTurnos = turnos.ToList();
+                ViewData["CurrentFilter"] = searchString;
+                return View(listaTurnos);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar la lista de turnos: " + ex.Message;
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         public IActionResult Agregar()

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {}
+    "C:\\Users\\HP\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
         "projectName": "FISCA.Aplicacion",
-        "projectPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
-        "packagesPath": "C:\\Users\\QUINN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\obj\\",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\QUINN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

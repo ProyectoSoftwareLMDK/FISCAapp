@@ -13,10 +13,27 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            var listaUsuarios = _aplicacionDb.Usuarios.ToList();
-            return View(listaUsuarios);
+            try
+            {
+                var usuarios = from u in _aplicacionDb.Usuarios
+                               select u;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    usuarios = usuarios.Where(u => u.NombreUsuario.Contains(searchString) || u.IdUsuario.ToString().Contains(searchString));
+                }
+
+                var listaUsuarios = usuarios.ToList();
+                ViewData["CurrentFilter"] = searchString;
+                return View(listaUsuarios);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar la lista de usuarios: " + ex.Message;
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         public IActionResult Agregar()
