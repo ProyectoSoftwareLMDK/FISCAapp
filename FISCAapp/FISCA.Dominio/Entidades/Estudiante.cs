@@ -55,9 +55,6 @@ namespace FISCA.Dominio.Entidades
 
         public int? IdGrupo { get; set; }
 
-        [StringLength(100)]
-        [Column("Foto")]
-        public string Foto { get; set; }
 
     }
 }

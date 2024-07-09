@@ -1,9 +1,11 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FISCAapp.Web.Controllers
 {
+    [Authorize]
     public class GrupoSeccionController : Controller
     {
         private readonly AplicacionDbContexto _aplicacionDb;
