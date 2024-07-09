@@ -12,7 +12,7 @@ namespace FISCA.Dominio.Entidades
     {
         [Key]
         public int IdNivel { get; set; }
-        public string? NombreNivel { get; set; }
+        public string NombreNivel { get; set; }
 
     }
 }

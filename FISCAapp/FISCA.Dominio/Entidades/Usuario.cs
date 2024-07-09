@@ -27,8 +27,5 @@ namespace FISCA.Dominio.Entidades
         [Required]
         public int Codigo { get; set; }
 
-        [StringLength(100)]
-        public string Foto { get; set; }
-
     }
 }

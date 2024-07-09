@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FISCA.Dominio
-build_property.ProjectDir = C:\Users\USER 17\Desktop\FISCAapp\FISCAapp\FISCA.Dominio\
+build_property.ProjectDir = D:\FISCAapp\FISCAapp\FISCA.Dominio\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

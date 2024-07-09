@@ -19,12 +19,12 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var asignaturas = from c in _aplicacionDb.Asignaturas
-                               select c;
+                var asignaturas = from a in _aplicacionDb.Asignaturas
+                               select a;
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    asignaturas = asignaturas.Where(c => c.NombreAsignatura.Contains(searchString));
+                    asignaturas = asignaturas.Where(a => a.NombreAsignatura.Contains(searchString));
                 }
                 var listaAsignaturas = asignaturas.ToList();
                 ViewData["CurrentFilter"] = searchString;
