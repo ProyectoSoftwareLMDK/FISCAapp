@@ -19,6 +19,13 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
+                var carreras = _aplicacionDb.Carreras.ToList();
+                var grupos = _aplicacionDb.Grupos.ToList();
+                var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
+                ViewBag.Carreras = carreras;
+                ViewBag.Grupos = grupos;
+                ViewBag.Cuatrimestres = cuatrimestres;
+
                 var asignaturas = from a in _aplicacionDb.Asignaturas
                                select a;
 

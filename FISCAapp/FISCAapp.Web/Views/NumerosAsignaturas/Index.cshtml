@@ -26,7 +26,20 @@
         {
             <tr>
                 <td>@numero.NumeroAsignado</td>
-                <td>@numero.IdDocente</td>
+                <td>
+                    @{
+                        var nombreDocente = "";
+                        foreach (var docente in ViewBag.Docentes)
+                        {
+                            if (docente.IdDocente == numero.IdDocente)
+                            {
+                                nombreDocente = docente.NombresDocente;
+                                break;
+                            }
+                        }
+                        @nombreDocente
+                    }
+                </td>
                 <td>
                     <div class="btn-group" role="group">
                         <a asp-controller="NumerosAsignaturas" asp-action="Actualizar" asp-route-idNumeroAsignacion="@numero.IdNumerosAsignaciones" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>

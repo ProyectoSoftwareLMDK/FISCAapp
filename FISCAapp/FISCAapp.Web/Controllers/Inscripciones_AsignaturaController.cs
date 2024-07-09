@@ -18,6 +18,11 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
+                var asignaturas = _aplicacionDb.Asignaturas.ToList();
+                var estudiantes = _aplicacionDb.Estudiantes.ToList();
+                ViewBag.Asignaturas = asignaturas;
+                ViewBag.Estudiantes = estudiantes;
+
                 var inscripciones = from i in _aplicacionDb.InscripcionesAsignaturas 
                                   select i;
 
