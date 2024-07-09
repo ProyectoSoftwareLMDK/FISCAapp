@@ -43,10 +43,5 @@ namespace FISCA.Dominio.Entidades
 
         [Required]
         public int Estado { get; set; }
-<<<<<<< HEAD
-=======
-
-        
->>>>>>> origin/Main
     }
 }
