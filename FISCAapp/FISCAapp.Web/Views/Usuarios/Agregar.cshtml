@@ -1,0 +1,62 @@
+﻿@model FISCA.Dominio.Entidades.Usuario
+
+<div class="w-100 card border-0 p-4">
+    <div class="card-header bg-success bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Agregar nuevo usuario</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body border p-4">
+        <form asp-action="Agregar" method="post" class="row">
+            <div class="p-3">
+                <div asp-validation-summary="All"></div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="NombreUsuario" class="form-control border shadow" />
+                    <label asp-for="NombreUsuario" class="ms-2">Nombre de Usuario</label>
+                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="PassUsuario" class="form-control border shadow" />
+                    <label asp-for="PassUsuario" class="ms-2">Contraseña</label>
+                    <span asp-validation-for="PassUsuario" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="NivelUsuario" class="form-control border shadow" />
+                    <label asp-for="NivelUsuario" class="ms-2">Nivel de Usuario</label>
+                    <span asp-validation-for="NivelUsuario" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Codigo" class="form-control border shadow" />
+                    <label asp-for="Codigo" class="ms-2">Código</label>
+                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
+
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-check-circle"></i> Agregar
+                        </button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Usuarios" asp-action="Index" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

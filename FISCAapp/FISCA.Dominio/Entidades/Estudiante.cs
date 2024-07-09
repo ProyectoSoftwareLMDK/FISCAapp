@@ -55,5 +55,6 @@ namespace FISCA.Dominio.Entidades
 
         public int? IdGrupo { get; set; }
 
+
     }
 }
