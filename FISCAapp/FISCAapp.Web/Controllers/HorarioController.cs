@@ -15,11 +15,20 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
             try
             {
-                var listaHorarios = _aplicacionDb.Horarios.ToList();
+                var horarios = from h in _aplicacionDb.Horarios
+                               select h;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    horarios = horarios.Where(h => h.NombreHorario.Contains(searchString));
+                }
+
+                var listaHorarios = horarios.ToList();
+                ViewData["CurrentFilter"] = searchString;
                 return View(listaHorarios);
             }
             catch (Exception ex)

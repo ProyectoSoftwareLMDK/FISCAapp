@@ -26,6 +26,10 @@ namespace FISCA.Dominio.Entidades
 
         [Required]
         public int Codigo { get; set; }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> origin/Main
 
     }
 }
