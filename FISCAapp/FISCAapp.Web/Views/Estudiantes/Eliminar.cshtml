@@ -1,0 +1,83 @@
+﻿@model FISCA.Dominio.Entidades.Estudiante
+
+<div class="w-100 card border-0 p-4">
+    <div class="card-header bg-danger bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Eliminar Estudiante</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body border p-4">
+        <form asp-action="Eliminar" method="post" class="row">
+            <input asp-for="IdEstudiante" type="hidden" />
+            <div class="p-3">
+                <div asp-validation-summary="All"></div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="CarnetEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="CarnetEstudiante" class="ms-2">Carnet</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="NombresEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="NombresEstudiante" class="ms-2">Nombres</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ApellidosEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="ApellidosEstudiante" class="ms-2">Apellidos</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="CedulaEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="CedulaEstudiante" class="ms-2">Cédula</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="CorreoEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="CorreoEstudiante" class="ms-2">Correo</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="CelularEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="CelularEstudiante" class="ms-2">Celular</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="TelefonoEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="TelefonoEstudiante" class="ms-2">Teléfono</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="DireccionEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="DireccionEstudiante" class="ms-2">Dirección</label>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Estado" class="form-control border shadow" readonly />
+                    <label asp-for="Estado" class="ms-2">Estado</label>
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="bi bi-trash"></i> Eliminar
+                        </button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Estudiantes" asp-action="Index" class="btn btn-secondary w-100">
+                            <i class="bi bi-x-circle"></i> Cancelar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
