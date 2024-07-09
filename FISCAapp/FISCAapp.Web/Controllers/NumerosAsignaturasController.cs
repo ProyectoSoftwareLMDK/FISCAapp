@@ -42,6 +42,9 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Agregar()
         {
+            var docentes = _aplicacionDb.Docentes.ToList();
+            ViewBag.Docentes = docentes;
+
             return View();
         }
 
@@ -61,6 +64,9 @@ namespace FISCAapp.Web.Controllers
                 {
                     TempData["error"] = "Error al agregar el número de asignación: " + ex.Message;
                 }
+                
+                var docentes = _aplicacionDb.Docentes.ToList();
+                ViewBag.Docentes = docentes;
             }
             return View();
         }

@@ -29,9 +29,48 @@
         {
             <tr>
                 <td>@asignatura.NombreAsignatura</td>
-                <td>@asignatura.IdCarrera</td> 
-                <td>@asignatura.IdGrupo</td> 
-                <td>@asignatura.IdCuatrimestre</td>
+                <td>
+                    @{
+                        var nombreCarrera = "";
+                        foreach (var carrera in ViewBag.Carreras)
+                        {
+                            if (carrera.IdCarrera == asignatura.IdCarrera)
+                            {
+                                nombreCarrera = carrera.NombreCarrera;
+                                break;
+                            }
+                        }
+                        @nombreCarrera
+                    }
+                </td> 
+                <td>
+                    @{
+                        var nombreGrupo = "";
+                        foreach (var grupo in ViewBag.Grupos)
+                        {
+                            if (grupo.IdGrupo == asignatura.IdGrupo)
+                            {
+                                nombreGrupo = grupo.NombreGrupo;
+                                break;
+                            }
+                        }
+                        @nombreGrupo
+                    }
+                </td> 
+                <td>
+                    @{
+                        var nombreCuatrimestre = "";
+                        foreach (var cuatrimestre in ViewBag.Cuatrimestres)
+                        {
+                            if (cuatrimestre.IdCuatrimestre == asignatura.IdCuatrimestre)
+                            {
+                                nombreCuatrimestre = cuatrimestre.NombreCuatrimestre;
+                                break;
+                            }
+                        }
+                        @nombreCuatrimestre
+                    }
+                </td>
                 <td>
                     <div class="w-75 btn-group" role="group">
                         <a asp-controller="Asignatura" asp-action="Actualizar" asp-route-idAsignatura="@asignatura.IdAsignatura" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>

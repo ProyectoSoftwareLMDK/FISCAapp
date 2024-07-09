@@ -15,19 +15,25 @@
     </div>
 
     <div class="form-floating py-2 col-12">
-        <input asp-for="@Model.IdCarrera" class="form-control border shadow" />
+        <select asp-for="IdCarrera" asp-items="@(new SelectList(ViewBag.Carreras, "IdCarrera", "NombreCarrera"))" class="form-control border shadow">
+            <option value="">Seleccione una carrera</option>
+        </select>
         <label asp-for="IdCarrera" class="ms-2">Carrera</label>
         <span asp-validation-for="IdCarrera" class="text-danger"></span>
     </div>
 
     <div class="form-floating py-2 col-12">
-        <input asp-for="@Model.IdGrupo" class="form-control border shadow" />
+        <select asp-for="IdGrupo" asp-items="@(new SelectList(ViewBag.Grupos, "IdGrupo", "NombreGrupo"))" class="form-control border shadow">
+            <option value="">Seleccione un grupo</option>
+        </select>
         <label asp-for="IdGrupo" class="ms-2">Grupo</label>
         <span asp-validation-for="IdGrupo" class="text-danger"></span>
     </div>
 
     <div class="form-floating py-2 col-12">
-        <input asp-for="@Model.IdCuatrimestre" class="form-control border shadow" />
+        <select asp-for="IdCuatrimestre" asp-items="@(new SelectList(ViewBag.Cuatrimestres, "IdCuatrimestre", "NombreCuatrimestre"))" class="form-control border shadow">
+            <option value="">Seleccione un cuatrimestre</option>
+        </select>
         <label asp-for="IdCuatrimestre" class="ms-2">Cuatrimestre</label>
         <span asp-validation-for="IdCuatrimestre" class="text-danger"></span>
     </div>

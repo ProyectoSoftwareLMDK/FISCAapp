@@ -18,12 +18,17 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
+                var asignaturas = _aplicacionDb.Asignaturas.ToList();
+                var estudiantes = _aplicacionDb.Estudiantes.ToList();
+                ViewBag.Asignaturas = asignaturas;
+                ViewBag.Estudiantes = estudiantes;
+
                 var inscripciones = from i in _aplicacionDb.InscripcionesAsignaturas 
                                   select i;
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    inscripciones = inscripciones.Where(i => i.IdAsignatura.ToString().Contains(searchString));
+                    inscripciones = inscripciones.Where(i => i.IdInscripcion.ToString().Contains(searchString));
                 }
                 var listaInscripcionesAsignaturas = inscripciones.ToList();
                 ViewData["CurrentFilter"] = searchString;
@@ -38,6 +43,11 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Agregar()
         {
+            var asignaturas = _aplicacionDb.Asignaturas.ToList();
+            var estudiantes = _aplicacionDb.Estudiantes.ToList();
+            ViewBag.Asignaturas = asignaturas;
+            ViewBag.Estudiantes = estudiantes;
+
             return View();
         }
 
@@ -57,6 +67,11 @@ namespace FISCAapp.Web.Controllers
                 {
                     TempData["error"] = "Error al agregar la inscripción: " + ex.Message;
                 }
+
+                var asignaturas = _aplicacionDb.Asignaturas.ToList();
+                var estudiantes = _aplicacionDb.Estudiantes.ToList();
+                ViewBag.Asignaturas = asignaturas;
+                ViewBag.Estudiantes = estudiantes;
             }
             return View(inscripcion);
         }

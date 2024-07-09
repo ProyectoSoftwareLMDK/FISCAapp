@@ -19,6 +19,13 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
+                var carreras = _aplicacionDb.Carreras.ToList();
+                var grupos = _aplicacionDb.Grupos.ToList();
+                var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
+                ViewBag.Carreras = carreras;
+                ViewBag.Grupos = grupos;
+                ViewBag.Cuatrimestres = cuatrimestres;
+
                 var asignaturas = from a in _aplicacionDb.Asignaturas
                                select a;
 
@@ -39,6 +46,13 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Agregar()
         {
+            var carreras = _aplicacionDb.Carreras.ToList();
+            var grupos = _aplicacionDb.Grupos.ToList();
+            var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
+            ViewBag.Carreras = carreras;
+            ViewBag.Grupos = grupos;
+            ViewBag.Cuatrimestres = cuatrimestres;
+
             return View();
         }
 
@@ -58,6 +72,13 @@ namespace FISCAapp.Web.Controllers
                 {
                     TempData["error"] = "Error al agregar la asignatura: " + ex.Message;
                 }
+
+                var carreras = _aplicacionDb.Carreras.ToList();
+                var grupos = _aplicacionDb.Grupos.ToList();
+                var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
+                ViewBag.Carreras = carreras;
+                ViewBag.Grupos = grupos;
+                ViewBag.Cuatrimestres = cuatrimestres;
             }
             return View();
         }

@@ -8,7 +8,7 @@
 
 <form method="get" asp-controller="Inscripciones_Asignatura" asp-action="Index" class="d-flex justify-content-between mb-3">
     <div class="input-group w-50">
-        <input type="text" name="searchString" class="form-control" placeholder="Buscar por ID de asignatura..." aria-label="Buscar por ID de asignatura" value="@ViewData["CurrentFilter"]">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar por ID de inscripcion..." aria-label="Buscar por ID de inscripcion" value="@ViewData["CurrentFilter"]">
         <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
     </div>
     <a asp-controller="Inscripciones_Asignatura" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
@@ -17,9 +17,8 @@
 <table class="table table-light table-bordered table-striped">
     <thead>
         <tr>
-            <th>ID Inscripción</th>
-            <th>ID Asignatura</th>
-            <th>ID Estudiante</th>
+            <th>Asignatura</th>
+            <th>Estudiante</th>
             <th>Fecha Inscripción</th>
             <th>Observaciones</th>
             <th></th>
@@ -29,9 +28,34 @@
         @foreach (var inscripcion in Model)
         {
             <tr>
-                <td>@inscripcion.IdInscripcion</td>
-                <td>@inscripcion.IdAsignatura</td>
-                <td>@inscripcion.IdEstudiante</td>
+                <td>
+                    @{
+                        var nombreAsignatura = "";
+                        foreach (var asignatura in ViewBag.Asignaturas)
+                        {
+                            if (asignatura.IdAsignatura == inscripcion.IdAsignatura)
+                            {
+                                nombreAsignatura = asignatura.NombreAsignatura;
+                                break;
+                            }
+                        }
+                        @nombreAsignatura
+                    }
+                </td>
+                <td>
+                    @{
+                        var nombreEstudiante = "";
+                        foreach (var estudiante in ViewBag.Estudiantes)
+                        {
+                            if (estudiante.IdEstudiante == inscripcion.IdEstudiante)
+                            {
+                                nombreEstudiante = estudiante.NombresEstudiante;
+                                break;
+                            }
+                        }
+                        @nombreEstudiante
+                    }
+                </td>
                 <td>@inscripcion.FechaInscripcion?.ToString("dd/MM/yyyy")</td>
                 <td>@inscripcion.Observaciones</td>
                 <td>
