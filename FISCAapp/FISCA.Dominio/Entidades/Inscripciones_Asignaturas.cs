@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace FISCA.Dominio.Entidades
 {
+    
     public class Inscripciones_Asignaturas
     {
         [Key]

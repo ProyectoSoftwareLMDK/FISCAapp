@@ -1,43 +1,36 @@
-﻿/* styles.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
+﻿.container {
+    display: flex;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 50px auto;
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    height: 100vh;
+    position: fixed;
+}
+
+.sidebar-item {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+    .sidebar-item:hover {
+        background-color: #e9ecef;
+        color: #007bff;
+    }
+
+.content {
+    margin-left: 270px; /* Same as the sidebar width + padding */
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    width: 100%;
 }
 
 h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
-.grid-item {
-    background-color: #0984e3;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 1.2em;
-}
-
-    .grid-item:hover {
-        background-color: #c8d6e5;
-    }
