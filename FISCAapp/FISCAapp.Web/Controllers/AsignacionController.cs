@@ -2,7 +2,7 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace FISCAapp.Web.Controllers
@@ -17,13 +17,20 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = contexto;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            var asignaciones = _aplicacionDb.Asignaciones.ToList();
-            return View(asignaciones);
             try
             {
-                var listaAsignaciones = _aplicacionDb.Asignaciones.ToList();
+                var asignaciones = from a in _aplicacionDb.Asignaciones
+                                   select a;
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    asignaciones = asignaciones.Where(a => a.Descripcion.Contains(searchString));
+                }
+
+                var listaAsignaciones = asignaciones.ToList();
+                ViewData["CurrentFilter"] = searchString;
                 return View(listaAsignaciones);
             }
             catch (Exception ex)
@@ -43,20 +50,16 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _aplicacionDb.Asignaciones.Add(asignacion);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "La asignación fue agregada con éxito";
-                return RedirectToAction("Index");
                 try
                 {
                     _aplicacionDb.Asignaciones.Add(asignacion);
                     _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Asignación creada con éxito";
+                    TempData["success"] = "La asignación fue agregada con éxito";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
-                    TempData["error"] = "Error al crear la asignación: " + ex.Message;
+                    TempData["error"] = "Error al agregar la asignación: " + ex.Message;
                 }
             }
             return View(asignacion);
@@ -64,23 +67,20 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Actualizar(int id)
         {
-            var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
-            if (asignacion == null)
-                try
+            try
+            {
+                var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
+                if (asignacion == null)
                 {
-                    
-                    if (asignacion == null)
-                    {
-                        return RedirectToAction("Error", "Home");
-                    }
-                    return View(asignacion);
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al cargar la asignación: " + ex.Message;
                     return RedirectToAction("Error", "Home");
                 }
-            return View(asignacion);
+                return View(asignacion);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar la asignación: " + ex.Message;
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpPost]
@@ -88,15 +88,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && asignacion.IdAsignacion > 0)
             {
-                _aplicacionDb.Asignaciones.Update(asignacion);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "La asignación fue actualizada con éxito";
-                return RedirectToAction("Index");
                 try
                 {
                     _aplicacionDb.Asignaciones.Update(asignacion);
                     _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Asignación actualizada con éxito";
+                    TempData["success"] = "La asignación fue actualizada con éxito";
                     return RedirectToAction("Index");
                 }
                 catch (Exception ex)
@@ -109,23 +105,20 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Eliminar(int id)
         {
-            var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
-            if (asignacion == null)
-                try
+            try
+            {
+                var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == id);
+                if (asignacion == null)
                 {
-                  
-                    if (asignacion == null)
-                    {
-                        return RedirectToAction("Error", "Home");
-                    }
-                    return View(asignacion);
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al cargar la asignación: " + ex.Message;
                     return RedirectToAction("Error", "Home");
                 }
-            return View();
+                return View(asignacion);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar la asignación: " + ex.Message;
+                return RedirectToAction("Error", "Home");
+            }
         }
 
         [HttpPost]
@@ -133,10 +126,6 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && asignacion.IdAsignacion > 0)
             {
-                _aplicacionDb.Asignaciones.Remove(asignacion);
-                _aplicacionDb.SaveChanges();
-                TempData["success"] = "La asignación fue eliminada con éxito";
-                return RedirectToAction("Index");
                 try
                 {
                     var asignacionDb = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == asignacion.IdAsignacion);
@@ -144,7 +133,7 @@ namespace FISCAapp.Web.Controllers
                     {
                         _aplicacionDb.Asignaciones.Remove(asignacionDb);
                         _aplicacionDb.SaveChanges();
-                        TempData["success"] = "Asignación eliminada con éxito";
+                        TempData["success"] = "La asignación fue eliminada con éxito";
                         return RedirectToAction("Index");
                     }
                     TempData["error"] = "Error al eliminar la asignación";
@@ -155,9 +144,9 @@ namespace FISCAapp.Web.Controllers
                     TempData["error"] = "Error al eliminar la asignación: " + ex.Message;
                     return View(asignacion);
                 }
-                
-            }return View(asignacion);
+            }
+            TempData["error"] = "Error al eliminar la asignación";
+            return View(asignacion);
         }
     }
 }
-

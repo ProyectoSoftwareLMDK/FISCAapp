@@ -5,58 +5,67 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<h2>Eliminar Inscripción Asignatura</h2>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Eliminar Inscripción Asignatura</h2>
 
-<form method="post" id="eliminarForm">
-    <input asp-for="IdInscripcion" hidden />
+            <form method="post" id="eliminarForm">
+                <input asp-for="IdInscripcion" hidden />
 
-    <div class="form-floating py-2 col-12">
-        <input asp-for="IdAsignatura" class="form-control border shadow" readonly />
-        <label asp-for="IdAsignatura" class="ms-2">ID Asignatura</label>
-        <span asp-validation-for="IdAsignatura" class="text-danger"></span>
-    </div>
-
-    <div class="form-floating py-2 col-12">
-        <input asp-for="IdEstudiante" class="form-control border shadow" readonly />
-        <label asp-for="IdEstudiante" class="ms-2">ID Estudiante</label>
-        <span asp-validation-for="IdEstudiante" class="text-danger"></span>
-    </div>
-
-    <div class="form-floating py-2 col-12">
-        <input asp-for="FechaInscripcion" class="form-control border shadow" readonly />
-        <label asp-for="FechaInscripcion" class="ms-2">Fecha Inscripción</label>
-        <span asp-validation-for="FechaInscripcion" class="text-danger"></span>
-    </div>
-
-    <div class="form-floating py-2 col-12">
-        <input asp-for="Observaciones" class="form-control border shadow" readonly />
-        <label asp-for="Observaciones" class="ms-2">Observaciones</label>
-        <span asp-validation-for="Observaciones" class="text-danger"></span>
-    </div>
-
-    <!-- Modal de confirmación -->
-    <div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmarEliminarModalLabel">¿Estás seguro de eliminar?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="IdAsignatura" class="form-control border shadow" readonly />
+                    <label asp-for="IdAsignatura" class="ms-2">ID Asignatura</label>
+                    <span asp-validation-for="IdAsignatura" class="text-danger"></span>
                 </div>
-                <div class="modal-body">
-                    <p>Esta acción eliminará permanentemente la inscripción a la asignatura. ¿Deseas continuar?</p>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="IdEstudiante" class="form-control border shadow" readonly />
+                    <label asp-for="IdEstudiante" class="ms-2">ID Estudiante</label>
+                    <span asp-validation-for="IdEstudiante" class="text-danger"></span>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="FechaInscripcion" class="form-control border shadow" readonly />
+                    <label asp-for="FechaInscripcion" class="ms-2">Fecha Inscripción</label>
+                    <span asp-validation-for="FechaInscripcion" class="text-danger"></span>
                 </div>
-            </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Observaciones" class="form-control border shadow" readonly />
+                    <label asp-for="Observaciones" class="ms-2">Observaciones</label>
+                    <span asp-validation-for="Observaciones" class="text-danger"></span>
+                </div>
+
+                <!-- Modal de confirmación -->
+                <div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="confirmarEliminarModalLabel">¿Estás seguro de eliminar?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Esta acción eliminará permanentemente la inscripción a la asignatura. ¿Deseas continuar?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal">
+                    <i class="bi bi-trash"></i> Eliminar
+                </button>
+                <a asp-controller="Inscripciones_Asignatura" asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </a>
+            </form>
         </div>
     </div>
-
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmarEliminarModal">
-        <i class="bi bi-trash"></i> Eliminar
-    </button>
-    <a asp-controller="Inscripciones_Asignatura" asp-action="Index" class="btn btn-secondary">
-        <i class="bi bi-x-circle"></i> Cancelar
-    </a>
-</form>
+</div>
