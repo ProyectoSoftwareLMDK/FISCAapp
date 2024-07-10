@@ -4,36 +4,48 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<h2>Lista de Cuatrimestres</h2>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Lista de Cuatrimestres</h2>
 
-<form method="get" asp-controller="Cuatrimestre" asp-action="Index" class="d-flex justify-content-between mb-3">
-    <div class="input-group w-50">
-        <input type="text" name="searchString" class="form-control" placeholder="Buscar cuatrimestre..." aria-label="Buscar cuatrimestre" value="@ViewData["CurrentFilter"]">
-        <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+            <form method="get" asp-controller="Cuatrimestre" asp-action="Index" class="d-flex justify-content-between mb-3">
+                <div class="input-group w-50">
+                    <input type="text" name="searchString" class="form-control" placeholder="Buscar cuatrimestre..." aria-label="Buscar cuatrimestre" value="@ViewData["CurrentFilter"]">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+                </div>
+                <a asp-controller="Cuatrimestre" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
+            </form>
+
+            <table class="table table-light table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre del Cuatrimestre</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cuatrimestre in Model)
+                    {
+                        <tr>
+                            <td>@cuatrimestre.NombreCuatrimestre</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-controller="Cuatrimestre" asp-action="Actualizar" asp-route-id="@cuatrimestre.IdCuatrimestre" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
+                                    <a asp-controller="Cuatrimestre" asp-action="Eliminar" asp-route-id="@cuatrimestre.IdCuatrimestre" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <a asp-controller="Cuatrimestre" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
-</form>
+</div>
 
-<table class="table table-light table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Nombre del Cuatrimestre</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var cuatrimestre in Model)
-        {
-            <tr>
-                <td>@cuatrimestre.NombreCuatrimestre</td>
-                <td>
-                    <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Cuatrimestre" asp-action="Actualizar" asp-route-id="@cuatrimestre.IdCuatrimestre" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
-                        <a asp-controller="Cuatrimestre" asp-action="Eliminar" asp-route-id="@cuatrimestre.IdCuatrimestre" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

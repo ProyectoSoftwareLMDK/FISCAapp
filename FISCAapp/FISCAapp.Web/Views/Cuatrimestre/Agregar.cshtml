@@ -4,22 +4,31 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<h2>Agregar Nuevo Cuatrimestre</h2>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Agregar Nuevo Cuatrimestre</h2>
 
-<form method="post">
-    <div class="form-floating py-2 col-12">
-        <input asp-for="@Model.NombreCuatrimestre" class="form-control border shadow" />
-        <label asp-for="NombreCuatrimestre" class="ms-2">Nombre del Cuatrimestre</label>
-        <span asp-validation-for="NombreCuatrimestre" class="text-danger"></span>
+            <form method="post">
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="NombreCuatrimestre" class="form-control border shadow" />
+                    <label asp-for="NombreCuatrimestre" class="ms-2">Nombre del Cuatrimestre</label>
+                    <span asp-validation-for="NombreCuatrimestre" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-check-circle"></i> Agregar
+                </button>
+                <a asp-controller="Cuatrimestre" asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </a>
+            </form>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-success">
-        <i class="bi bi-check-circle"></i> Agregar
-    </button>
-    <a asp-controller="Cuatrimestre" asp-action="Index" class="btn btn-secondary">
-        <i class="bi bi-x-circle"></i> Cancelar
-    </a>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

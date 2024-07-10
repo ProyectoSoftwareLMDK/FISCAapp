@@ -5,38 +5,50 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<h2>Lista de Grupos</h2>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Lista de Grupos</h2>
 
-<form method="get" asp-controller="GrupoSeccion" asp-action="Index" class="d-flex justify-content-between mb-3">
-    <div class="input-group w-50">
-        <input type="text" name="searchString" class="form-control" placeholder="Buscar grupo..." aria-label="Buscar grupo" value="@ViewData["CurrentFilter"]">
-        <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+            <form method="get" asp-controller="GrupoSeccion" asp-action="Index" class="d-flex justify-content-between mb-3">
+                <div class="input-group w-50">
+                    <input type="text" name="searchString" class="form-control" placeholder="Buscar grupo..." aria-label="Buscar grupo" value="@ViewData["CurrentFilter"]">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+                </div>
+                <a asp-controller="GrupoSeccion" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
+            </form>
+
+            <table class="table table-light table-bordered table-striped mt-2">
+                <thead>
+                    <tr>
+                        <th>Número de Grupo</th>
+                        <th>Nombre de Grupo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var grupo in Model)
+                    {
+                        <tr>
+                            <td>@grupo.NumeroGrupo</td>
+                            <td>@grupo.NombreGrupo</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-controller="GrupoSeccion" asp-action="Actualizar" asp-route-id="@grupo.IdGrupo" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
+                                    <a asp-controller="GrupoSeccion" asp-action="Eliminar" asp-route-id="@grupo.IdGrupo" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
-    <a asp-controller="GrupoSeccion" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
-</form>
+</div>
 
-<table class="table table-light table-bordered table-striped mt-2">
-    <thead>
-        <tr>
-            <th>Número de Grupo</th>
-            <th>Nombre de Grupo</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var grupo in Model)
-        {
-            <tr>
-                <td>@grupo.NumeroGrupo</td>
-                <td>@grupo.NombreGrupo</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a asp-controller="GrupoSeccion" asp-action="Actualizar" asp-route-id="@grupo.IdGrupo" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
-                        <a asp-controller="GrupoSeccion" asp-action="Eliminar" asp-route-id="@grupo.IdGrupo" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

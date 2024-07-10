@@ -4,33 +4,46 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<h2>Lista de Planes de Estudio</h2>
-<div class="w-5 btn-group" role="group">
-    <a asp-controller="PlanEstudio" asp-action="Crear" class="btn btn-success mx-2">Agregar</a>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Lista de Planes de Estudio</h2>
+            <div class="w-5 btn-group mb-3" role="group">
+                <a asp-controller="PlanEstudio" asp-action="Crear" class="btn btn-success mx-2">Agregar</a>
+            </div>
+            <table class="table table-light table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Carrera</th>
+                        <th>Cantidad de Asignaturas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var plan in Model)
+                    {
+                        <tr>
+                            <td>@plan.Descripcion</td>
+                            <td>@plan.IdCarrera</td>
+                            <td>@plan.CantidadAsignaturas</td>
+                            <td>
+                                <div class="w-75 btn-group" role="group">
+                                    <a asp-controller="PlanEstudio" asp-action="Editar" asp-route-id="@plan.IdPlan" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
+                                    <a asp-controller="PlanEstudio" asp-action="Eliminar" asp-route-id="@plan.IdPlan" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-<table class="table table-light table-bordered table-striped" border="1">
-    <thead>
-        <tr>
-            <th>Descripción</th>
-            <th>Carrera</th>
-            <th>Cantidad de Asignaturas</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var plan in Model)
-        {
-            <tr>
-                <td>@plan.Descripcion</td>
-                <td>@plan.IdCarrera</td>
-                <td>@plan.CantidadAsignaturas</td>
-                <td>
-                    <div class="w-75 btn-group" role="group">
-                        <a asp-controller="PlanEstudio" asp-action="Editar" asp-route-id="@plan.IdPlan" class="btn btn-success mx-2">Actualizar <i class="bi bi-pencil-square"></i></a>
-                        <a asp-controller="PlanEstudio" asp-action="Eliminar" asp-route-id="@plan.IdPlan" class="btn btn-danger mx-2">Eliminar <i class="bi bi-trash"></i></a>
-                    </div>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
