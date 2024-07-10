@@ -10,11 +10,15 @@
             @await Html.PartialAsync("_Opciones")
         </aside>
         <div class="col-md-9">
-            <h2>Lista de Asignaciones</h2>
+            <h2>Gestión de Asignaciones</h2>
 
-            <div class="btn-group mb-3" role="group">
-                <a asp-controller="Asignacion" asp-action="Agregar" class="btn btn-success">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
-            </div>
+            <form method="get" asp-controller="Asignacion" asp-action="Index" class="d-flex justify-content-between mb-3">
+                <div class="input-group w-50">
+                    <input type="text" name="searchString" class="form-control" placeholder="Buscar asignación..." aria-label="Buscar asignación" value="@ViewData["CurrentFilter"]">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+                </div>
+                <a asp-controller="Asignacion" asp-action="Agregar" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
+            </form>
 
             <table class="table table-light table-bordered table-striped">
                 <thead>
@@ -47,3 +51,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

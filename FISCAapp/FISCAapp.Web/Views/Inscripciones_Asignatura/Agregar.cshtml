@@ -4,46 +4,54 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<h2>Agregar Nueva Inscripción</h2>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Agregar Nueva Inscripción</h2>
 
-<form method="post">
-    <div class="form-floating py-2 col-12">
-        <select asp-for="IdAsignatura" asp-items="@(new SelectList(ViewBag.Asignaturas, "IdAsignatura", "NombreAsignatura"))" class="form-control border shadow">
-            <option value="">Seleccione un asignatura</option>
-        </select>
-        <label asp-for="IdAsignatura" class="ms-2">Asignatura</label>
-        <span asp-validation-for="IdAsignatura" class="text-danger"></span>
+            <form method="post">
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="IdAsignatura" asp-items="@(new SelectList(ViewBag.Asignaturas, "IdAsignatura", "NombreAsignatura"))" class="form-control border shadow">
+                        <option value="">Seleccione una asignatura</option>
+                    </select>
+                    <label asp-for="IdAsignatura" class="ms-2">Asignatura</label>
+                    <span asp-validation-for="IdAsignatura" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="IdEstudiante" asp-items="@(new SelectList(ViewBag.Estudiantes, "IdEstudiante", "NombresEstudiante"))" class="form-control border shadow">
+                        <option value="">Seleccione un estudiante</option>
+                    </select>
+                    <label asp-for="IdEstudiante" class="ms-2">Estudiante</label>
+                    <span asp-validation-for="IdEstudiante" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="FechaInscripcion" type="date" class="form-control border shadow" />
+                    <label asp-for="FechaInscripcion" class="ms-2">Fecha de Inscripción</label>
+                    <span asp-validation-for="FechaInscripcion" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-2 col-12">
+                    <textarea asp-for="Observaciones" class="form-control border shadow"></textarea>
+                    <label asp-for="Observaciones" class="ms-2">Observaciones</label>
+                    <span asp-validation-for="Observaciones" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-check-circle"></i> Agregar
+                </button>
+                <a asp-controller="Inscripciones_Asignatura" asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> Cancelar
+                </a>
+            </form>
+        </div>
     </div>
-
-    <div class="form-floating py-2 col-12">
-        <select asp-for="IdEstudiante" asp-items="@(new SelectList(ViewBag.Estudiantes, "IdEstudiante", "NombresEstudiante"))" class="form-control border shadow">
-            <option value="">Seleccione un estudiante</option>
-        </select>
-        <label asp-for="IdEstudiante" class="ms-2">Estudiante</label>
-        <span asp-validation-for="IdEstudiante" class="text-danger"></span>
-    </div>
-
-    <div class="form-floating py-2 col-12">
-        <input asp-for="FechaInscripcion" type="date" class="form-control border shadow" />
-        <label asp-for="FechaInscripcion" class="ms-2">Fecha de Inscripción</label>
-        <span asp-validation-for="FechaInscripcion" class="text-danger"></span>
-    </div>
-
-    <div class="form-floating py-2 col-12">
-        <textarea asp-for="Observaciones" class="form-control border shadow"></textarea>
-        <label asp-for="Observaciones" class="ms-2">Observaciones</label>
-        <span asp-validation-for="Observaciones" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-success">
-        <i class="bi bi-check-circle"></i> Agregar
-    </button>
-    <a asp-controller="Inscripciones_Asignatura" asp-action="Index" class="btn btn-secondary">
-        <i class="bi bi-x-circle"></i> Cancelar
-    </a>
-</form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
-
