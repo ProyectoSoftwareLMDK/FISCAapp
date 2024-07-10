@@ -1,34 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Modules Page";
+    ViewData["Title"] = "YaTengoSueño";
 }
 
 <link rel="stylesheet" href="~/css/menu.css" asp-append-version="true" />
 
-<div class="container">
-    <h1 class="text-center display-4">Modules</h1>
-    <div class="sidebar">
-        <a class="sidebar-item" asp-controller="Inscripciones_Asignatura" asp-action="Index">Inscripciones Asignaturas</a>
-        <a class="sidebar-item" asp-controller="Cuatrimestre" asp-action="Index">Cuatrimestre</a>
-        <a class="sidebar-item" asp-controller="Carrera" asp-action="Index">Carrera</a>
-        <a class="sidebar-item" asp-controller="GrupoSeccion" asp-action="Index">Grupo</a>
-        <a class="sidebar-item" asp-controller="Horario" asp-action="Index">Horario</a>
-        <a class="sidebar-item" asp-controller="Turnos" asp-action="Index">Turno</a>
-        <a class="sidebar-item" asp-controller="Estudiantes" asp-action="Index">Estudiante</a>
-        <a class="sidebar-item" asp-controller="Docente" asp-action="Index">Docente</a>
-        <a class="sidebar-item" asp-controller="Niveles" asp-action="Index">Niveles</a>
-        <a class="sidebar-item" asp-controller="NumerosAsignaturas" asp-action="Index">Numeros Asignaturas</a>
-        <a class="sidebar-item" asp-controller="Usuarios" asp-action="Index">Usuario</a>
-        <a class="sidebar-item" asp-controller="Asignatura" asp-action="Index">Asignatura</a>
-        <a class="sidebar-item" asp-controller="Asignacion" asp-action="Index">Asignacion</a>
-        <a class="sidebar-item" asp-controller="PlanEstudio" asp-action="Index">Plan Estudios</a>
-        <a class="sidebar-item" asp-controller="AsistenciaEstudiantes" asp-action="Index">Asistencia Estudiantes</a>
-        <div class="nav-item">
-            <form asp-area="" asp-controller="Home" asp-action="Logout" method="post" class="form-inline">
-                <button type="submit" class="btn btn-outline-dark">Cerrar sesión</button>
-            </form>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <img src="~/img/1-facultad-de-ingenieria-900x450.jpg" />
         </div>
-    </div>
-    <div class="content">
-        <h1>aaaaaaaaaaaaaaaaaaaaaa</h1>
     </div>
 </div>

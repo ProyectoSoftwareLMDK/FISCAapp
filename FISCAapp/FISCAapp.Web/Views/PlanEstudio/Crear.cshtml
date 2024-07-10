@@ -4,17 +4,14 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<div class="w-100 card border-0 p-4">
-    <div class="card-header bg-success bg-gradient m-lg-0 py-3">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="text-white py-2">Crear Plan de Estudio</h2>
-            </div>
-        </div>
-    </div>
-    <div class="card-body border p-4">
-        <form method="post" class="row">
-            <div class="p-3">
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-3">
+            @await Html.PartialAsync("_Opciones")
+        </aside>
+        <div class="col-md-9">
+            <h2>Crear Plan de Estudio</h2>
+            <form method="post">
                 <div class="form-floating py-2 col-12">
                     <input asp-for="Descripcion" class="form-control border shadow" />
                     <label asp-for="Descripcion" class="ms-2">Descripción</label>
@@ -42,8 +39,8 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
