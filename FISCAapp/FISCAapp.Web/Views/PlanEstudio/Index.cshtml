@@ -6,14 +6,19 @@
 
 <div class="container-fluid">
     <div class="row">
-        <aside class="col-md-3">
+        <aside class="col-md-2">
             @await Html.PartialAsync("_Opciones")
         </aside>
         <div class="col-md-9">
             <h2>Gestión de Planes de Estudio</h2>
-            <div class="w-5 btn-group mb-3" role="group">
-                <a asp-controller="PlanEstudio" asp-action="Crear" class="btn btn-success mx-2">Agregar</a>
-            </div>
+            <form method="get" asp-controller="PlanEstudio" asp-action="Index" class="d-flex justify-content-between mb-3">
+                <div class="input-group w-50">
+                    <input type="text" name="searchString" class="form-control" placeholder="Buscar plan de estudio..." aria-label="Buscar plan de estudio" value="@ViewData["CurrentFilter"]">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-search"><i class="bi bi-search"></i></button>
+                </div>
+                <a asp-controller="PlanEstudio" asp-action="Crear" class="btn btn-success mx-2">Agregar <i class="bi bi-file-earmark-plus-fill"></i></a>
+            </form>
+
             <table class="table table-light table-bordered table-striped">
                 <thead>
                     <tr>

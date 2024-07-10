@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2VgpgUxYtU2EM0PdJRcH79F2qYWccgbPQb0zb157JE8=",
+  "Hash": "EMQGdwZbA/Fq1dj0yvwuffGEGa2kZJBOVxlQx9e4nOU=",
   "Source": "FISCAapp.Web",
   "BasePath": "_content/FISCAapp.Web",
   "Mode": "Default",
@@ -53,25 +53,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FISCAapp.Web.bundle.scp.css"
-    },
-    {
-      "Identity": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\css\\login.css",
-      "SourceId": "FISCAapp.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\",
-      "BasePath": "_content/FISCAapp.Web",
-      "RelativePath": "css/login.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\favicon.ico",

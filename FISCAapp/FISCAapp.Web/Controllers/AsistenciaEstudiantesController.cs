@@ -2,8 +2,9 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
@@ -17,22 +18,38 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            var estudiantes = _aplicacionDb.Estudiantes.ToList();
-            var asignaciones = _aplicacionDb.Asignaciones.ToList();
+            try
+            {
+                var estudiantes = _aplicacionDb.Estudiantes.ToList();
+                var asignaciones = _aplicacionDb.Asignaciones.ToList();
 
-            ViewBag.Estudiantes = estudiantes;
-            ViewBag.Asignaciones = asignaciones;
+                ViewBag.Estudiantes = estudiantes;
+                ViewBag.Asignaciones = asignaciones;
 
-            // Aquí se consulta la tabla AsistenciaEstudiantes sin incluir entidades adicionales como estudiantes o asignaciones
-            var listaAsistencia = _aplicacionDb.AsistenciaEstudiantes.ToList();
+                // Consulta básica de todas las asistencias
+                var asistencias = from a in _aplicacionDb.AsistenciaEstudiantes
+                                  select a;
 
-            return View(listaAsistencia);
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    asistencias = asistencias.Where(a =>
+                        _aplicacionDb.Estudiantes.Any(e => e.IdEstudiante == a.IdEstudiante && e.NombresEstudiante.Contains(searchString)) ||
+                        _aplicacionDb.Asignaciones.Any(asg => asg.IdAsignacion == a.IdAsignacion && asg.Descripcion.Contains(searchString))
+                    );
+                }
+
+                var listaAsistencia = asistencias.ToList();
+                ViewData["CurrentFilter"] = searchString;
+                return View(listaAsistencia);
+            }
+            catch (Exception ex)
+            {
+                TempData["error"] = "Error al cargar la lista de asistencias: " + ex.Message;
+                return RedirectToAction("Error", "Home");
+            }
         }
-
-
-
 
         public IActionResult Agregar()
         {
@@ -45,18 +62,24 @@ namespace FISCAapp.Web.Controllers
             return View();
         }
 
-        // Ejemplo de método para procesar el formulario de Agregar
         [HttpPost]
         public IActionResult Agregar(AsistenciaEstudiantes asistencia)
         {
             if (ModelState.IsValid)
             {
-                // Lógica para guardar la asistencia en la base de datos
-                _aplicacionDb.AsistenciaEstudiantes.Add(asistencia);
-                _aplicacionDb.SaveChanges();
+                try
+                {
+                    // Lógica para guardar la asistencia en la base de datos
+                    _aplicacionDb.AsistenciaEstudiantes.Add(asistencia);
+                    _aplicacionDb.SaveChanges();
 
-                TempData["success"] = "La asistencia fue agregada con éxito";
-                return RedirectToAction("Index");
+                    TempData["success"] = "La asistencia fue agregada con éxito";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    TempData["error"] = "Error al agregar la asistencia: " + ex.Message;
+                }
             }
 
             // Si hay errores de validación, recargar la vista con datos necesarios
@@ -68,9 +91,6 @@ namespace FISCAapp.Web.Controllers
 
             return View(asistencia);
         }
-
-
-
 
         public IActionResult Actualizar(int id)
         {

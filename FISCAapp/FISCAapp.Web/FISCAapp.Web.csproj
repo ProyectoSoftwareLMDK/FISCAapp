@@ -19,4 +19,8 @@
     <ProjectReference Include="..\FISCA.Infraestructura\FISCA.Infraestructura.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
 </Project>
