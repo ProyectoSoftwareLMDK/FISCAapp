@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\FISCAapp.Web.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\css\\login.css",
-      "PackagePath": "staticwebassets\\css\\login.css"
-    },
-    {
       "Id": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCAapp.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
