@@ -2,15 +2,19 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class HorarioController : Controller
+    public class HorarioController : BaseController<Horario>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
 
-        public HorarioController(AplicacionDbContexto aplicacionDb)
+        public HorarioController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Horario>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -19,8 +23,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var horarios = from h in _aplicacionDb.Horarios
-                               select h;
+                
+                var horarios = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -33,13 +37,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de horarios: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de horarios");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -53,18 +58,11 @@ namespace FISCAapp.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.Horarios.Add(horario);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "El horario fue agregado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar el horario: " + ex.Message;
-                }
+                Add(horario);
+                TempData["success"] = "El horario fue agregado con éxito";
+                return RedirectToAction("Index");
             }
+            
             return View(horario);
         }
 
@@ -77,11 +75,13 @@ namespace FISCAapp.Web.Controllers
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                
                 return View(horario);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el horario: " + ex.Message;
+                HandleException(ex, "Error al cargar el horario");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -91,18 +91,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && horario.IdHorario > 0)
             {
-                try
-                {
-                    _aplicacionDb.Horarios.Update(horario);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "El horario fue actualizado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar el horario: " + ex.Message;
-                }
+                Update(horario);
+                TempData["success"] = "El horario fue actualizado con éxito";
+                return RedirectToAction("Index");
             }
+            
             return View(horario);
         }
 
@@ -119,7 +112,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el horario: " + ex.Message;
+                HandleException(ex, "Error al cargar el horario");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -134,9 +127,7 @@ namespace FISCAapp.Web.Controllers
                     var horarioDb = _aplicacionDb.Horarios.FirstOrDefault(h => h.IdHorario == horario.IdHorario);
                     if (horarioDb != null)
                     {
-                        _aplicacionDb.Horarios.Remove(horarioDb);
-                        _aplicacionDb.SaveChanges();
-                        TempData["success"] = "El horario fue eliminado con éxito";
+                        Delete(horarioDb);
                         return RedirectToAction("Index");
                     }
                     TempData["error"] = "Error al eliminar el horario";
@@ -144,7 +135,7 @@ namespace FISCAapp.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    TempData["error"] = "Error al eliminar el horario: " + ex.Message;
+                    HandleException(ex, "Error al eliminar el horario");
                     return View(horario);
                 }
             }

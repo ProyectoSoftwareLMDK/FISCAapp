@@ -2,15 +2,19 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class CarreraController : Controller
+    public class CarreraController : BaseController<Carrera>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public CarreraController(AplicacionDbContexto aplicacionDb)
+
+        public CarreraController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Carrera>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -19,8 +23,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var carreras = from c in _aplicacionDb.Carreras
-                               select c;
+                
+                var carreras = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -33,13 +37,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de carreras: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de carreras");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -53,18 +58,12 @@ namespace FISCAapp.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.Carreras.Add(carrera);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "La carrera fue agregada con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar la carrera: " + ex.Message;
-                }
+                Add(carrera);
+                TempData["success"] = "La carrera fue agregada con éxito";
+                return RedirectToAction("Index");
             }
+
+            
             return View(carrera);
         }
 
@@ -77,11 +76,13 @@ namespace FISCAapp.Web.Controllers
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                
                 return View(carrera);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la carrera: " + ex.Message;
+                HandleException(ex, "Error al cargar la carrera");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -91,18 +92,12 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && carrera.IdCarrera > 0)
             {
-                try
-                {
-                    _aplicacionDb.Carreras.Update(carrera);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "La carrera fue actualizada con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar la carrera: " + ex.Message;
-                }
+                Update(carrera);
+                TempData["success"] = "La carrera fue actualizada con éxito";
+                return RedirectToAction("Index");
             }
+
+            
             return View(carrera);
         }
 
@@ -119,7 +114,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la carrera: " + ex.Message;
+                HandleException(ex, "Error al cargar la carrera");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -129,25 +124,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && carrera.IdCarrera > 0)
             {
-                try
-                {
-                    var carreraDb = _aplicacionDb.Carreras.FirstOrDefault(c => c.IdCarrera == carrera.IdCarrera);
-                    if (carreraDb != null)
-                    {
-                        _aplicacionDb.Carreras.Remove(carreraDb);
-                        _aplicacionDb.SaveChanges();
-                        TempData["success"] = "La carrera fue eliminada con éxito";
-                        return RedirectToAction("Index");
-                    }
-                    TempData["error"] = "Error al eliminar la carrera";
-                    return View(carrera);
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al eliminar la carrera: " + ex.Message;
-                    return View(carrera);
-                }
+                Delete(carrera);
+                TempData["success"] = "La carrera fue eliminada con éxito";
+                return RedirectToAction("Index");
             }
+
             TempData["error"] = "Error al eliminar la carrera";
             return View(carrera);
         }

@@ -30,11 +30,11 @@ namespace FISCA.Dominio.Entidades
         public string CorreoDocente { get; set; }
 
         [Required]
-        [StringLength(8)]
+        [StringLength(9)]
         public string CelularDocente { get; set; }
 
         [Required]
-        [StringLength(8)]
+        [StringLength(15)]
         public string TelefonoDocente { get; set; }
 
         [Required]
@@ -43,6 +43,5 @@ namespace FISCA.Dominio.Entidades
 
         [Required]
         public int Estado { get; set; }
-
     }
 }

@@ -1,0 +1,40 @@
+﻿@* Views/Shared/_Opciones.cshtml *@
+@* Views/Shared/_Opciones.cshtml *@
+@{
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
+    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+}
+<div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="width: 200px;">
+        <a class="nav-link @(currentController == "Home" && currentAction == "Menu" ? "active" : "")" id="v-pills-home-tab" href="@Url.Action("Menu", "Home")" role="tab" aria-controls="v-pills-home" aria-selected="@(currentController == "Home" && currentAction == "Menu" ? "true" : "false")">Inicio</a>
+        <a class="nav-link @(currentController == "Inscripciones_Asignatura" ? "active" : "")" id="v-pills-inscripciones-tab" href="@Url.Action("Index", "Inscripciones_Asignatura")" role="tab" aria-controls="v-pills-inscripciones" aria-selected="@(currentController == "Inscripciones_Asignatura" ? "true" : "false")">Inscripciones Asignaturas</a>
+        <a class="nav-link @(currentController == "Cuatrimestre" ? "active" : "")" id="v-pills-cuatrimestre-tab" href="@Url.Action("Index", "Cuatrimestre")" role="tab" aria-controls="v-pills-cuatrimestre" aria-selected="@(currentController == "Cuatrimestre" ? "true" : "false")">Cuatrimestre</a>
+        <a class="nav-link @(currentController == "Carrera" ? "active" : "")" id="v-pills-carrera-tab" href="@Url.Action("Index", "Carrera")" role="tab" aria-controls="v-pills-carrera" aria-selected="@(currentController == "Carrera" ? "true" : "false")">Carrera</a>
+        <a class="nav-link @(currentController == "GrupoSeccion" ? "active" : "")" id="v-pills-grupo-tab" href="@Url.Action("Index", "GrupoSeccion")" role="tab" aria-controls="v-pills-grupo" aria-selected="@(currentController == "GrupoSeccion" ? "true" : "false")">Grupo</a>
+        <a class="nav-link @(currentController == "Horario" ? "active" : "")" id="v-pills-horario-tab" href="@Url.Action("Index", "Horario")" role="tab" aria-controls="v-pills-horario" aria-selected="@(currentController == "Horario" ? "true" : "false")">Horario</a>
+        <a class="nav-link @(currentController == "Turnos" ? "active" : "")" id="v-pills-turno-tab" href="@Url.Action("Index", "Turnos")" role="tab" aria-controls="v-pills-turno" aria-selected="@(currentController == "Turnos" ? "true" : "false")">Turno</a>
+        <a class="nav-link @(currentController == "Estudiantes" ? "active" : "")" id="v-pills-estudiante-tab" href="@Url.Action("Index", "Estudiantes")" role="tab" aria-controls="v-pills-estudiante" aria-selected="@(currentController == "Estudiantes" ? "true" : "false")">Estudiante</a>
+        <a class="nav-link @(currentController == "Docente" ? "active" : "")" id="v-pills-docente-tab" href="@Url.Action("Index", "Docente")" role="tab" aria-controls="v-pills-docente" aria-selected="@(currentController == "Docente" ? "true" : "false")">Docente</a>
+        <a class="nav-link @(currentController == "Niveles" ? "active" : "")" id="v-pills-niveles-tab" href="@Url.Action("Index", "Niveles")" role="tab" aria-controls="v-pills-niveles" aria-selected="@(currentController == "Niveles" ? "true" : "false")">Niveles</a>
+        <a class="nav-link @(currentController == "NumerosAsignaturas" ? "active" : "")" id="v-pills-numerosasignaturas-tab" href="@Url.Action("Index", "NumerosAsignaturas")" role="tab" aria-controls="v-pills-numerosasignaturas" aria-selected="@(currentController == "NumerosAsignaturas" ? "true" : "false")">Numeros Asignaturas</a>
+        <a class="nav-link @(currentController == "Usuarios" ? "active" : "")" id="v-pills-usuario-tab" href="@Url.Action("Index", "Usuarios")" role="tab" aria-controls="v-pills-usuario" aria-selected="@(currentController == "Usuarios" ? "true" : "false")">Usuario</a>
+        <a class="nav-link @(currentController == "Asignatura" ? "active" : "")" id="v-pills-asignatura-tab" href="@Url.Action("Index", "Asignatura")" role="tab" aria-controls="v-pills-asignatura" aria-selected="@(currentController == "Asignatura" ? "true" : "false")">Asignatura</a>
+        <a class="nav-link @(currentController == "Asignacion" ? "active" : "")" id="v-pills-asignacion-tab" href="@Url.Action("Index", "Asignacion")" role="tab" aria-controls="v-pills-asignacion" aria-selected="@(currentController == "Asignacion" ? "true" : "false")">Asignacion</a>
+        <a class="nav-link @(currentController == "PlanEstudio" ? "active" : "")" id="v-pills-planestudio-tab" href="@Url.Action("Index", "PlanEstudio")" role="tab" aria-controls="v-pills-planestudio" aria-selected="@(currentController == "PlanEstudio" ? "true" : "false")">Plan Estudios</a>
+        <a class="nav-link @(currentController == "AsistenciaEstudiantes" ? "active" : "")" id="v-pills-asistenciaestudiantes-tab" href="@Url.Action("Index", "AsistenciaEstudiantes")" role="tab" aria-controls="v-pills-asistenciaestudiantes" aria-selected="@(currentController == "AsistenciaEstudiantes" ? "true" : "false")">Asistencia Estudiantes</a>
+        <div class="nav-link">
+            <form asp-area="" asp-controller="Home" asp-action="Logout" method="post" class="form-inline d-inline">
+                <button type="submit" class="btn btn-outline-dark w-100">Cerrar sesión</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Incluye solo una vez Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!-- Incluye toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Tus estilos personalizados -->
+<link rel="stylesheet" href="~/FISCAapp.Web.styles.css" asp-append-version="true" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    <!-- Incluye toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">

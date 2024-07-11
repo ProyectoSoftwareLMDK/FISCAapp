@@ -2,84 +2,87 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class AsistenciaEstudiantesController : Controller
+    public class AsistenciaEstudiantesController : BaseController<AsistenciaEstudiantes>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
 
-        public AsistenciaEstudiantesController(AplicacionDbContexto aplicacionDb)
+        public AsistenciaEstudiantesController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<AsistenciaEstudiantes>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            var estudiantes = _aplicacionDb.Estudiantes.ToList();
-            var asignaciones = _aplicacionDb.Asignaciones.ToList();
+            try
+            {
+                LoadReferenceData();
+                var asistencias = GetAll();
 
-            ViewBag.Estudiantes = estudiantes;
-            ViewBag.Asignaciones = asignaciones;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    asistencias = asistencias.Where(a =>
+                        _aplicacionDb.Estudiantes.Any(e => e.IdEstudiante == a.IdEstudiante && e.NombresEstudiante.Contains(searchString)) ||
+                        _aplicacionDb.Asignaciones.Any(asg => asg.IdAsignacion == a.IdAsignacion && asg.Descripcion.Contains(searchString))
+                    );
+                }
 
-            // Aquí se consulta la tabla AsistenciaEstudiantes sin incluir entidades adicionales como estudiantes o asignaciones
-            var listaAsistencia = _aplicacionDb.AsistenciaEstudiantes.ToList();
-
-            return View(listaAsistencia);
+                var listaAsistencia = asistencias.ToList();
+                ViewData["CurrentFilter"] = searchString;
+                return View(listaAsistencia);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar la lista de asistencias");
+                return RedirectToAction("Error", "Home");
+            }
         }
-
-
-
 
         public IActionResult Agregar()
         {
-            var estudiantes = _aplicacionDb.Estudiantes.ToList();
-            var asignaciones = _aplicacionDb.Asignaciones.ToList();
-
-            ViewBag.Estudiantes = estudiantes;
-            ViewBag.Asignaciones = asignaciones;
-
+            LoadReferenceData();
             return View();
         }
 
-        // Ejemplo de método para procesar el formulario de Agregar
         [HttpPost]
         public IActionResult Agregar(AsistenciaEstudiantes asistencia)
         {
             if (ModelState.IsValid)
             {
-                // Lógica para guardar la asistencia en la base de datos
-                _aplicacionDb.AsistenciaEstudiantes.Add(asistencia);
-                _aplicacionDb.SaveChanges();
-
+                Add(asistencia);
                 TempData["success"] = "La asistencia fue agregada con éxito";
                 return RedirectToAction("Index");
             }
 
-            // Si hay errores de validación, recargar la vista con datos necesarios
-            var estudiantes = _aplicacionDb.Estudiantes.ToList();
-            var asignaciones = _aplicacionDb.Asignaciones.ToList();
-
-            ViewBag.Estudiantes = estudiantes;
-            ViewBag.Asignaciones = asignaciones;
-
+            LoadReferenceData();
             return View(asistencia);
         }
 
-
-
-
         public IActionResult Actualizar(int id)
         {
-            var asistencia = _aplicacionDb.AsistenciaEstudiantes.FirstOrDefault(a => a.IdAsistencia == id);
-            if (asistencia == null)
+            try
             {
+                var asistencia = _aplicacionDb.AsistenciaEstudiantes.FirstOrDefault(a => a.IdAsistencia == id);
+                if (asistencia == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+
+                LoadReferenceData();
+                return View(asistencia);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar la asistencia");
                 return RedirectToAction("Error", "Home");
             }
-            return View(asistencia);
         }
 
         [HttpPost]
@@ -87,22 +90,31 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && asistencia.IdAsistencia > 0)
             {
-                _aplicacionDb.AsistenciaEstudiantes.Update(asistencia);
-                _aplicacionDb.SaveChanges();
+                Update(asistencia);
                 TempData["success"] = "La asistencia fue actualizada con éxito";
                 return RedirectToAction("Index");
             }
+
+            LoadReferenceData();
             return View(asistencia);
         }
 
         public IActionResult Eliminar(int id)
         {
-            var asistencia = _aplicacionDb.AsistenciaEstudiantes.FirstOrDefault(a => a.IdAsistencia == id);
-            if (asistencia == null)
+            try
             {
+                var asistencia = _aplicacionDb.AsistenciaEstudiantes.FirstOrDefault(a => a.IdAsistencia == id);
+                if (asistencia == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                return View(asistencia);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar la asistencia");
                 return RedirectToAction("Error", "Home");
             }
-            return View(asistencia);
         }
 
         [HttpPost]
@@ -110,11 +122,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && asistencia.IdAsistencia > 0)
             {
-                _aplicacionDb.AsistenciaEstudiantes.Remove(asistencia);
-                _aplicacionDb.SaveChanges();
+                Delete(asistencia);
                 TempData["success"] = "La asistencia fue eliminada con éxito";
                 return RedirectToAction("Index");
             }
+
             TempData["error"] = "Error al eliminar la asistencia";
             return View(asistencia);
         }
