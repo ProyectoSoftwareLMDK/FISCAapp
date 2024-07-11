@@ -2,14 +2,19 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class Inscripciones_AsignaturaController : Controller
+    public class Inscripciones_AsignaturaController : BaseController<Inscripciones_Asignaturas>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public Inscripciones_AsignaturaController(AplicacionDbContexto aplicacionDb)
+
+        public Inscripciones_AsignaturaController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Inscripciones_Asignaturas>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -18,36 +23,29 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var asignaturas = _aplicacionDb.Asignaturas.ToList();
-                var estudiantes = _aplicacionDb.Estudiantes.ToList();
-                ViewBag.Asignaturas = asignaturas;
-                ViewBag.Estudiantes = estudiantes;
+                LoadReferenceData();
 
-                var inscripciones = from i in _aplicacionDb.InscripcionesAsignaturas 
-                                  select i;
+                var inscripciones = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     inscripciones = inscripciones.Where(i => i.IdInscripcion.ToString().Contains(searchString));
                 }
+
                 var listaInscripcionesAsignaturas = inscripciones.ToList();
                 ViewData["CurrentFilter"] = searchString;
                 return View(listaInscripcionesAsignaturas);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar las inscripciones de asignaturas: " + ex.Message;
+                HandleException(ex, "Error al cargar las inscripciones de asignaturas");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
-            var asignaturas = _aplicacionDb.Asignaturas.ToList();
-            var estudiantes = _aplicacionDb.Estudiantes.ToList();
-            ViewBag.Asignaturas = asignaturas;
-            ViewBag.Estudiantes = estudiantes;
-
+            LoadReferenceData();
             return View();
         }
 
@@ -56,40 +54,31 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.InscripcionesAsignaturas.Add(inscripcion);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "La inscripción fue agregada con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar la inscripción: " + ex.Message;
-                }
-
-                var asignaturas = _aplicacionDb.Asignaturas.ToList();
-                var estudiantes = _aplicacionDb.Estudiantes.ToList();
-                ViewBag.Asignaturas = asignaturas;
-                ViewBag.Estudiantes = estudiantes;
+                Add(inscripcion);
+                TempData["success"] = "La inscripción fue agregada con éxito";
+                return RedirectToAction("Index");
             }
+
+            LoadReferenceData();
             return View(inscripcion);
         }
 
-        public IActionResult Actualizar(int idInscripcion)
+        public IActionResult Actualizar(int id)
         {
             try
             {
-                Inscripciones_Asignaturas? inscripcion = _aplicacionDb.InscripcionesAsignaturas.FirstOrDefault(i => i.IdInscripcion == idInscripcion);
+                var inscripcion = _aplicacionDb.InscripcionesAsignaturas.FirstOrDefault(i => i.IdInscripcion == id);
                 if (inscripcion == null)
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                LoadReferenceData();
                 return View(inscripcion);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la inscripción para actualizar: " + ex.Message;
+                HandleException(ex, "Error al cargar la inscripción para actualizar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -99,26 +88,20 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && inscripcion.IdInscripcion > 0)
             {
-                try
-                {
-                    _aplicacionDb.InscripcionesAsignaturas.Update(inscripcion);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "La inscripción fue actualizada con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar la inscripción: " + ex.Message;
-                }
+                Update(inscripcion);
+                TempData["success"] = "La inscripción fue actualizada con éxito";
+                return RedirectToAction("Index");
             }
+
+            LoadReferenceData();
             return View(inscripcion);
         }
 
-        public IActionResult Eliminar(int idInscripcion)
+        public IActionResult Eliminar(int id)
         {
             try
             {
-                Inscripciones_Asignaturas? inscripcion = _aplicacionDb.InscripcionesAsignaturas.FirstOrDefault(i => i.IdInscripcion == idInscripcion);
+                var inscripcion = _aplicacionDb.InscripcionesAsignaturas.FirstOrDefault(i => i.IdInscripcion == id);
                 if (inscripcion == null)
                 {
                     return RedirectToAction("Error", "Home");
@@ -127,7 +110,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la inscripción para eliminar: " + ex.Message;
+                HandleException(ex, "Error al cargar la inscripción para eliminar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -139,8 +122,7 @@ namespace FISCAapp.Web.Controllers
             {
                 if (ModelState.IsValid && inscripcion.IdInscripcion > 0)
                 {
-                    _aplicacionDb.InscripcionesAsignaturas.Remove(inscripcion);
-                    _aplicacionDb.SaveChanges();
+                    Delete(inscripcion);
                     TempData["success"] = "La inscripción fue eliminada con éxito";
                     return RedirectToAction("Index");
                 }

@@ -15,6 +15,7 @@ namespace FISCAapp.Web.Controllers
         public AsignacionController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Asignacion>> logger)
             : base(aplicacionDb, logger)
         {
+            _aplicacionDb = aplicacionDb;
         }
 
         public IActionResult Index(string searchString)

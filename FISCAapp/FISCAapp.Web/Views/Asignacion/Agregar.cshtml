@@ -24,31 +24,44 @@
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="IdDocente" class="form-control border shadow" />
+                    
+                    <select asp-for="IdDocente" asp-items="@(new SelectList(ViewBag.Docentes, "IdDocente", "NombresDocente"))" class="form-control border shadow">
+                        <option value="">Seleccione una Asignatura</option>
+                    </select>
                     <label asp-for="IdDocente" class="ms-2">ID Docente</label>
                     <span asp-validation-for="IdDocente" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="IdAsignatura" class="form-control border shadow" />
+                    
+                    <select asp-for="IdAsignatura" asp-items="@(new SelectList(ViewBag.Asignaturas, "IdAsignatura", "NombreAsignatura"))" class="form-control border shadow">
+                        <option value="">Seleccione una Asignatura</option>
+                    </select>
                     <label asp-for="IdAsignatura" class="ms-2">ID Asignatura</label>
                     <span asp-validation-for="IdAsignatura" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="IdGrupo" class="form-control border shadow" />
+                    <select asp-for="IdGrupo" asp-items="@(new SelectList(ViewBag.Grupos, "IdGrupo", "NombreGrupo"))" class="form-control border shadow">
+                        <option value="">Seleccione un grupo</option>
+                    </select>
                     <label asp-for="IdGrupo" class="ms-2">ID Grupo</label>
                     <span asp-validation-for="IdGrupo" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="IdTurno" class="form-control border shadow" />
+                    <select asp-for="IdTurno" asp-items="@(new SelectList(ViewBag.Turnos, "IdTurno", "NombreTurno"))" class="form-control border shadow">
+                        <option value="">Seleccione un grupo</option>
+                    </select>
                     <label asp-for="IdTurno" class="ms-2">ID Turno</label>
                     <span asp-validation-for="IdTurno" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="IdHorario" class="form-control border shadow" />
+                    
+                    <select asp-for="IdHorario" asp-items="@(new SelectList(ViewBag.Horarios, "IdHorario", "NombreHorario"))" class="form-control border shadow">
+                        <option value="">Seleccione un grupo</option>
+                    </select>
                     <label asp-for="IdHorario" class="ms-2">ID Horario</label>
                     <span asp-validation-for="IdHorario" class="text-danger"></span>
                 </div>

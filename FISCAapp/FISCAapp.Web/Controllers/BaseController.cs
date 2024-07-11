@@ -25,7 +25,7 @@ namespace FISCAapp.Web.Controllers
         }
         protected void LoadReferenceData()
         {
-            
+
             ViewBag.Carreras = _aplicacionDb.Carreras.ToList();
             ViewBag.Grupos = _aplicacionDb.Grupos.ToList();
             ViewBag.Cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
@@ -78,20 +78,18 @@ namespace FISCAapp.Web.Controllers
             }
         }
 
-        // Método genérico para eliminar un registro de la entidad T por ID
-        protected IActionResult Delete(T entity)
+        // Método genérico para eliminar un registro de la entidad T
+        protected void Delete(T entity)
         {
             try
             {
                 _aplicacionDb.Set<T>().Remove(entity);
                 _aplicacionDb.SaveChanges();
                 TempData["success"] = "Datos eliminados correctamente";
-                return RedirectToAction("Index");
             }
             catch (Exception ex)
             {
                 HandleException(ex, "Error al eliminar los datos");
-                return RedirectToAction("Error", "Home");
             }
         }
     }

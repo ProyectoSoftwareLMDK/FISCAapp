@@ -11,9 +11,11 @@ namespace FISCAapp.Web.Controllers
     [Authorize]
     public class AsignaturaController : BaseController <Asignatura>
     {
+        private readonly AplicacionDbContexto _aplicacionDb;
         public AsignaturaController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Asignatura>> logger)
             : base(aplicacionDb, logger)
         {
+            _aplicacionDb = aplicacionDb;
         }
 
         public IActionResult Index(string searchString)

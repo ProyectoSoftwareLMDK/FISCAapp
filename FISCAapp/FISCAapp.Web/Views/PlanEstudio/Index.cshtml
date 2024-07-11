@@ -37,7 +37,21 @@
                     {
                         <tr>
                             <td>@plan.Descripcion</td>
-                            <td>@plan.IdCarrera</td>
+                            
+                            <td>
+                                @{
+                                    var nombreCarrera = "";
+                                    foreach (var carrera in ViewBag.Carreras)
+                                    {
+                                        if (carrera.IdCarrera == plan.IdCarrera)
+                                        {
+                                            nombreCarrera = carrera.NombreCarrera;
+                                            break;
+                                        }
+                                    }
+                                    @nombreCarrera
+                                }
+                            </td>
                             <td>@plan.CantidadAsignaturas</td>
                             <td>
                                 <div class="w-75 btn-group" role="group">
