@@ -2,15 +2,19 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class GrupoSeccionController : Controller
+    public class GrupoSeccionController : BaseController<Grupo>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
 
-        public GrupoSeccionController(AplicacionDbContexto aplicacionDb)
+        public GrupoSeccionController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Grupo>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -19,8 +23,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var grupos = from g in _aplicacionDb.Grupos
-                             select g;
+                
+                var grupos = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -33,13 +37,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de grupos: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de grupos");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -53,18 +58,11 @@ namespace FISCAapp.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.Grupos.Add(grupo);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "El grupo fue agregado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar el grupo: " + ex.Message;
-                }
+                Add(grupo);
+                TempData["success"] = "El grupo fue agregado con éxito";
+                return RedirectToAction("Index");
             }
+            
             return View(grupo);
         }
 
@@ -77,11 +75,13 @@ namespace FISCAapp.Web.Controllers
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                
                 return View(grupo);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el grupo: " + ex.Message;
+                HandleException(ex, "Error al cargar el grupo");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -91,18 +91,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && grupo.IdGrupo > 0)
             {
-                try
-                {
-                    _aplicacionDb.Grupos.Update(grupo);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "El grupo fue actualizado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar el grupo: " + ex.Message;
-                }
+                Update(grupo);
+                TempData["success"] = "El grupo fue actualizado con éxito";
+                return RedirectToAction("Index");
             }
+            
             return View(grupo);
         }
 
@@ -119,7 +112,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el grupo: " + ex.Message;
+                HandleException(ex, "Error al cargar el grupo");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -134,21 +127,17 @@ namespace FISCAapp.Web.Controllers
                     var grupoDb = _aplicacionDb.Grupos.FirstOrDefault(g => g.IdGrupo == grupo.IdGrupo);
                     if (grupoDb != null)
                     {
-                        _aplicacionDb.Grupos.Remove(grupoDb);
-                        _aplicacionDb.SaveChanges();
-                        TempData["success"] = "El grupo fue eliminado con éxito";
+                        Delete(grupoDb);
                         return RedirectToAction("Index");
                     }
-                    TempData["error"] = "Error al eliminar el grupo";
                     return View(grupo);
                 }
                 catch (Exception ex)
                 {
-                    TempData["error"] = "Error al eliminar el grupo: " + ex.Message;
+                    HandleException(ex, "Error al eliminar el grupo");
                     return View(grupo);
                 }
             }
-            TempData["error"] = "Error al eliminar el grupo";
             return View(grupo);
         }
     }

@@ -1,14 +1,18 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
-    public class DocenteController : Controller
+    public class DocenteController : BaseController<Docente>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public DocenteController(AplicacionDbContexto aplicacionDb)
+
+        public DocenteController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Docente>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -17,8 +21,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var docentes = from d in _aplicacionDb.Docentes
-                               select d;
+                
+                var docentes = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -31,13 +35,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de docentes: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de docentes");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -46,22 +51,32 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _aplicacionDb.Docentes.Add(docente);
-                _aplicacionDb.SaveChanges();
+                Add(docente);
                 TempData["success"] = "El docente fue agregado con éxito";
                 return RedirectToAction("Index");
             }
+            
             return View(docente);
         }
 
         public IActionResult Actualizar(int id)
         {
-            var docente = _aplicacionDb.Docentes.FirstOrDefault(d => d.IdDocente == id);
-            if (docente == null)
+            try
             {
+                var docente = _aplicacionDb.Docentes.FirstOrDefault(d => d.IdDocente == id);
+                if (docente == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+
+                
+                return View(docente);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar el docente");
                 return RedirectToAction("Error", "Home");
             }
-            return View(docente);
         }
 
         [HttpPost]
@@ -69,22 +84,30 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && docente.IdDocente > 0)
             {
-                _aplicacionDb.Docentes.Update(docente);
-                _aplicacionDb.SaveChanges();
+                Update(docente);
                 TempData["success"] = "El docente fue actualizado con éxito";
                 return RedirectToAction("Index");
             }
+           
             return View(docente);
         }
 
         public IActionResult Eliminar(int id)
         {
-            var docente = _aplicacionDb.Docentes.FirstOrDefault(d => d.IdDocente == id);
-            if (docente == null)
+            try
             {
+                var docente = _aplicacionDb.Docentes.FirstOrDefault(d => d.IdDocente == id);
+                if (docente == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                return View(docente);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar el docente");
                 return RedirectToAction("Error", "Home");
             }
-            return View(docente);
         }
 
         [HttpPost]
@@ -92,12 +115,26 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && docente.IdDocente > 0)
             {
-                _aplicacionDb.Docentes.Remove(docente);
-                _aplicacionDb.SaveChanges();
-                TempData["error"] = "El docente fue eliminado con éxito";
-                return RedirectToAction("Index");
+                try
+                {
+                    var docenteDb = _aplicacionDb.Docentes.FirstOrDefault(d => d.IdDocente == docente.IdDocente);
+                    if (docenteDb != null)
+                    {
+                        Delete(docenteDb);
+                        TempData["success"] = "El docente fue eliminado con éxito";
+                        return RedirectToAction("Index");
+                    }
+                    TempData["error"] = "Error al eliminar el docente";
+                    return View(docente);
+                }
+                catch (Exception ex)
+                {
+                    HandleException(ex, "Error al eliminar el docente");
+                    return View(docente);
+                }
             }
-            TempData["error"] = "El docente no fue eliminado";
+
+            TempData["error"] = "Error al eliminar el docente";
             return View(docente);
         }
     }
