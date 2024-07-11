@@ -80,6 +80,7 @@ namespace FISCAapp.Web.Controllers
                     Update(asignacion); // Utiliza el método Update definido en BaseController
                     return RedirectToAction("Index");
             }
+            TempData["error"] = "Modelo no valido";
             return View(asignacion);
         }
 
