@@ -41,6 +41,7 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Agregar()
         {
+            LoadReferenceData();
             return View();
         }
 
