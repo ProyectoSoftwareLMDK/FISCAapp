@@ -2,57 +2,46 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class AsignaturaController : Controller
+    public class AsignaturaController : BaseController <Asignatura>
     {
-        private readonly AplicacionDbContexto _aplicacionDb;
-
-        public AsignaturaController(AplicacionDbContexto aplicacionDb)
+        public AsignaturaController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Asignatura>> logger)
+            : base(aplicacionDb, logger)
         {
-            _aplicacionDb = aplicacionDb;
         }
 
         public IActionResult Index(string searchString)
         {
             try
             {
-                var carreras = _aplicacionDb.Carreras.ToList();
-                var grupos = _aplicacionDb.Grupos.ToList();
-                var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
-                ViewBag.Carreras = carreras;
-                ViewBag.Grupos = grupos;
-                ViewBag.Cuatrimestres = cuatrimestres;
-
-                var asignaturas = from a in _aplicacionDb.Asignaturas
-                               select a;
+                LoadReferenceData();
+                var asignaturas = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     asignaturas = asignaturas.Where(a => a.NombreAsignatura.Contains(searchString));
                 }
+
                 var listaAsignaturas = asignaturas.ToList();
                 ViewData["CurrentFilter"] = searchString;
                 return View(listaAsignaturas);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de asignaturas: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de asignaturas");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
-            var carreras = _aplicacionDb.Carreras.ToList();
-            var grupos = _aplicacionDb.Grupos.ToList();
-            var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
-            ViewBag.Carreras = carreras;
-            ViewBag.Grupos = grupos;
-            ViewBag.Cuatrimestres = cuatrimestres;
-
+            LoadReferenceData();
             return View();
         }
 
@@ -61,42 +50,30 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.Asignaturas.Add(asignatura);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Los datos fueron agregados con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar la asignatura: " + ex.Message;
-                }
-
-                var carreras = _aplicacionDb.Carreras.ToList();
-                var grupos = _aplicacionDb.Grupos.ToList();
-                var cuatrimestres = _aplicacionDb.Cuatrimestres.ToList();
-                ViewBag.Carreras = carreras;
-                ViewBag.Grupos = grupos;
-                ViewBag.Cuatrimestres = cuatrimestres;
+                Add(asignatura);
+                return RedirectToAction("Index");
             }
-            return View();
+
+            LoadReferenceData();
+            return View(asignatura);
         }
 
         public IActionResult Actualizar(int idAsignatura)
         {
             try
             {
-                Asignatura? asignatura = _aplicacionDb.Asignaturas.FirstOrDefault(a => a.IdAsignatura == idAsignatura);
+                var asignatura = _aplicacionDb.Set<Asignatura>().FirstOrDefault(a => a.IdAsignatura == idAsignatura);
                 if (asignatura == null)
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                LoadReferenceData();
                 return View(asignatura);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la asignatura para actualizar: " + ex.Message;
+                HandleException(ex, "Error al cargar la asignatura para actualizar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -106,35 +83,30 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && asignatura.IdAsignatura > 0)
             {
-                try
-                {
-                    _aplicacionDb.Asignaturas.Update(asignatura);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Los datos fueron actualizados con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar la asignatura: " + ex.Message;
-                }
+                Update(asignatura);
+                return RedirectToAction("Index");
             }
-            return View();
+
+            LoadReferenceData();
+            return View(asignatura);
         }
 
         public IActionResult Eliminar(int idAsignatura)
         {
             try
             {
-                Asignatura? asignatura = _aplicacionDb.Asignaturas.FirstOrDefault(a => a.IdAsignatura == idAsignatura);
+                var asignatura = _aplicacionDb.Set<Asignatura>().FirstOrDefault(a => a.IdAsignatura == idAsignatura);
                 if (asignatura == null)
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                LoadReferenceData();
                 return View(asignatura);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la asignatura para eliminar: " + ex.Message;
+                HandleException(ex, "Error al cargar la asignatura para eliminar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -142,24 +114,8 @@ namespace FISCAapp.Web.Controllers
         [HttpPost]
         public IActionResult Eliminar(Asignatura asignatura)
         {
-            try
-            {
-                if (ModelState.IsValid && asignatura.IdAsignatura > 0)
-                {
-                    _aplicacionDb.Asignaturas.Remove(asignatura);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Los datos fueron eliminados con éxito";
-                    return RedirectToAction("Index");
-                }
-
-                TempData["error"] = "No se pudieron eliminar los datos con éxito";
-                return View();
-            }
-            catch (Exception ex)
-            {
-                TempData["error"] = "Error al eliminar la asignatura: " + ex.Message;
-                return View(asignatura);
-            }
+            Delete(asignatura); // Utiliza el método Delete definido en BaseController
+            return RedirectToAction("Index");
         }
     }
 }
