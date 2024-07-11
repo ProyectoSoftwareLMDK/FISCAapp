@@ -2,17 +2,18 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class PlanEstudioController : Controller
+    public class PlanEstudioController : BaseController<PlanEstudio>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-
-        public PlanEstudioController(AplicacionDbContexto aplicacionDb)
+        public PlanEstudioController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<PlanEstudio>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -21,27 +22,26 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var planes = from p in _aplicacionDb.PlanEstudios
-                             select p;
-
+                LoadReferenceData();
+                var planes = GetAll();
                 if (!String.IsNullOrEmpty(searchString))
                 {
                     planes = planes.Where(p => p.Descripcion.Contains(searchString));
                 }
-
                 var listaPlanes = planes.ToList();
                 ViewData["CurrentFilter"] = searchString;
                 return View(listaPlanes);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de planes de estudio: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de planes de estudio");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Crear()
         {
+            LoadReferenceData();
             return View();
         }
 
@@ -50,18 +50,10 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.PlanEstudios.Add(plan);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Plan de estudio creado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar el plan de estudio: " + ex.Message;
-                }
+                Add(plan);
+                return RedirectToAction("Index");
             }
+            LoadReferenceData();
             return View(plan);
         }
 
@@ -69,16 +61,17 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var plan = _aplicacionDb.PlanEstudios.FirstOrDefault(p => p.IdPlan == id);
+                var plan = GetAll().FirstOrDefault(p => p.IdPlan == id);
                 if (plan == null)
                 {
                     return RedirectToAction("Error", "Home");
                 }
+                LoadReferenceData();
                 return View(plan);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el plan de estudio: " + ex.Message;
+                HandleException(ex, "Error al cargar el plan de estudio para actualizar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -88,18 +81,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && plan.IdPlan > 0)
             {
-                try
-                {
-                    _aplicacionDb.PlanEstudios.Update(plan);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Plan de estudio actualizado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar el plan de estudio: " + ex.Message;
-                }
+                Update(plan);
+                TempData["success"] = "Plan de estudio actualizado con éxito";
+                return RedirectToAction("Index");
             }
+            LoadReferenceData();
             return View(plan);
         }
 
@@ -107,7 +93,7 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var plan = _aplicacionDb.PlanEstudios.FirstOrDefault(p => p.IdPlan == id);
+                var plan = GetAll().FirstOrDefault(p => p.IdPlan == id);
                 if (plan == null)
                 {
                     return RedirectToAction("Error", "Home");
@@ -116,7 +102,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el plan de estudio: " + ex.Message;
+                HandleException(ex, "Error al cargar el plan de estudio para eliminar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -126,26 +112,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && plan.IdPlan > 0)
             {
-                try
-                {
-                    var planDb = _aplicacionDb.PlanEstudios.FirstOrDefault(p => p.IdPlan == plan.IdPlan);
-                    if (planDb != null)
-                    {
-                        _aplicacionDb.PlanEstudios.Remove(planDb);
-                        _aplicacionDb.SaveChanges();
-                        TempData["success"] = "Plan de estudio eliminado con éxito";
-                        return RedirectToAction("Index");
-                    }
-                    TempData["error"] = "Error al eliminar el plan de estudio";
-                    return View(plan);
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al eliminar el plan de estudio: " + ex.Message;
-                    return View(plan);
-                }
+                Delete(plan);
+                TempData["success"] = "Plan de estudio eliminado con éxito";
+                return RedirectToAction("Index");
             }
-            TempData["error"] = "Error al eliminar el plan de estudio";
+            LoadReferenceData();
             return View(plan);
         }
     }

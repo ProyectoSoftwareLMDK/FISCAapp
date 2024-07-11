@@ -70,3 +70,15 @@ D:\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.dll
 D:\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\refint\FISCA.Dominio.dll
 D:\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.pdb
 D:\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\ref\FISCA.Dominio.dll
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\bin\Debug\net8.0\FISCA.Dominio.deps.json
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\bin\Debug\net8.0\FISCA.Dominio.dll
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\bin\Debug\net8.0\FISCA.Dominio.pdb
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.AssemblyInfoInputs.cache
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.AssemblyInfo.cs
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.sourcelink.json
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.dll
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\refint\FISCA.Dominio.dll
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\FISCA.Dominio.pdb
+C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Dominio\obj\Debug\net8.0\ref\FISCA.Dominio.dll

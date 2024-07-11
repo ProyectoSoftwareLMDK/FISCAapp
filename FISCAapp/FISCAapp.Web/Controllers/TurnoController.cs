@@ -1,14 +1,19 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
-    public class TurnosController : Controller
+    [Authorize]
+    public class TurnosController : BaseController<Turno>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public TurnosController(AplicacionDbContexto aplicacionDb)
+        public TurnosController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Turno>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -17,8 +22,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var turnos = from t in _aplicacionDb.Turnos
-                             select t;
+                
+                var turnos = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -31,13 +36,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de turnos: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de turnos");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -46,22 +52,31 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _aplicacionDb.Turnos.Add(turno);
-                _aplicacionDb.SaveChanges();
+                Add(turno);
                 TempData["success"] = "El turno fue agregado con éxito";
                 return RedirectToAction("Index");
             }
-            return View();
+            
+            return View(turno);
         }
 
         public IActionResult Actualizar(int id)
         {
-            var turno = _aplicacionDb.Turnos.FirstOrDefault(t => t.IdTurno == id);
-            if (turno == null)
+            try
             {
+                var turno = GetAll().FirstOrDefault(t => t.IdTurno == id);
+                if (turno == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                
+                return View(turno);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar el turno para actualizar");
                 return RedirectToAction("Error", "Home");
             }
-            return View(turno);
         }
 
         [HttpPost]
@@ -69,22 +84,31 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && turno.IdTurno > 0)
             {
-                _aplicacionDb.Turnos.Update(turno);
-                _aplicacionDb.SaveChanges();
+                Update(turno);
                 TempData["success"] = "El turno fue actualizado con éxito";
                 return RedirectToAction("Index");
             }
+            
             return View(turno);
         }
 
         public IActionResult Eliminar(int id)
         {
-            var turno = _aplicacionDb.Turnos.FirstOrDefault(t => t.IdTurno == id);
-            if (turno == null)
+            try
             {
+                var turno = GetAll().FirstOrDefault(t => t.IdTurno == id);
+                if (turno == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                
+                return View(turno);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar el turno para eliminar");
                 return RedirectToAction("Error", "Home");
             }
-            return View(turno);
         }
 
         [HttpPost]
@@ -92,11 +116,11 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && turno.IdTurno > 0)
             {
-                _aplicacionDb.Turnos.Remove(turno);
-                _aplicacionDb.SaveChanges();
-                TempData["error"] = "El turno fue eliminado con éxito";
+                Delete(turno);
+                TempData["success"] = "El turno fue eliminado con éxito";
                 return RedirectToAction("Index");
             }
+            
             TempData["error"] = "El turno no fue eliminado";
             return View(turno);
         }

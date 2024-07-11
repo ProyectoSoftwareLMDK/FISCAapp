@@ -1,14 +1,18 @@
 ﻿using FISCA.Dominio.Entidades;
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
-    public class EstudiantesController : Controller
+    public class EstudiantesController : BaseController<Estudiante>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public EstudiantesController(AplicacionDbContexto aplicacionDb)
+
+        public EstudiantesController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Estudiante>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -17,12 +21,12 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var estudiantes = from e in _aplicacionDb.Estudiantes
-                                  select e;
+                
+                var estudiantes = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    estudiantes = estudiantes.Where(e => e.NombresEstudiante.Contains(searchString) || e.CedulaEstudiante.Contains(searchString));                 
+                    estudiantes = estudiantes.Where(e => e.NombresEstudiante.Contains(searchString) || e.CedulaEstudiante.Contains(searchString));
                 }
 
                 var listaEstudiantes = estudiantes.ToList();
@@ -31,13 +35,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de estudiantes: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de estudiantes");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -46,22 +51,32 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _aplicacionDb.Estudiantes.Add(estudiante);
-                _aplicacionDb.SaveChanges();
+                Add(estudiante);
                 TempData["success"] = "El estudiante fue agregado con éxito";
                 return RedirectToAction("Index");
             }
+            
             return View(estudiante);
         }
 
         public IActionResult Actualizar(int id)
         {
-            var estudiante = _aplicacionDb.Estudiantes.FirstOrDefault(e => e.IdEstudiante == id);
-            if (estudiante == null)
+            try
             {
+                var estudiante = _aplicacionDb.Estudiantes.FirstOrDefault(e => e.IdEstudiante == id);
+                if (estudiante == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+
+                
+                return View(estudiante);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar el estudiante");
                 return RedirectToAction("Error", "Home");
             }
-            return View(estudiante);
         }
 
         [HttpPost]
@@ -69,22 +84,30 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && estudiante.IdEstudiante > 0)
             {
-                _aplicacionDb.Estudiantes.Update(estudiante);
-                _aplicacionDb.SaveChanges();
+                Update(estudiante);
                 TempData["success"] = "El estudiante fue actualizado con éxito";
                 return RedirectToAction("Index");
             }
+            
             return View(estudiante);
         }
 
         public IActionResult Eliminar(int id)
         {
-            var estudiante = _aplicacionDb.Estudiantes.FirstOrDefault(e => e.IdEstudiante == id);
-            if (estudiante == null)
+            try
             {
+                var estudiante = _aplicacionDb.Estudiantes.FirstOrDefault(e => e.IdEstudiante == id);
+                if (estudiante == null)
+                {
+                    return RedirectToAction("Error", "Home");
+                }
+                return View(estudiante);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar el estudiante");
                 return RedirectToAction("Error", "Home");
             }
-            return View(estudiante);
         }
 
         [HttpPost]
@@ -92,12 +115,26 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && estudiante.IdEstudiante > 0)
             {
-                _aplicacionDb.Estudiantes.Remove(estudiante);
-                _aplicacionDb.SaveChanges();
-                TempData["error"] = "El estudiante fue eliminado con éxito";
-                return RedirectToAction("Index");
+                try
+                {
+                    var estudianteDb = _aplicacionDb.Estudiantes.FirstOrDefault(e => e.IdEstudiante == estudiante.IdEstudiante);
+                    if (estudianteDb != null)
+                    {
+                        Delete(estudianteDb);
+                        TempData["success"] = "El estudiante fue eliminado con éxito";
+                        return RedirectToAction("Index");
+                    }
+                    TempData["error"] = "Error al eliminar el estudiante";
+                    return View(estudiante);
+                }
+                catch (Exception ex)
+                {
+                    HandleException(ex, "Error al eliminar el estudiante");
+                    return View(estudiante);
+                }
             }
-            TempData["error"] = "El estudiante no fue eliminado";
+
+            TempData["error"] = "Error al eliminar el estudiante";
             return View(estudiante);
         }
     }

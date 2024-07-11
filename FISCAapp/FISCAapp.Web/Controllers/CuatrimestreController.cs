@@ -2,14 +2,19 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class CuatrimestreController : Controller
+    public class CuatrimestreController : BaseController<Cuatrimestre>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
-        public CuatrimestreController(AplicacionDbContexto aplicacionDb)
+
+        public CuatrimestreController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Cuatrimestre>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -18,8 +23,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var cuatrimestres = from c in _aplicacionDb.Cuatrimestres
-                                    select c;
+                
+                var cuatrimestres = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
@@ -32,13 +37,14 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de cuatrimestres: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de cuatrimestres");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
+            
             return View();
         }
 
@@ -52,18 +58,12 @@ namespace FISCAapp.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.Cuatrimestres.Add(cuatrimestre);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "El cuatrimestre fue agregado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar el cuatrimestre: " + ex.Message;
-                }
+                Add(cuatrimestre);
+                TempData["success"] = "El cuatrimestre fue agregado con éxito";
+                return RedirectToAction("Index");
             }
+
+            
             return View(cuatrimestre);
         }
 
@@ -76,11 +76,13 @@ namespace FISCAapp.Web.Controllers
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                
                 return View(cuatrimestre);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el cuatrimestre: " + ex.Message;
+                HandleException(ex, "Error al cargar el cuatrimestre");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -90,18 +92,12 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && cuatrimestre.IdCuatrimestre > 0)
             {
-                try
-                {
-                    _aplicacionDb.Cuatrimestres.Update(cuatrimestre);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "El cuatrimestre fue actualizado con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar el cuatrimestre: " + ex.Message;
-                }
+                Update(cuatrimestre);
+                TempData["success"] = "El cuatrimestre fue actualizado con éxito";
+                return RedirectToAction("Index");
             }
+
+            
             return View(cuatrimestre);
         }
 
@@ -118,7 +114,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el cuatrimestre: " + ex.Message;
+                HandleException(ex, "Error al cargar el cuatrimestre");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -133,8 +129,7 @@ namespace FISCAapp.Web.Controllers
                     var cuatrimestreDb = _aplicacionDb.Cuatrimestres.FirstOrDefault(c => c.IdCuatrimestre == cuatrimestre.IdCuatrimestre);
                     if (cuatrimestreDb != null)
                     {
-                        _aplicacionDb.Cuatrimestres.Remove(cuatrimestreDb);
-                        _aplicacionDb.SaveChanges();
+                        Delete(cuatrimestreDb);
                         TempData["success"] = "El cuatrimestre fue eliminado con éxito";
                         return RedirectToAction("Index");
                     }
@@ -143,10 +138,11 @@ namespace FISCAapp.Web.Controllers
                 }
                 catch (Exception ex)
                 {
-                    TempData["error"] = "Error al eliminar el cuatrimestre: " + ex.Message;
+                    HandleException(ex, "Error al eliminar el cuatrimestre");
                     return View(cuatrimestre);
                 }
             }
+
             TempData["error"] = "Error al eliminar el cuatrimestre";
             return View(cuatrimestre);
         }

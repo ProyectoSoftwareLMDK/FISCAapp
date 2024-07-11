@@ -2,15 +2,19 @@
 using FISCA.Infraestructura.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace FISCAapp.Web.Controllers
 {
     [Authorize]
-    public class NumerosAsignaturasController : Controller
+    public class NumerosAsignaturasController : BaseController<Numeros_Asignaciones>
     {
         private readonly AplicacionDbContexto _aplicacionDb;
 
-        public NumerosAsignaturasController(AplicacionDbContexto aplicacionDb)
+        public NumerosAsignaturasController(AplicacionDbContexto aplicacionDb, ILogger<BaseController<Numeros_Asignaciones>> logger)
+            : base(aplicacionDb, logger)
         {
             _aplicacionDb = aplicacionDb;
         }
@@ -19,32 +23,28 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var docentes = _aplicacionDb.Docentes.ToList();
-                ViewBag.Docentes = docentes;
-
-                var numeros_a = from n in _aplicacionDb.NumerosAsignaciones
-                              select n;
+                LoadReferenceData();
+                var numerosAsignaciones = GetAll();
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    numeros_a = numeros_a.Where(i => i.NumeroAsignado.ToString().Contains(searchString));
+                    numerosAsignaciones = numerosAsignaciones.Where(n => n.NumeroAsignado.ToString().Contains(searchString));
                 }
-                var listaNumeroAsignacion = numeros_a.ToList();
+
+                var listaNumeroAsignacion = numerosAsignaciones.ToList();
                 ViewData["CurrentFilter"] = searchString;
                 return View(listaNumeroAsignacion);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar la lista de números de asignación: " + ex.Message;
+                HandleException(ex, "Error al cargar la lista de números de asignación");
                 return RedirectToAction("Error", "Home");
             }
         }
 
         public IActionResult Agregar()
         {
-            var docentes = _aplicacionDb.Docentes.ToList();
-            ViewBag.Docentes = docentes;
-
+            LoadReferenceData();
             return View();
         }
 
@@ -53,38 +53,31 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _aplicacionDb.NumerosAsignaciones.Add(numeroAsignacion);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Los datos fueron agregados con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al agregar el número de asignación: " + ex.Message;
-                }
-                
-                var docentes = _aplicacionDb.Docentes.ToList();
-                ViewBag.Docentes = docentes;
+                Add(numeroAsignacion);
+                TempData["success"] = "Los datos fueron agregados con éxito";
+                return RedirectToAction("Index");
             }
-            return View();
+
+            LoadReferenceData();
+            return View(numeroAsignacion);
         }
 
-        public IActionResult Actualizar(int idNumeroAsignacion)
+        public IActionResult Actualizar(int id)
         {
             try
             {
-                Numeros_Asignaciones? numeroAsignacion = _aplicacionDb.NumerosAsignaciones.FirstOrDefault(n => n.IdNumerosAsignaciones == idNumeroAsignacion);
+                var numeroAsignacion = _aplicacionDb.NumerosAsignaciones.FirstOrDefault(n => n.IdNumerosAsignaciones == id);
                 if (numeroAsignacion == null)
                 {
                     return RedirectToAction("Error", "Home");
                 }
+
+                LoadReferenceData();
                 return View(numeroAsignacion);
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el número de asignación para actualizar: " + ex.Message;
+                HandleException(ex, "Error al cargar el número de asignación para actualizar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -94,26 +87,20 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid && numeroAsignacion.IdNumerosAsignaciones > 0)
             {
-                try
-                {
-                    _aplicacionDb.NumerosAsignaciones.Update(numeroAsignacion);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Los datos fueron actualizados con éxito";
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["error"] = "Error al actualizar el número de asignación: " + ex.Message;
-                }
+                Update(numeroAsignacion);
+                TempData["success"] = "Los datos fueron actualizados con éxito";
+                return RedirectToAction("Index");
             }
-            return View();
+
+            LoadReferenceData();
+            return View(numeroAsignacion);
         }
 
-        public IActionResult Eliminar(int idNumeroAsignacion)
+        public IActionResult Eliminar(int id)
         {
             try
             {
-                Numeros_Asignaciones? numeroAsignacion = _aplicacionDb.NumerosAsignaciones.FirstOrDefault(n => n.IdNumerosAsignaciones == idNumeroAsignacion);
+                var numeroAsignacion = _aplicacionDb.NumerosAsignaciones.FirstOrDefault(n => n.IdNumerosAsignaciones == id);
                 if (numeroAsignacion == null)
                 {
                     return RedirectToAction("Error", "Home");
@@ -122,7 +109,7 @@ namespace FISCAapp.Web.Controllers
             }
             catch (Exception ex)
             {
-                TempData["error"] = "Error al cargar el número de asignación para eliminar: " + ex.Message;
+                HandleException(ex, "Error al cargar el número de asignación para eliminar");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -130,24 +117,15 @@ namespace FISCAapp.Web.Controllers
         [HttpPost]
         public IActionResult Eliminar(Numeros_Asignaciones numeroAsignacion)
         {
-            try
+            if (ModelState.IsValid && numeroAsignacion.IdNumerosAsignaciones > 0)
             {
-                if (ModelState.IsValid && numeroAsignacion.IdNumerosAsignaciones > 0)
-                {
-                    _aplicacionDb.NumerosAsignaciones.Remove(numeroAsignacion);
-                    _aplicacionDb.SaveChanges();
-                    TempData["success"] = "Los datos fueron eliminados con éxito";
-                    return RedirectToAction("Index");
-                }
+                Delete(numeroAsignacion);
+                TempData["success"] = "Los datos fueron eliminados con éxito";
+                return RedirectToAction("Index");
+            }
 
-                TempData["error"] = "No se pudieron eliminar los datos con éxito";
-                return View();
-            }
-            catch (Exception ex)
-            {
-                TempData["error"] = "Error al eliminar el número de asignación: " + ex.Message;
-                return View(numeroAsignacion);
-            }
+            TempData["error"] = "Error al eliminar el número de asignación";
+            return View(numeroAsignacion);
         }
     }
 }
