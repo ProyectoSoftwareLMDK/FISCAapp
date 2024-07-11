@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FISCAapp.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f58b402205e3288878815fe337e823e4a0b5e3bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2f3e9b1d886b0b89004c4d4a4232d2506481176")]
 [assembly: System.Reflection.AssemblyProductAttribute("FISCAapp.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FISCAapp.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
