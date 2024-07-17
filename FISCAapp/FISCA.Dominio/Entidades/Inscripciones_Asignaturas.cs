@@ -14,7 +14,7 @@ namespace FISCA.Dominio.Entidades
         [Key]
 
         public int IdInscripcion { get; set; }
-        public int IdAsignatura { get; set; }
+        public int IdAsignacion { get; set; }
         public int IdEstudiante { get; set; }
         public DateTime? FechaInscripcion { get; set; }
         public string? Observaciones { get; set; }

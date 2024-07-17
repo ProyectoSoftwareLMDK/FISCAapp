@@ -29,7 +29,7 @@
             <table class="table table-light table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Asignatura</th>
+                        <th>Asignacion</th>
                         <th>Estudiante</th>
                         <th>Fecha Inscripción</th>
                         <th>Observaciones</th>
@@ -42,16 +42,16 @@
                         <tr>
                             <td>
                                 @{
-                                    var nombreAsignatura = "";
-                                    foreach (var asignatura in ViewBag.Asignaturas)
+                                    var nombreAsignacion = "";
+                                    foreach (var asignacion in ViewBag.Asignaciones)
                                     {
-                                        if (asignatura.IdAsignatura == inscripcion.IdAsignatura)
+                                        if (asignacion.IdAsignacion== inscripcion.IdAsignacion)
                                         {
-                                            nombreAsignatura = asignatura.NombreAsignatura;
+                                            nombreAsignacion = asignacion.Descripcion;
                                             break;
                                         }
                                     }
-                                    @nombreAsignatura
+                                    @nombreAsignacion
                                 }
                             </td>
                             <td>

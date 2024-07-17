@@ -19,11 +19,11 @@
 
             <form method="post">
                 <div class="form-floating py-2 col-12">
-                    <select asp-for="IdAsignatura" asp-items="@(new SelectList(ViewBag.Asignaturas, "IdAsignatura", "NombreAsignatura"))" class="form-control border shadow">
+                    <select asp-for="IdAsignacion" asp-items="@(new SelectList(ViewBag.Asignaciones, "IdAsignacion", "Descripcion"))" class="form-control border shadow">
                         <option value="">Seleccione una asignatura</option>
                     </select>
-                    <label asp-for="IdAsignatura" class="ms-2">Asignatura</label>
-                    <span asp-validation-for="IdAsignatura" class="text-danger"></span>
+                    <label asp-for="IdAsignacion" class="ms-2">Asignatura</label>
+                    <span asp-validation-for="IdAsignacion" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating py-2 col-12">

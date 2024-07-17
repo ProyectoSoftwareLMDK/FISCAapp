@@ -19,7 +19,7 @@
             <tr>
                 <td>@curso.Descripcion</td>
                 <td>
-                    <a asp-action="Index" asp-route-cursoId="@curso.IdAsignacion" class="btn btn-primary">Ver Asistencias</a>
+                    <a asp-controller="AsistenciaEstudiantes" asp-action="Index" asp-route-cursoId="@curso.IdAsignacion" class="btn btn-primary">Ver Asistencias</a>
                 </td>
             </tr>
         }

@@ -18,6 +18,7 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
+
         public IActionResult Index(string searchString)
         {
             try
