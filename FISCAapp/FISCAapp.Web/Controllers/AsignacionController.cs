@@ -41,6 +41,7 @@ namespace FISCAapp.Web.Controllers
 
         public IActionResult Agregar()
         {
+            LoadReferenceData();
             return View();
         }
 
@@ -49,7 +50,8 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                    Add(asignacion);   
+                    Add(asignacion);
+                return RedirectToAction("Index");
             }
             LoadReferenceData();
             return View(asignacion);
