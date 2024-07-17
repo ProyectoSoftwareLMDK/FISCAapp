@@ -19,31 +19,38 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index(string searchString)
+        public IActionResult Index(int? cursoId)
         {
             try
             {
-                LoadReferenceData();
-                var asistencias = GetAll();
-
-                if (!String.IsNullOrEmpty(searchString))
+                if (!cursoId.HasValue)
                 {
-                    asistencias = asistencias.Where(a =>
-                        _aplicacionDb.Estudiantes.Any(e => e.IdEstudiante == a.IdEstudiante && e.NombresEstudiante.Contains(searchString)) ||
-                        _aplicacionDb.Asignaciones.Any(asg => asg.IdAsignacion == a.IdAsignacion && asg.Descripcion.Contains(searchString))
-                    );
+                    return NotFound();
                 }
 
-                var listaAsistencia = asistencias.ToList();
-                ViewData["CurrentFilter"] = searchString;
-                return View(listaAsistencia);
+                // Obtener todas las inscripciones para el cursoId especificado
+                var inscripciones = _aplicacionDb.InscripcionesAsignaturas
+                                            .Where(i => i.IdAsignacion == cursoId.Value)
+                                            .ToList();
+
+                // Obtener los IDs de estudiantes únicos
+                var idsEstudiantes = inscripciones.Select(i => i.IdEstudiante).Distinct().ToList();
+
+                // Obtener los estudiantes correspondientes
+                var estudiantes = _aplicacionDb.Estudiantes
+                                            .Where(e => idsEstudiantes.Contains(e.IdEstudiante))
+                                            .ToList();
+
+                ViewData["CursoId"] = cursoId;
+                return View(estudiantes);
             }
             catch (Exception ex)
             {
-                HandleException(ex, "Error al cargar la lista de asistencias");
+                HandleException(ex, "Error al cargar la lista de estudiantes inscritos");
                 return RedirectToAction("Error", "Home");
             }
         }
+
 
         public IActionResult Agregar()
         {
@@ -130,5 +137,25 @@ namespace FISCAapp.Web.Controllers
             TempData["error"] = "Error al eliminar la asistencia";
             return View(asistencia);
         }
+        public IActionResult SeleccionarCurso()
+        {
+            try
+            {
+                var cedula = User.Identity.Name; // Asumiendo que el nombre de usuario es el ID del usuario
+                var IdDocente = _aplicacionDb.Docentes
+    .FirstOrDefault(a => a.CedulaDocente == cedula)?.IdDocente;
+
+                var cursos = _aplicacionDb.Asignaciones.Where(a => a.IdDocente == IdDocente).ToList();
+
+                return View(cursos);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar los cursos del docente");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+
     }
 }
