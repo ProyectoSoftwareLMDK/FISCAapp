@@ -12,8 +12,6 @@ namespace FISCA.Dominio.Entidades
 
         public int IdEstudiante { get; set; }
         public int IdAsignacion { get; set; }
-
-
         public DateTime Fecha { get; set; }
         public string Estado { get; set; }
     }
