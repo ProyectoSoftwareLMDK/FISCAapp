@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RlbmNpYUVzdHVkaWFudGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/AsistenciaEstudiantes/Seleccionarcurso.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNpc3RlbmNpYUVzdHVkaWFudGVzXFNlbGVjY2lvbmFyY3Vyc28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lucas/OneDrive/Documentos/GitHub/FISCA/FISCAapp/FISCAapp/FISCAapp.Web/Views/Carrera/Actualizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FycmVyYVxBY3R1YWxpemFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

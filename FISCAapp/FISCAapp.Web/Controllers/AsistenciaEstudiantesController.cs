@@ -130,5 +130,25 @@ namespace FISCAapp.Web.Controllers
             TempData["error"] = "Error al eliminar la asistencia";
             return View(asistencia);
         }
+        public IActionResult SeleccionarCurso()
+        {
+            try
+            {
+                var cedula = User.Identity.Name; // Asumiendo que el nombre de usuario es el ID del usuario
+                var IdDocente = _aplicacionDb.Docentes
+    .FirstOrDefault(a => a.CedulaDocente == cedula)?.IdDocente;
+
+                var cursos = _aplicacionDb.Asignaciones.Where(a => a.IdDocente == IdDocente).ToList();
+
+                return View(cursos);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar los cursos del docente");
+                return RedirectToAction("Error", "Home");
+            }
+        }
+
+
     }
 }
