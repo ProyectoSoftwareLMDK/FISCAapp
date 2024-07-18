@@ -8,10 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FISCA.Infraestructura
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\USER 17\Documents\GitHub\FISCAapp\FISCAapp\FISCA.Infraestructura\
-=======
-build_property.ProjectDir = C:\Users\lucas\OneDrive\Documentos\GitHub\FISCA\FISCAapp\FISCAapp\FISCA.Infraestructura\
->>>>>>> 569dfc065fa330f5c4413e948d055d0253018f59
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
