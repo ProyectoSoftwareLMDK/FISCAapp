@@ -1,0 +1,27 @@
+﻿@model IEnumerable<FISCA.Dominio.Entidades.Asignacion>
+
+@{
+    ViewData["Title"] = "Seleccionar Curso";
+}
+
+<h2>Seleccionar Curso</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Curso</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var curso in Model)
+        {
+            <tr>
+                <td>@curso.Descripcion</td>
+                <td>
+                    <a asp-controller="AsistenciaEstudiantes" asp-action="Index" asp-route-cursoId="@curso.IdAsignacion" class="btn btn-primary">Ver Asistencias</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
