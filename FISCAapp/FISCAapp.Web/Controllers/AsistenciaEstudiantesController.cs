@@ -205,7 +205,8 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
-                var cedula = User.Identity.Name; // Asumiendo que el nombre de usuario es el ID del usuario
+                var cedula = User.Identity.Name;
+
                 var IdDocente = _aplicacionDb.Docentes
     .FirstOrDefault(a => a.CedulaDocente == cedula)?.IdDocente;
 

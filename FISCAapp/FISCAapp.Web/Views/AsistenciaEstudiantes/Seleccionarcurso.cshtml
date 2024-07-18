@@ -5,7 +5,25 @@
 }
 
 <h2>Seleccionar Curso</h2>
-
+@foreach (var asignacion in Model)
+{
+    <h1>
+        <td>@asignacion.IdDocente</td>
+        
+            @{
+                var nombreDocente = "";
+                foreach (var docente in ViewBag.Docentes)
+                {
+                    if (docente.IdDocente== asignacion.IdDocente)
+                    {
+                        nombreDocente = docente.NombreDocente;
+                        break;
+                    }
+                }
+                @nombreDocente
+            }
+       </h1> 
+}
 <table class="table">
     <thead>
         <tr>
