@@ -50,7 +50,7 @@ namespace FISCAapp.Web.Controllers
                 if (!asignacionExists)
                 {
                     TempData["ErrorMessage"] = "La asignación seleccionada no existe.";
-                    return RedirectToAction("Index");
+                    return RedirectToAction("SeleccionarCurso");
                 }
 
                 // Procesar la asistencia marcada
@@ -72,7 +72,7 @@ namespace FISCAapp.Web.Controllers
 
                 TempData["SuccessMessage"] = "Asistencia registrada correctamente.";
 
-                return RedirectToAction("Index", new { IdAsignacion });
+                return RedirectToAction("SeleccionarCurso", new { IdAsignacion });
             }
             catch (Exception ex)
             {
