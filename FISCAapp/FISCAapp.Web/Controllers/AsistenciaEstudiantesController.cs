@@ -28,7 +28,7 @@ namespace FISCAapp.Web.Controllers
             if (asignacion == null)
             {
                 TempData["ErrorMessage"] = "La asignación seleccionada no existe.";
-                return RedirectToAction("Index");
+                return RedirectToAction("SeleccionarCurso");
             }
 
             ViewData["CursoId"] = cursoId;
