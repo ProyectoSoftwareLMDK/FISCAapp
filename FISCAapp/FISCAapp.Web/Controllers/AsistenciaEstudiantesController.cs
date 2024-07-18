@@ -50,7 +50,27 @@ namespace FISCAapp.Web.Controllers
                 return RedirectToAction("Error", "Home");
             }
         }
+        public IActionResult Listar(string searchString)
+        {
+            try
+            {
+                var asistenciaEstudiantes = GetAll(); // Cambiado de carrera a asistenciaEstudiantes
 
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    asistenciaEstudiantes = asistenciaEstudiantes.Where(ae => ae.Estado.Contains(searchString));
+                }
+
+                var listaAsistenciaEstudiantes = asistenciaEstudiantes.ToList(); // Cambiado de listaCarrera a listaAsistenciaEstudiantes
+                ViewData["CurrentFilter"] = searchString;
+                return View(listaAsistenciaEstudiantes); // Cambiado de listaCarrera a listaAsistenciaEstudiantes
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex, "Error al cargar la lista de asistencia de estudiantes"); // Mensaje modificado
+                return RedirectToAction("Error", "Home");
+            }
+        }
 
         public IActionResult Agregar()
         {

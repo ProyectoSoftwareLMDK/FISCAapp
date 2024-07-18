@@ -41,23 +41,32 @@ namespace FISCAapp.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(string username, string password)
         {
-            // Aquí puedes agregar la lógica para validar las credenciales con la base de datos
+            // Validar credenciales con la base de datos
             var usuario = _context.Usuarios.FirstOrDefault(u => u.NombreUsuario == username && u.PassUsuario == password);
 
             if (usuario != null)
             {
                 // Credenciales válidas, crear las claims
                 var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, username)
-                };
+        {
+            new Claim(ClaimTypes.Name, username),
+            new Claim("NivelUsuario", usuario.NivelUsuario.ToString()) // Añadir el nivel de usuario como claim
+        };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 // Iniciar sesión
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-                return RedirectToAction("Menu");
+                // Redirigir según el nivel de usuario
+                if (usuario.NivelUsuario == 1) // Asumiendo que 1 es admin
+                {
+                    return RedirectToAction("Menu");
+                }
+                else if (usuario.NivelUsuario == 8) // Asumiendo que 2 es docente
+                {
+                    return RedirectToAction("SeleccionarCurso", "AsistenciaEstudiantes");
+                }
             }
 
             // Credenciales inválidas, mostrar un mensaje de error
