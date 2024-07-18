@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "4Qa5/SP4WS4=",
   "success": true,
   "projectFilePath": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+=======
+  "dgSpecHash": "6WcfLo6eYfc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lucas\\OneDrive\\Documentos\\GitHub\\FISCA\\FISCAapp\\FISCAapp\\FISCA.Aplicacion\\FISCA.Aplicacion.csproj",
+>>>>>>> 569dfc065fa330f5c4413e948d055d0253018f59
   "expectedPackageFiles": [],
   "logs": []
 }
