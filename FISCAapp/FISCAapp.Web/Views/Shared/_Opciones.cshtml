@@ -50,7 +50,7 @@
         <a class="nav-link @(currentController == "PlanEstudio" ? "active" : "")" id="v-pills-planestudio-tab" href="@Url.Action("Index", "PlanEstudio")" role="tab" aria-controls="v-pills-planestudio" aria-selected="@(currentController == "PlanEstudio" ? "true" : "false")">
             <i class="bi bi-clipboard-data-fill me-2"></i>Plan Estudios
         </a>
-        <a class="nav-link @(currentController == "AsistenciaEstudiantes" ? "active" : "")" id="v-pills-asistenciaestudiantes-tab" href="@Url.Action("Index", "AsistenciaEstudiantes")" role="tab" aria-controls="v-pills-asistenciaestudiantes" aria-selected="@(currentController == "AsistenciaEstudiantes" ? "true" : "false")">
+        <a class="nav-link @(currentController == "AsistenciaEstudiantes" ? "active" : "")" id="v-pills-asistenciaestudiantes-tab" href="@Url.Action("Listar", "AsistenciaEstudiantes")" role="tab" aria-controls="v-pills-asistenciaestudiantes" aria-selected="@(currentController == "AsistenciaEstudiantes" ? "true" : "false")">
             <i class="bi bi-clipboard-check-fill me-2"></i>Asistencia Estudiantes
         </a>
         <div class="nav-link mt-3">
