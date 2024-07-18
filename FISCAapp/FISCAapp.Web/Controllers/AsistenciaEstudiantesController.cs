@@ -19,34 +19,64 @@ namespace FISCAapp.Web.Controllers
             _aplicacionDb = aplicacionDb;
         }
 
-        public IActionResult Index(int? cursoId)
+        public IActionResult Index(int cursoId)
+        {
+            // Obtener estudiantes inscritos en la asignación
+            var estudiantes = _aplicacionDb.Estudiantes.ToList();
+            var asignacion = _aplicacionDb.Asignaciones.FirstOrDefault(a => a.IdAsignacion == cursoId)?.Descripcion;
+
+            if (asignacion == null)
+            {
+                TempData["ErrorMessage"] = "La asignación seleccionada no existe.";
+                return RedirectToAction("SeleccionarCurso");
+            }
+
+            ViewData["CursoId"] = cursoId;
+
+            // Tuple con la lista de estudiantes y nombre de la asignación
+            var model = new Tuple<IEnumerable<Estudiante>, int, string>(estudiantes, cursoId, asignacion);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Index(int IdAsignacion, Dictionary<int, string> asistencia)
         {
             try
             {
-                if (!cursoId.HasValue)
+                // Verificar si el IdAsignacion existe
+                var asignacionExists = _aplicacionDb.Asignaciones.Any(a => a.IdAsignacion == IdAsignacion);
+
+                if (!asignacionExists)
                 {
-                    return NotFound();
+                    TempData["ErrorMessage"] = "La asignación seleccionada no existe.";
+                    return RedirectToAction("Index");
                 }
 
-                // Obtener todas las inscripciones para el cursoId especificado
-                var inscripciones = _aplicacionDb.InscripcionesAsignaturas
-                                            .Where(i => i.IdAsignacion == cursoId.Value)
-                                            .ToList();
+                // Procesar la asistencia marcada
+                var asistencias = new List<AsistenciaEstudiantes>();
+                foreach (var (idEstudiante, estado) in asistencia)
+                {
+                    var asistenciaEstudiante = new AsistenciaEstudiantes
+                    {
+                        IdAsignacion = IdAsignacion,
+                        IdEstudiante = idEstudiante,
+                        Fecha = DateTime.Today,
+                        Estado = estado // Ajusta según el valor del checkbox (Presente, Tarde, Falta)
+                    };
 
-                // Obtener los IDs de estudiantes únicos
-                var idsEstudiantes = inscripciones.Select(i => i.IdEstudiante).Distinct().ToList();
+                    _aplicacionDb.AsistenciaEstudiantes.Add(asistenciaEstudiante);
+                }
 
-                // Obtener los estudiantes correspondientes
-                var estudiantes = _aplicacionDb.Estudiantes
-                                            .Where(e => idsEstudiantes.Contains(e.IdEstudiante))
-                                            .ToList();
+                _aplicacionDb.SaveChanges();
 
-                ViewData["CursoId"] = cursoId;
-                return View(estudiantes);
+                TempData["SuccessMessage"] = "Asistencia registrada correctamente.";
+
+                return RedirectToAction("Index", new { IdAsignacion });
             }
             catch (Exception ex)
             {
-                HandleException(ex, "Error al cargar la lista de estudiantes inscritos");
+                HandleException(ex, "Error al registrar la asistencia");
                 return RedirectToAction("Error", "Home");
             }
         }
@@ -72,6 +102,9 @@ namespace FISCAapp.Web.Controllers
             }
         }
 
+
+
+
         public IActionResult Agregar()
         {
             LoadReferenceData();
@@ -83,14 +116,25 @@ namespace FISCAapp.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                Add(asistencia);
-                TempData["success"] = "La asistencia fue agregada con éxito";
-                return RedirectToAction("Index");
+                try
+                {
+                    _aplicacionDb.AsistenciaEstudiantes.Add(asistencia);
+                    _aplicacionDb.SaveChanges();
+
+                    TempData["success"] = "La asistencia fue agregada con éxito";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    HandleException(ex, "Error al agregar la asistencia");
+                    return RedirectToAction("Error", "Home");
+                }
             }
 
             LoadReferenceData();
             return View(asistencia);
         }
+
 
         public IActionResult Actualizar(int id)
         {
