@@ -205,6 +205,7 @@ namespace FISCAapp.Web.Controllers
         {
             try
             {
+                LoadReferenceData();
                 var cedula = User.Identity.Name;
 
                 var IdDocente = _aplicacionDb.Docentes
