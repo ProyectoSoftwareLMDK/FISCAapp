@@ -39,6 +39,7 @@ namespace FISCAapp.Web.Controllers
             ViewBag.Numeros_Asignaciones = _aplicacionDb.NumerosAsignaciones.ToList();
             ViewBag.PlanEstudios = _aplicacionDb.PlanEstudios.ToList();
             ViewBag.Turnos = _aplicacionDb.Turnos.ToList();
+            ViewBag.AsistenciaEstudiante = _aplicacionDb.AsistenciaEstudiantes.ToList();
         }
 
 
