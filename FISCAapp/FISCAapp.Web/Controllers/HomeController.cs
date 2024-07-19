@@ -45,23 +45,13 @@ namespace FISCAapp.Web.Controllers
             // Validar credenciales con la base de datos
             var usuario = _context.Usuarios.FirstOrDefault(u => u.NombreUsuario == username && u.PassUsuario == password);
             var docente = _context.Docentes.FirstOrDefault(a => a.CedulaDocente == username);
-            if(docente == null)
+            if(docente != null )
             {
-                TempData["error"] = "Username o password incorrectos";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-               // var claims1 = new List<Claim>{
-            //new Claim(ClaimTypes.Name, username),
-            //new Claim("Estado", docente.Estado.ToString()) };
-                if (docente.Estado==0)
+                if (docente.Estado == 0)
                 {
                     TempData["error"] = "Docente INACTIVO";
                     return RedirectToAction("Index");
                 }
-        
-
             }
             if (usuario != null)
             {
