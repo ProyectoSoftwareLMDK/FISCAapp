@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\user 17\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\asistenciaestudiantes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\asistenciaestudiantes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\user 17\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\asistenciaestudiantes\\listaasistencias.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\asistenciaestudiantes\\listaasistencias.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\user 17\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\views\\asistenciaestudiantes\\seleccionarcurso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\views\\asistenciaestudiantes\\seleccionarcurso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|c:\\users\\user 17\\documents\\github\\fiscaapp\\fiscaapp\\fiscaapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9396321F-6D81-43D0-AB3A-25F66373F302}|FISCAapp.Web\\FISCAapp.Web.csproj|solutionrelative:fiscaapp.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -27,6 +39,42 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Index.cshtml",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Index.cshtml",
+              "RelativeToolTip": "FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Index.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-19T00:44:26.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ListaAsistencias.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\AsistenciaEstudiantes\\ListaAsistencias.cshtml",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\AsistenciaEstudiantes\\ListaAsistencias.cshtml",
+              "ToolTip": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\AsistenciaEstudiantes\\ListaAsistencias.cshtml",
+              "RelativeToolTip": "FISCAapp.Web\\Views\\AsistenciaEstudiantes\\ListaAsistencias.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-19T00:44:19.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Seleccionarcurso.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Seleccionarcurso.cshtml",
+              "RelativeDocumentMoniker": "FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Seleccionarcurso.cshtml",
+              "ToolTip": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Seleccionarcurso.cshtml",
+              "RelativeToolTip": "FISCAapp.Web\\Views\\AsistenciaEstudiantes\\Seleccionarcurso.cshtml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-19T00:44:15.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCAapp.Web\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "FISCAapp.Web\\Controllers\\HomeController.cs",
