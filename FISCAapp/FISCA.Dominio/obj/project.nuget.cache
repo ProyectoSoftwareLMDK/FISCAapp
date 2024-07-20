@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "yUM9WNvokcE=",
+  "dgSpecHash": "BQdEClIH5fs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\QUINN\\Documents\\Github\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
+  "projectFilePath": "C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Dominio\\FISCA.Dominio.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\USER 17\\Documents\\GitHub\\FISCAapp\\FISCAapp\\FISCA.Dominio\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

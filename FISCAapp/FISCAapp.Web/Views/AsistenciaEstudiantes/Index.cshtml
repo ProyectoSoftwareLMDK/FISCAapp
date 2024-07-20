@@ -1,36 +1,57 @@
-﻿@model IEnumerable<FISCA.Dominio.Entidades.Estudiante>
+﻿@model Tuple<IEnumerable<FISCA.Dominio.Entidades.Estudiante>, int, string>
 
 @{
-    ViewData["Title"] = "Estudiantes Inscritos";
+    ViewData["Title"] = "Estudiantes Inscritos en " + Model.Item3;
 }
 
-<h2>Estudiantes Inscritos</h2>
+<h2>Estudiantes Inscritos en @Model.Item3</h2>
 
-@if (Model.Any())
-{
-    <table class="table">
+<form asp-controller="AsistenciaEstudiantes" asp-action="Index" method="post">
+    <input type="hidden" name="IdAsignacion" value="@Model.Item2" />
+
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <!-- Agrega más columnas según los datos de Estudiante que desees mostrar -->
+                <th>ID Estudiante</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Presente</th>
+                <th>Tarde</th>
+                <th>Falta</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var estudiante in Model)
+            @foreach (var estudiante in Model.Item1)
             {
                 <tr>
+                    <td>@estudiante.IdEstudiante</td>
                     <td>@estudiante.NombresEstudiante</td>
                     <td>@estudiante.ApellidosEstudiante</td>
-                    <td>@estudiante.CorreoEstudiante</td>
-                    <!-- Agrega más celdas según los datos de Estudiante que desees mostrar -->
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="presente-@estudiante.IdEstudiante" name="asistencia[@estudiante.IdEstudiante]" value="Presente" />
+                            <label class="form-check-label" for="presente-@estudiante.IdEstudiante">Presente</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="tarde-@estudiante.IdEstudiante" name="asistencia[@estudiante.IdEstudiante]" value="Tarde" />
+                            <label class="form-check-label" for="tarde-@estudiante.IdEstudiante">Tarde</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="falta-@estudiante.IdEstudiante" name="asistencia[@estudiante.IdEstudiante]" value="Falta" />
+                            <label class="form-check-label" for="falta-@estudiante.IdEstudiante">Falta</label>
+                        </div>
+                    </td>
+
                 </tr>
             }
         </tbody>
     </table>
-}
-else
-{
-    <p>No hay estudiantes inscritos en este curso.</p>
-}
+
+    <button type="submit" class="btn btn-primary mt-3">
+        Registrar Asistencia
+    </button>
+</form>
